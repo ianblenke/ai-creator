@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>scene harness</title>
+<script type="importmap">{"imports":{"three":"/vendor/three.module.js","style":"/stage/style.js","kit":"/stage/kit.js"}}</script>
+<style>
+  @font-face{font-family:"Media Sans";font-weight:100 450;src:url(/vendor/fonts/NotoSans-Regular.ttf)}
+  @font-face{font-family:"Media Sans";font-weight:451 550;src:url(/vendor/fonts/NotoSans-Medium.ttf)}
+  @font-face{font-family:"Media Sans";font-weight:551 900;src:url(/vendor/fonts/NotoSans-Bold.ttf)}
+  @font-face{font-family:"Media Mono";font-weight:100 450;src:url(/vendor/fonts/NotoSansMono-Regular.ttf)}
+  @font-face{font-family:"Media Mono";font-weight:451 550;src:url(/vendor/fonts/NotoSansMono-Medium.ttf)}
+  @font-face{font-family:"Media Mono";font-weight:551 900;src:url(/vendor/fonts/NotoSansMono-Bold.ttf)}
+  html,body{margin:0;background:#000;overflow:hidden}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#0b0d10}
+  #stage>*{position:absolute;left:0;top:0;width:1920px;height:1080px}
+  #ui{position:fixed;left:0;bottom:0;right:0;background:#000c;color:#eee;font:14px system-ui;padding:8px;display:none;z-index:9}
+  #ui input[type=range]{width:70%}
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="gl" width="1920" height="1080"></canvas><canvas id="c2d" width="1920" height="1080"></canvas><svg id="svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"></svg></div>
+<div id="ui"><select id="scene"></select> <input id="slider" type="range" min="0" max="1" step="0.0166667" value="0"> <span id="tt">0.00</span></div>
+<script type="module" src="/stage/harness.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22.23.4 }
+      - run: npm ci
+      - run: npm test
+      - name: chatterbox server tests (stub model)
+        run: |
+          pip install fastapi==0.162.0 httpx python-multipart==0.0.32 numpy
+          python -m unittest discover docker/chatterbox
+      - name: no private names (the DENYLIST secret, one name per line; without it only the example list is checked)
+        env: { DENYLIST: "${{ secrets.DENYLIST }}" }
+        run: |
+          list=safety/denylist.example.txt
+          if [ -n "$DENYLIST" ]; then list="$RUNNER_TEMP/denylist.txt"; printf '%s\n' "$DENYLIST" > "$list"; else echo "no DENYLIST secret: checking the example list only"; fi
+          node tools/safety/scan.js --names "$list"
+
+  offline-example:
+    # The GPU-free first run, end to end: fixture audio from the committed timeline.json, then every render gate and both encodes.
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    container: mcr.microsoft.com/playwright:v1.64.0-noble
+    env:
+      VOICE_TRANSPORT: fixture
+      MEDIA_LOCAL: "1"
+      WORKERS: "4"
+      # measured on the kettle: glow edge rounding at 58.6 to 59.9 dB, below the 60 dB default (see the render --check failure text)
+      MEDIA_DETERMINISM_DB: "44"
+    steps:
+      - run: apt-get update && apt-get install -y --no-install-recommends ffmpeg git
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22.23.4 }
+      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE" && npm ci
+      - run: |
+          for s in tts align scenes keyframes; do node tools/cli.js $s examples/ep01-kettle; done
+          git diff --exit-code examples/ep01-kettle/timeline.json
+      - run: bash tools/pipeline.sh examples/ep01-kettle
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with: { name: pipeline-log, path: examples/ep01-kettle/out/pipeline.log }

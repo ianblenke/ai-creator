@@ -1,0 +1,3028 @@
+{
+  "pad": 0.6,
+  "duration": 182.8,
+  "scenes": [
+    {
+      "id": "01-the-hook",
+      "title": "The hook",
+      "start": 0,
+      "duration": 19.71,
+      "words": [
+        {
+          "text": "Every",
+          "start": 0.28,
+          "end": 0.46
+        },
+        {
+          "text": "morning",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "a",
+          "start": 0.82,
+          "end": 0.86
+        },
+        {
+          "text": "kettle",
+          "start": 0.92,
+          "end": 1.181
+        },
+        {
+          "text": "does",
+          "start": 1.241,
+          "end": 1.401
+        },
+        {
+          "text": "something",
+          "start": 1.441,
+          "end": 1.761
+        },
+        {
+          "text": "clever,",
+          "start": 1.821,
+          "end": 2.161
+        },
+        {
+          "text": "and",
+          "start": 2.461,
+          "end": 2.541
+        },
+        {
+          "text": "you",
+          "start": 2.561,
+          "end": 2.661
+        },
+        {
+          "text": "never",
+          "start": 2.701,
+          "end": 2.901
+        },
+        {
+          "text": "notice.",
+          "start": 2.962,
+          "end": 3.302
+        },
+        {
+          "text": "It",
+          "start": 4.002,
+          "end": 4.062
+        },
+        {
+          "text": "heats",
+          "start": 4.122,
+          "end": 4.362
+        },
+        {
+          "text": "water",
+          "start": 4.422,
+          "end": 4.682
+        },
+        {
+          "text": "until",
+          "start": 4.742,
+          "end": 4.983
+        },
+        {
+          "text": "the",
+          "start": 5.003,
+          "end": 5.083
+        },
+        {
+          "text": "water",
+          "start": 5.123,
+          "end": 5.383
+        },
+        {
+          "text": "boils,",
+          "start": 5.443,
+          "end": 5.823
+        },
+        {
+          "text": "and",
+          "start": 6.083,
+          "end": 6.183
+        },
+        {
+          "text": "then,",
+          "start": 6.223,
+          "end": 6.423
+        },
+        {
+          "text": "with",
+          "start": 6.563,
+          "end": 6.703
+        },
+        {
+          "text": "nobody",
+          "start": 6.763,
+          "end": 7.064
+        },
+        {
+          "text": "touching",
+          "start": 7.104,
+          "end": 7.444
+        },
+        {
+          "text": "it,",
+          "start": 7.504,
+          "end": 7.564
+        },
+        {
+          "text": "it",
+          "start": 7.764,
+          "end": 7.844
+        },
+        {
+          "text": "stops.",
+          "start": 7.904,
+          "end": 8.284
+        },
+        {
+          "text": "It",
+          "start": 9.165,
+          "end": 9.225
+        },
+        {
+          "text": "has",
+          "start": 9.245,
+          "end": 9.385
+        },
+        {
+          "text": "no",
+          "start": 9.445,
+          "end": 9.565
+        },
+        {
+          "text": "clock",
+          "start": 9.625,
+          "end": 9.865
+        },
+        {
+          "text": "to",
+          "start": 9.905,
+          "end": 9.985
+        },
+        {
+          "text": "count",
+          "start": 10.025,
+          "end": 10.245
+        },
+        {
+          "text": "minutes",
+          "start": 10.285,
+          "end": 10.565
+        },
+        {
+          "text": "and",
+          "start": 10.725,
+          "end": 10.825
+        },
+        {
+          "text": "no",
+          "start": 10.886,
+          "end": 11.006
+        },
+        {
+          "text": "screen",
+          "start": 11.046,
+          "end": 11.366
+        },
+        {
+          "text": "to",
+          "start": 11.406,
+          "end": 11.506
+        },
+        {
+          "text": "read,",
+          "start": 11.566,
+          "end": 11.806
+        },
+        {
+          "text": "so",
+          "start": 12.266,
+          "end": 12.486
+        },
+        {
+          "text": "how",
+          "start": 12.706,
+          "end": 12.827
+        },
+        {
+          "text": "does",
+          "start": 12.867,
+          "end": 13.007
+        },
+        {
+          "text": "a",
+          "start": 13.047,
+          "end": 13.087
+        },
+        {
+          "text": "plain",
+          "start": 13.127,
+          "end": 13.387
+        },
+        {
+          "text": "kettle",
+          "start": 13.427,
+          "end": 13.687
+        },
+        {
+          "text": "know",
+          "start": 13.727,
+          "end": 13.887
+        },
+        {
+          "text": "the",
+          "start": 13.907,
+          "end": 13.987
+        },
+        {
+          "text": "water",
+          "start": 14.027,
+          "end": 14.287
+        },
+        {
+          "text": "is",
+          "start": 14.367,
+          "end": 14.447
+        },
+        {
+          "text": "ready?",
+          "start": 14.547,
+          "end": 14.808
+        },
+        {
+          "text": "In",
+          "start": 15.548,
+          "end": 15.628
+        },
+        {
+          "text": "many",
+          "start": 15.668,
+          "end": 15.868
+        },
+        {
+          "text": "kettles,",
+          "start": 15.928,
+          "end": 16.308
+        },
+        {
+          "text": "the",
+          "start": 16.388,
+          "end": 16.488
+        },
+        {
+          "text": "answer",
+          "start": 16.588,
+          "end": 16.829
+        },
+        {
+          "text": "begins",
+          "start": 16.869,
+          "end": 17.209
+        },
+        {
+          "text": "with",
+          "start": 17.249,
+          "end": 17.389
+        },
+        {
+          "text": "something",
+          "start": 17.429,
+          "end": 17.749
+        },
+        {
+          "text": "you",
+          "start": 17.789,
+          "end": 17.889
+        },
+        {
+          "text": "can",
+          "start": 17.929,
+          "end": 18.069
+        },
+        {
+          "text": "see",
+          "start": 18.109,
+          "end": 18.309
+        },
+        {
+          "text": "rising",
+          "start": 18.389,
+          "end": 18.75
+        },
+        {
+          "text": "from",
+          "start": 18.81,
+          "end": 18.93
+        },
+        {
+          "text": "the",
+          "start": 18.97,
+          "end": 19.05
+        },
+        {
+          "text": "spout.",
+          "start": 19.09,
+          "end": 19.45
+        }
+      ]
+    },
+    {
+      "id": "02-the-steam",
+      "title": "The steam",
+      "start": 20.31,
+      "duration": 18.32,
+      "words": [
+        {
+          "text": "That",
+          "start": 20.49,
+          "end": 20.65
+        },
+        {
+          "text": "cloud",
+          "start": 20.71,
+          "end": 21.071
+        },
+        {
+          "text": "from",
+          "start": 21.111,
+          "end": 21.251
+        },
+        {
+          "text": "the",
+          "start": 21.291,
+          "end": 21.371
+        },
+        {
+          "text": "spout",
+          "start": 21.411,
+          "end": 21.752
+        },
+        {
+          "text": "is",
+          "start": 21.852,
+          "end": 21.932
+        },
+        {
+          "text": "the",
+          "start": 21.972,
+          "end": 22.052
+        },
+        {
+          "text": "clue",
+          "start": 22.112,
+          "end": 22.332
+        },
+        {
+          "text": "the",
+          "start": 22.372,
+          "end": 22.452
+        },
+        {
+          "text": "kettle",
+          "start": 22.492,
+          "end": 22.753
+        },
+        {
+          "text": "uses",
+          "start": 22.873,
+          "end": 23.133
+        },
+        {
+          "text": "too.",
+          "start": 23.173,
+          "end": 23.413
+        },
+        {
+          "text": "Before",
+          "start": 23.974,
+          "end": 24.274
+        },
+        {
+          "text": "the",
+          "start": 24.314,
+          "end": 24.394
+        },
+        {
+          "text": "boil,",
+          "start": 24.435,
+          "end": 24.755
+        },
+        {
+          "text": "only",
+          "start": 24.855,
+          "end": 25.035
+        },
+        {
+          "text": "a",
+          "start": 25.075,
+          "end": 25.115
+        },
+        {
+          "text": "little",
+          "start": 25.155,
+          "end": 25.356
+        },
+        {
+          "text": "steam",
+          "start": 25.396,
+          "end": 25.676
+        },
+        {
+          "text": "forms,",
+          "start": 25.716,
+          "end": 26.096
+        },
+        {
+          "text": "so",
+          "start": 26.337,
+          "end": 26.457
+        },
+        {
+          "text": "a",
+          "start": 26.497,
+          "end": 26.537
+        },
+        {
+          "text": "burst",
+          "start": 26.577,
+          "end": 26.837
+        },
+        {
+          "text": "of",
+          "start": 26.897,
+          "end": 26.937
+        },
+        {
+          "text": "it",
+          "start": 27.017,
+          "end": 27.097
+        },
+        {
+          "text": "is",
+          "start": 27.177,
+          "end": 27.258
+        },
+        {
+          "text": "a",
+          "start": 27.298,
+          "end": 27.338
+        },
+        {
+          "text": "fast",
+          "start": 27.398,
+          "end": 27.758
+        },
+        {
+          "text": "and",
+          "start": 27.818,
+          "end": 27.918
+        },
+        {
+          "text": "clear",
+          "start": 27.978,
+          "end": 28.239
+        },
+        {
+          "text": "sign",
+          "start": 28.319,
+          "end": 28.639
+        },
+        {
+          "text": "that",
+          "start": 28.679,
+          "end": 28.799
+        },
+        {
+          "text": "the",
+          "start": 28.819,
+          "end": 28.899
+        },
+        {
+          "text": "boil",
+          "start": 28.939,
+          "end": 29.24
+        },
+        {
+          "text": "has",
+          "start": 29.28,
+          "end": 29.46
+        },
+        {
+          "text": "begun.",
+          "start": 29.5,
+          "end": 29.86
+        },
+        {
+          "text": "In",
+          "start": 30.401,
+          "end": 30.481
+        },
+        {
+          "text": "many",
+          "start": 30.501,
+          "end": 30.701
+        },
+        {
+          "text": "kettles,",
+          "start": 30.761,
+          "end": 31.122
+        },
+        {
+          "text": "a",
+          "start": 31.482,
+          "end": 31.542
+        },
+        {
+          "text": "small",
+          "start": 31.602,
+          "end": 31.883
+        },
+        {
+          "text": "pipe",
+          "start": 31.943,
+          "end": 32.203
+        },
+        {
+          "text": "carries",
+          "start": 32.283,
+          "end": 32.603
+        },
+        {
+          "text": "that",
+          "start": 32.643,
+          "end": 32.784
+        },
+        {
+          "text": "steam",
+          "start": 32.824,
+          "end": 33.084
+        },
+        {
+          "text": "to",
+          "start": 33.124,
+          "end": 33.244
+        },
+        {
+          "text": "a",
+          "start": 33.284,
+          "end": 33.324
+        },
+        {
+          "text": "sensor.",
+          "start": 33.364,
+          "end": 33.725
+        },
+        {
+          "text": "The",
+          "start": 34.225,
+          "end": 34.305
+        },
+        {
+          "text": "sensor",
+          "start": 34.345,
+          "end": 34.646
+        },
+        {
+          "text": "sits",
+          "start": 34.706,
+          "end": 34.926
+        },
+        {
+          "text": "in",
+          "start": 34.966,
+          "end": 35.026
+        },
+        {
+          "text": "the",
+          "start": 35.046,
+          "end": 35.126
+        },
+        {
+          "text": "steam",
+          "start": 35.166,
+          "end": 35.487
+        },
+        {
+          "text": "and",
+          "start": 35.547,
+          "end": 35.627
+        },
+        {
+          "text": "not",
+          "start": 35.667,
+          "end": 35.827
+        },
+        {
+          "text": "in",
+          "start": 35.847,
+          "end": 35.907
+        },
+        {
+          "text": "the",
+          "start": 35.947,
+          "end": 36.007
+        },
+        {
+          "text": "water,",
+          "start": 36.067,
+          "end": 36.348
+        },
+        {
+          "text": "so",
+          "start": 36.628,
+          "end": 36.728
+        },
+        {
+          "text": "it",
+          "start": 36.788,
+          "end": 36.828
+        },
+        {
+          "text": "reacts",
+          "start": 36.868,
+          "end": 37.228
+        },
+        {
+          "text": "to",
+          "start": 37.269,
+          "end": 37.349
+        },
+        {
+          "text": "the",
+          "start": 37.369,
+          "end": 37.449
+        },
+        {
+          "text": "boil",
+          "start": 37.469,
+          "end": 37.729
+        },
+        {
+          "text": "itself.",
+          "start": 37.789,
+          "end": 38.149
+        }
+      ]
+    },
+    {
+      "id": "03-the-steam-and-the-mountain",
+      "title": "The steam and the mountain",
+      "start": 39.23,
+      "duration": 11.13,
+      "words": [
+        {
+          "text": "There",
+          "start": 39.43,
+          "end": 39.57
+        },
+        {
+          "text": "is",
+          "start": 39.61,
+          "end": 39.71
+        },
+        {
+          "text": "a",
+          "start": 39.75,
+          "end": 39.77
+        },
+        {
+          "text": "bonus",
+          "start": 39.831,
+          "end": 40.191
+        },
+        {
+          "text": "in",
+          "start": 40.231,
+          "end": 40.271
+        },
+        {
+          "text": "that",
+          "start": 40.311,
+          "end": 40.451
+        },
+        {
+          "text": "design.",
+          "start": 40.491,
+          "end": 40.932
+        },
+        {
+          "text": "A",
+          "start": 41.232,
+          "end": 41.252
+        },
+        {
+          "text": "little",
+          "start": 41.292,
+          "end": 41.512
+        },
+        {
+          "text": "steam",
+          "start": 41.592,
+          "end": 41.912
+        },
+        {
+          "text": "can't",
+          "start": 41.972,
+          "end": 42.193
+        },
+        {
+          "text": "be",
+          "start": 42.213,
+          "end": 42.313
+        },
+        {
+          "text": "mistaken",
+          "start": 42.353,
+          "end": 42.813
+        },
+        {
+          "text": "for",
+          "start": 42.873,
+          "end": 43.033
+        },
+        {
+          "text": "a",
+          "start": 43.073,
+          "end": 43.093
+        },
+        {
+          "text": "boil,",
+          "start": 43.154,
+          "end": 43.494
+        },
+        {
+          "text": "so",
+          "start": 43.914,
+          "end": 44.034
+        },
+        {
+          "text": "the",
+          "start": 44.074,
+          "end": 44.154
+        },
+        {
+          "text": "sensor",
+          "start": 44.194,
+          "end": 44.515
+        },
+        {
+          "text": "can",
+          "start": 44.535,
+          "end": 44.655
+        },
+        {
+          "text": "be",
+          "start": 44.695,
+          "end": 44.775
+        },
+        {
+          "text": "set",
+          "start": 44.815,
+          "end": 44.995
+        },
+        {
+          "text": "to",
+          "start": 45.015,
+          "end": 45.095
+        },
+        {
+          "text": "trip",
+          "start": 45.135,
+          "end": 45.335
+        },
+        {
+          "text": "well",
+          "start": 45.396,
+          "end": 45.616
+        },
+        {
+          "text": "under",
+          "start": 45.716,
+          "end": 45.896
+        },
+        {
+          "text": "one",
+          "start": 46.036,
+          "end": 46.136
+        },
+        {
+          "text": "hundred",
+          "start": 46.196,
+          "end": 46.456
+        },
+        {
+          "text": "degrees.",
+          "start": 46.497,
+          "end": 46.937
+        },
+        {
+          "text": "That",
+          "start": 47.397,
+          "end": 47.537
+        },
+        {
+          "text": "also",
+          "start": 47.598,
+          "end": 47.858
+        },
+        {
+          "text": "helps",
+          "start": 47.898,
+          "end": 48.138
+        },
+        {
+          "text": "on",
+          "start": 48.218,
+          "end": 48.278
+        },
+        {
+          "text": "a",
+          "start": 48.318,
+          "end": 48.358
+        },
+        {
+          "text": "mountain,",
+          "start": 48.398,
+          "end": 48.759
+        },
+        {
+          "text": "where",
+          "start": 48.819,
+          "end": 48.979
+        },
+        {
+          "text": "water",
+          "start": 49.039,
+          "end": 49.319
+        },
+        {
+          "text": "boils",
+          "start": 49.359,
+          "end": 49.699
+        },
+        {
+          "text": "cooler.",
+          "start": 49.759,
+          "end": 50.1
+        }
+      ]
+    },
+    {
+      "id": "04-the-disc-that-bends",
+      "title": "The disc that bends",
+      "start": 50.96,
+      "duration": 27.25,
+      "words": [
+        {
+          "text": "The",
+          "start": 51.16,
+          "end": 51.26
+        },
+        {
+          "text": "sensor",
+          "start": 51.32,
+          "end": 51.66
+        },
+        {
+          "text": "sitting",
+          "start": 51.72,
+          "end": 51.94
+        },
+        {
+          "text": "in",
+          "start": 51.98,
+          "end": 52.02
+        },
+        {
+          "text": "that",
+          "start": 52.06,
+          "end": 52.18
+        },
+        {
+          "text": "steam",
+          "start": 52.22,
+          "end": 52.461
+        },
+        {
+          "text": "is",
+          "start": 52.501,
+          "end": 52.581
+        },
+        {
+          "text": "the",
+          "start": 52.621,
+          "end": 52.701
+        },
+        {
+          "text": "clever",
+          "start": 52.741,
+          "end": 53.041
+        },
+        {
+          "text": "part,",
+          "start": 53.081,
+          "end": 53.321
+        },
+        {
+          "text": "so",
+          "start": 53.701,
+          "end": 53.821
+        },
+        {
+          "text": "what",
+          "start": 53.861,
+          "end": 53.981
+        },
+        {
+          "text": "is",
+          "start": 54.041,
+          "end": 54.121
+        },
+        {
+          "text": "it",
+          "start": 54.161,
+          "end": 54.221
+        },
+        {
+          "text": "actually",
+          "start": 54.321,
+          "end": 54.641
+        },
+        {
+          "text": "made",
+          "start": 54.701,
+          "end": 54.881
+        },
+        {
+          "text": "of?",
+          "start": 54.961,
+          "end": 55.041
+        },
+        {
+          "text": "Usually",
+          "start": 55.642,
+          "end": 55.942
+        },
+        {
+          "text": "a",
+          "start": 55.962,
+          "end": 56.002
+        },
+        {
+          "text": "small",
+          "start": 56.062,
+          "end": 56.362
+        },
+        {
+          "text": "disc",
+          "start": 56.422,
+          "end": 56.722
+        },
+        {
+          "text": "in",
+          "start": 56.842,
+          "end": 56.902
+        },
+        {
+          "text": "the",
+          "start": 56.922,
+          "end": 57.002
+        },
+        {
+          "text": "shape",
+          "start": 57.042,
+          "end": 57.282
+        },
+        {
+          "text": "of",
+          "start": 57.302,
+          "end": 57.362
+        },
+        {
+          "text": "a",
+          "start": 57.422,
+          "end": 57.442
+        },
+        {
+          "text": "shallow",
+          "start": 57.502,
+          "end": 57.883
+        },
+        {
+          "text": "dish,",
+          "start": 57.923,
+          "end": 58.203
+        },
+        {
+          "text": "made",
+          "start": 58.603,
+          "end": 58.743
+        },
+        {
+          "text": "of",
+          "start": 58.783,
+          "end": 58.843
+        },
+        {
+          "text": "two",
+          "start": 58.923,
+          "end": 59.083
+        },
+        {
+          "text": "layers,",
+          "start": 59.143,
+          "end": 59.503
+        },
+        {
+          "text": "each",
+          "start": 59.943,
+          "end": 60.103
+        },
+        {
+          "text": "a",
+          "start": 60.143,
+          "end": 60.183
+        },
+        {
+          "text": "different",
+          "start": 60.223,
+          "end": 60.483
+        },
+        {
+          "text": "metal,",
+          "start": 60.544,
+          "end": 60.804
+        },
+        {
+          "text": "stuck",
+          "start": 61.284,
+          "end": 61.524
+        },
+        {
+          "text": "together.",
+          "start": 61.564,
+          "end": 61.964
+        },
+        {
+          "text": "Heat",
+          "start": 62.444,
+          "end": 62.624
+        },
+        {
+          "text": "makes",
+          "start": 62.684,
+          "end": 62.864
+        },
+        {
+          "text": "both",
+          "start": 62.944,
+          "end": 63.164
+        },
+        {
+          "text": "layers",
+          "start": 63.225,
+          "end": 63.505
+        },
+        {
+          "text": "expand,",
+          "start": 63.565,
+          "end": 64.085
+        },
+        {
+          "text": "but",
+          "start": 64.385,
+          "end": 64.525
+        },
+        {
+          "text": "one",
+          "start": 64.645,
+          "end": 64.745
+        },
+        {
+          "text": "expands",
+          "start": 64.785,
+          "end": 65.225
+        },
+        {
+          "text": "faster",
+          "start": 65.285,
+          "end": 65.665
+        },
+        {
+          "text": "than",
+          "start": 65.705,
+          "end": 65.825
+        },
+        {
+          "text": "the",
+          "start": 65.865,
+          "end": 65.945
+        },
+        {
+          "text": "other,",
+          "start": 66.006,
+          "end": 66.206
+        },
+        {
+          "text": "and",
+          "start": 66.266,
+          "end": 66.346
+        },
+        {
+          "text": "that",
+          "start": 66.386,
+          "end": 66.526
+        },
+        {
+          "text": "mismatch",
+          "start": 66.606,
+          "end": 67.086
+        },
+        {
+          "text": "makes",
+          "start": 67.126,
+          "end": 67.326
+        },
+        {
+          "text": "the",
+          "start": 67.366,
+          "end": 67.446
+        },
+        {
+          "text": "whole",
+          "start": 67.486,
+          "end": 67.646
+        },
+        {
+          "text": "disc",
+          "start": 67.686,
+          "end": 67.946
+        },
+        {
+          "text": "bend",
+          "start": 68.006,
+          "end": 68.206
+        },
+        {
+          "text": "as",
+          "start": 68.266,
+          "end": 68.346
+        },
+        {
+          "text": "it",
+          "start": 68.386,
+          "end": 68.466
+        },
+        {
+          "text": "warms.",
+          "start": 68.506,
+          "end": 68.907
+        },
+        {
+          "text": "In",
+          "start": 69.647,
+          "end": 69.707
+        },
+        {
+          "text": "other",
+          "start": 69.767,
+          "end": 69.927
+        },
+        {
+          "text": "words,",
+          "start": 69.967,
+          "end": 70.247
+        },
+        {
+          "text": "the",
+          "start": 70.587,
+          "end": 70.687
+        },
+        {
+          "text": "kettle",
+          "start": 70.727,
+          "end": 71.007
+        },
+        {
+          "text": "turns",
+          "start": 71.067,
+          "end": 71.347
+        },
+        {
+          "text": "heat",
+          "start": 71.448,
+          "end": 71.668
+        },
+        {
+          "text": "into",
+          "start": 71.788,
+          "end": 71.988
+        },
+        {
+          "text": "movement,",
+          "start": 72.068,
+          "end": 72.468
+        },
+        {
+          "text": "but",
+          "start": 72.868,
+          "end": 72.988
+        },
+        {
+          "text": "the",
+          "start": 73.028,
+          "end": 73.128
+        },
+        {
+          "text": "bend",
+          "start": 73.188,
+          "end": 73.448
+        },
+        {
+          "text": "by",
+          "start": 73.508,
+          "end": 73.628
+        },
+        {
+          "text": "itself",
+          "start": 73.688,
+          "end": 74.088
+        },
+        {
+          "text": "is",
+          "start": 74.189,
+          "end": 74.269
+        },
+        {
+          "text": "gradual,",
+          "start": 74.309,
+          "end": 74.809
+        },
+        {
+          "text": "and",
+          "start": 75.169,
+          "end": 75.269
+        },
+        {
+          "text": "a",
+          "start": 75.309,
+          "end": 75.349
+        },
+        {
+          "text": "gradual",
+          "start": 75.389,
+          "end": 75.809
+        },
+        {
+          "text": "bend",
+          "start": 75.849,
+          "end": 76.049
+        },
+        {
+          "text": "is",
+          "start": 76.109,
+          "end": 76.189
+        },
+        {
+          "text": "not",
+          "start": 76.229,
+          "end": 76.369
+        },
+        {
+          "text": "much",
+          "start": 76.429,
+          "end": 76.589
+        },
+        {
+          "text": "use",
+          "start": 76.709,
+          "end": 76.85
+        },
+        {
+          "text": "for",
+          "start": 76.89,
+          "end": 77.01
+        },
+        {
+          "text": "pulling",
+          "start": 77.05,
+          "end": 77.33
+        },
+        {
+          "text": "a",
+          "start": 77.37,
+          "end": 77.39
+        },
+        {
+          "text": "switch",
+          "start": 77.45,
+          "end": 77.71
+        },
+        {
+          "text": "apart.",
+          "start": 77.75,
+          "end": 78.07
+        }
+      ]
+    },
+    {
+      "id": "05-the-snap",
+      "title": "The snap",
+      "start": 78.81,
+      "duration": 27.08,
+      "words": [
+        {
+          "text": "So",
+          "start": 79.01,
+          "end": 79.11
+        },
+        {
+          "text": "the",
+          "start": 79.15,
+          "end": 79.23
+        },
+        {
+          "text": "kettle",
+          "start": 79.27,
+          "end": 79.571
+        },
+        {
+          "text": "needs",
+          "start": 79.631,
+          "end": 79.871
+        },
+        {
+          "text": "the",
+          "start": 79.931,
+          "end": 80.031
+        },
+        {
+          "text": "bend",
+          "start": 80.071,
+          "end": 80.351
+        },
+        {
+          "text": "to",
+          "start": 80.451,
+          "end": 80.551
+        },
+        {
+          "text": "turn",
+          "start": 80.591,
+          "end": 80.831
+        },
+        {
+          "text": "into",
+          "start": 80.872,
+          "end": 81.092
+        },
+        {
+          "text": "a",
+          "start": 81.112,
+          "end": 81.152
+        },
+        {
+          "text": "sudden",
+          "start": 81.232,
+          "end": 81.532
+        },
+        {
+          "text": "jerk.",
+          "start": 81.572,
+          "end": 81.852
+        },
+        {
+          "text": "That",
+          "start": 82.273,
+          "end": 82.453
+        },
+        {
+          "text": "is",
+          "start": 82.533,
+          "end": 82.593
+        },
+        {
+          "text": "what",
+          "start": 82.673,
+          "end": 82.813
+        },
+        {
+          "text": "the",
+          "start": 82.853,
+          "end": 82.953
+        },
+        {
+          "text": "shallow-dish",
+          "start": 83.033,
+          "end": 83.754
+        },
+        {
+          "text": "shape",
+          "start": 83.814,
+          "end": 84.114
+        },
+        {
+          "text": "is",
+          "start": 84.214,
+          "end": 84.314
+        },
+        {
+          "text": "for:",
+          "start": 84.394,
+          "end": 84.694
+        },
+        {
+          "text": "past",
+          "start": 85.135,
+          "end": 85.415
+        },
+        {
+          "text": "its",
+          "start": 85.455,
+          "end": 85.575
+        },
+        {
+          "text": "switching",
+          "start": 85.595,
+          "end": 85.915
+        },
+        {
+          "text": "temperature",
+          "start": 85.955,
+          "end": 86.456
+        },
+        {
+          "text": "the",
+          "start": 86.636,
+          "end": 86.716
+        },
+        {
+          "text": "disc",
+          "start": 86.756,
+          "end": 86.956
+        },
+        {
+          "text": "does",
+          "start": 86.996,
+          "end": 87.116
+        },
+        {
+          "text": "not",
+          "start": 87.156,
+          "end": 87.256
+        },
+        {
+          "text": "keep",
+          "start": 87.296,
+          "end": 87.456
+        },
+        {
+          "text": "bending,",
+          "start": 87.496,
+          "end": 87.837
+        },
+        {
+          "text": "it",
+          "start": 88.137,
+          "end": 88.197
+        },
+        {
+          "text": "flips",
+          "start": 88.297,
+          "end": 88.617
+        },
+        {
+          "text": "all",
+          "start": 88.817,
+          "end": 88.957
+        },
+        {
+          "text": "at",
+          "start": 88.998,
+          "end": 89.078
+        },
+        {
+          "text": "once",
+          "start": 89.198,
+          "end": 89.378
+        },
+        {
+          "text": "with",
+          "start": 89.438,
+          "end": 89.578
+        },
+        {
+          "text": "a",
+          "start": 89.618,
+          "end": 89.638
+        },
+        {
+          "text": "snap.",
+          "start": 89.718,
+          "end": 90.038
+        },
+        {
+          "text": "In",
+          "start": 90.539,
+          "end": 90.619
+        },
+        {
+          "text": "one",
+          "start": 90.739,
+          "end": 90.859
+        },
+        {
+          "text": "common",
+          "start": 90.919,
+          "end": 91.219
+        },
+        {
+          "text": "design,",
+          "start": 91.259,
+          "end": 91.659
+        },
+        {
+          "text": "the",
+          "start": 91.7,
+          "end": 91.78
+        },
+        {
+          "text": "snap",
+          "start": 91.82,
+          "end": 92.1
+        },
+        {
+          "text": "pushes",
+          "start": 92.14,
+          "end": 92.46
+        },
+        {
+          "text": "a",
+          "start": 92.52,
+          "end": 92.54
+        },
+        {
+          "text": "rod.",
+          "start": 92.6,
+          "end": 92.92
+        },
+        {
+          "text": "The",
+          "start": 93.221,
+          "end": 93.321
+        },
+        {
+          "text": "rod",
+          "start": 93.381,
+          "end": 93.601
+        },
+        {
+          "text": "trips",
+          "start": 93.661,
+          "end": 93.941
+        },
+        {
+          "text": "a",
+          "start": 94.081,
+          "end": 94.101
+        },
+        {
+          "text": "lever",
+          "start": 94.181,
+          "end": 94.522
+        },
+        {
+          "text": "set",
+          "start": 94.622,
+          "end": 94.802
+        },
+        {
+          "text": "up",
+          "start": 94.842,
+          "end": 94.922
+        },
+        {
+          "text": "like",
+          "start": 94.962,
+          "end": 95.122
+        },
+        {
+          "text": "a",
+          "start": 95.162,
+          "end": 95.182
+        },
+        {
+          "text": "seesaw,",
+          "start": 95.262,
+          "end": 95.783
+        },
+        {
+          "text": "which",
+          "start": 96.083,
+          "end": 96.263
+        },
+        {
+          "text": "tips",
+          "start": 96.343,
+          "end": 96.583
+        },
+        {
+          "text": "over",
+          "start": 96.643,
+          "end": 96.823
+        },
+        {
+          "text": "once",
+          "start": 96.923,
+          "end": 97.063
+        },
+        {
+          "text": "it",
+          "start": 97.124,
+          "end": 97.184
+        },
+        {
+          "text": "goes",
+          "start": 97.204,
+          "end": 97.424
+        },
+        {
+          "text": "past",
+          "start": 97.504,
+          "end": 97.784
+        },
+        {
+          "text": "the",
+          "start": 97.824,
+          "end": 97.904
+        },
+        {
+          "text": "middle.",
+          "start": 97.944,
+          "end": 98.184
+        },
+        {
+          "text": "Then",
+          "start": 98.605,
+          "end": 98.745
+        },
+        {
+          "text": "the",
+          "start": 98.785,
+          "end": 98.865
+        },
+        {
+          "text": "lever",
+          "start": 98.925,
+          "end": 99.225
+        },
+        {
+          "text": "pulls",
+          "start": 99.405,
+          "end": 99.785
+        },
+        {
+          "text": "the",
+          "start": 99.846,
+          "end": 99.926
+        },
+        {
+          "text": "electrical",
+          "start": 99.986,
+          "end": 100.426
+        },
+        {
+          "text": "contacts",
+          "start": 100.486,
+          "end": 101.006
+        },
+        {
+          "text": "apart,",
+          "start": 101.066,
+          "end": 101.407
+        },
+        {
+          "text": "so",
+          "start": 101.707,
+          "end": 101.807
+        },
+        {
+          "text": "they",
+          "start": 101.827,
+          "end": 101.947
+        },
+        {
+          "text": "open",
+          "start": 102.047,
+          "end": 102.287
+        },
+        {
+          "text": "sharply",
+          "start": 102.367,
+          "end": 102.788
+        },
+        {
+          "text": "instead",
+          "start": 102.828,
+          "end": 103.128
+        },
+        {
+          "text": "of",
+          "start": 103.148,
+          "end": 103.208
+        },
+        {
+          "text": "slowly,",
+          "start": 103.308,
+          "end": 103.788
+        },
+        {
+          "text": "and",
+          "start": 104.109,
+          "end": 104.189
+        },
+        {
+          "text": "the",
+          "start": 104.209,
+          "end": 104.289
+        },
+        {
+          "text": "power",
+          "start": 104.349,
+          "end": 104.709
+        },
+        {
+          "text": "is",
+          "start": 104.809,
+          "end": 104.869
+        },
+        {
+          "text": "cut",
+          "start": 104.949,
+          "end": 105.129
+        },
+        {
+          "text": "cleanly.",
+          "start": 105.209,
+          "end": 105.63
+        }
+      ]
+    },
+    {
+      "id": "06-the-second-safety",
+      "title": "The second safety",
+      "start": 106.49,
+      "duration": 33.04,
+      "words": [
+        {
+          "text": "Everything",
+          "start": 107.13,
+          "end": 107.471
+        },
+        {
+          "text": "so",
+          "start": 107.531,
+          "end": 107.691
+        },
+        {
+          "text": "far",
+          "start": 107.751,
+          "end": 107.971
+        },
+        {
+          "text": "assumes",
+          "start": 108.011,
+          "end": 108.371
+        },
+        {
+          "text": "there",
+          "start": 108.411,
+          "end": 108.531
+        },
+        {
+          "text": "is",
+          "start": 108.591,
+          "end": 108.651
+        },
+        {
+          "text": "water,",
+          "start": 108.711,
+          "end": 108.992
+        },
+        {
+          "text": "and",
+          "start": 109.392,
+          "end": 109.472
+        },
+        {
+          "text": "that",
+          "start": 109.512,
+          "end": 109.612
+        },
+        {
+          "text": "is",
+          "start": 109.652,
+          "end": 109.732
+        },
+        {
+          "text": "a",
+          "start": 109.772,
+          "end": 109.812
+        },
+        {
+          "text": "problem,",
+          "start": 109.852,
+          "end": 110.232
+        },
+        {
+          "text": "because",
+          "start": 110.512,
+          "end": 110.733
+        },
+        {
+          "text": "with",
+          "start": 110.773,
+          "end": 110.893
+        },
+        {
+          "text": "no",
+          "start": 110.933,
+          "end": 111.053
+        },
+        {
+          "text": "water",
+          "start": 111.093,
+          "end": 111.353
+        },
+        {
+          "text": "there",
+          "start": 111.393,
+          "end": 111.533
+        },
+        {
+          "text": "is",
+          "start": 111.573,
+          "end": 111.633
+        },
+        {
+          "text": "no",
+          "start": 111.673,
+          "end": 111.793
+        },
+        {
+          "text": "boil,",
+          "start": 111.833,
+          "end": 112.173
+        },
+        {
+          "text": "and",
+          "start": 112.494,
+          "end": 112.574
+        },
+        {
+          "text": "with",
+          "start": 112.614,
+          "end": 112.734
+        },
+        {
+          "text": "no",
+          "start": 112.774,
+          "end": 112.894
+        },
+        {
+          "text": "boil",
+          "start": 112.934,
+          "end": 113.174
+        },
+        {
+          "text": "there",
+          "start": 113.194,
+          "end": 113.314
+        },
+        {
+          "text": "is",
+          "start": 113.354,
+          "end": 113.414
+        },
+        {
+          "text": "no",
+          "start": 113.474,
+          "end": 113.594
+        },
+        {
+          "text": "steam",
+          "start": 113.654,
+          "end": 113.935
+        },
+        {
+          "text": "to",
+          "start": 113.955,
+          "end": 114.035
+        },
+        {
+          "text": "flip",
+          "start": 114.075,
+          "end": 114.295
+        },
+        {
+          "text": "the",
+          "start": 114.335,
+          "end": 114.395
+        },
+        {
+          "text": "disc.",
+          "start": 114.435,
+          "end": 114.715
+        },
+        {
+          "text": "A",
+          "start": 115.335,
+          "end": 115.375
+        },
+        {
+          "text": "separate",
+          "start": 115.455,
+          "end": 115.796
+        },
+        {
+          "text": "part",
+          "start": 115.896,
+          "end": 116.096
+        },
+        {
+          "text": "guards",
+          "start": 116.156,
+          "end": 116.416
+        },
+        {
+          "text": "against",
+          "start": 116.436,
+          "end": 116.676
+        },
+        {
+          "text": "that.",
+          "start": 116.716,
+          "end": 116.936
+        },
+        {
+          "text": "In",
+          "start": 117.657,
+          "end": 117.737
+        },
+        {
+          "text": "one",
+          "start": 117.817,
+          "end": 117.937
+        },
+        {
+          "text": "design,",
+          "start": 117.957,
+          "end": 118.397
+        },
+        {
+          "text": "it",
+          "start": 118.837,
+          "end": 118.877
+        },
+        {
+          "text": "is",
+          "start": 118.938,
+          "end": 119.018
+        },
+        {
+          "text": "a",
+          "start": 119.058,
+          "end": 119.098
+        },
+        {
+          "text": "second",
+          "start": 119.158,
+          "end": 119.458
+        },
+        {
+          "text": "small",
+          "start": 119.518,
+          "end": 119.798
+        },
+        {
+          "text": "disc",
+          "start": 119.838,
+          "end": 120.078
+        },
+        {
+          "text": "that",
+          "start": 120.118,
+          "end": 120.258
+        },
+        {
+          "text": "snaps,",
+          "start": 120.338,
+          "end": 120.739
+        },
+        {
+          "text": "pressed",
+          "start": 121.319,
+          "end": 121.619
+        },
+        {
+          "text": "against",
+          "start": 121.659,
+          "end": 121.899
+        },
+        {
+          "text": "the",
+          "start": 121.939,
+          "end": 121.999
+        },
+        {
+          "text": "heating",
+          "start": 122.039,
+          "end": 122.3
+        },
+        {
+          "text": "element.",
+          "start": 122.34,
+          "end": 122.64
+        },
+        {
+          "text": "When",
+          "start": 123.56,
+          "end": 123.66
+        },
+        {
+          "text": "the",
+          "start": 123.7,
+          "end": 123.76
+        },
+        {
+          "text": "element",
+          "start": 123.8,
+          "end": 124.081
+        },
+        {
+          "text": "gets",
+          "start": 124.101,
+          "end": 124.261
+        },
+        {
+          "text": "too",
+          "start": 124.301,
+          "end": 124.441
+        },
+        {
+          "text": "hot,",
+          "start": 124.501,
+          "end": 124.721
+        },
+        {
+          "text": "since",
+          "start": 125.041,
+          "end": 125.221
+        },
+        {
+          "text": "no",
+          "start": 125.281,
+          "end": 125.401
+        },
+        {
+          "text": "water",
+          "start": 125.441,
+          "end": 125.682
+        },
+        {
+          "text": "is",
+          "start": 125.722,
+          "end": 125.802
+        },
+        {
+          "text": "carrying",
+          "start": 125.842,
+          "end": 126.182
+        },
+        {
+          "text": "the",
+          "start": 126.222,
+          "end": 126.302
+        },
+        {
+          "text": "heat",
+          "start": 126.342,
+          "end": 126.542
+        },
+        {
+          "text": "away,",
+          "start": 126.602,
+          "end": 126.902
+        },
+        {
+          "text": "that",
+          "start": 127.463,
+          "end": 127.603
+        },
+        {
+          "text": "disc",
+          "start": 127.663,
+          "end": 127.903
+        },
+        {
+          "text": "trips",
+          "start": 127.963,
+          "end": 128.223
+        },
+        {
+          "text": "and",
+          "start": 128.263,
+          "end": 128.363
+        },
+        {
+          "text": "cuts",
+          "start": 128.403,
+          "end": 128.623
+        },
+        {
+          "text": "the",
+          "start": 128.663,
+          "end": 128.743
+        },
+        {
+          "text": "power.",
+          "start": 128.763,
+          "end": 129.104
+        },
+        {
+          "text": "That",
+          "start": 130.104,
+          "end": 130.244
+        },
+        {
+          "text": "design",
+          "start": 130.284,
+          "end": 130.625
+        },
+        {
+          "text": "also",
+          "start": 130.685,
+          "end": 130.905
+        },
+        {
+          "text": "adds",
+          "start": 130.965,
+          "end": 131.105
+        },
+        {
+          "text": "a",
+          "start": 131.145,
+          "end": 131.185
+        },
+        {
+          "text": "further",
+          "start": 131.225,
+          "end": 131.485
+        },
+        {
+          "text": "backup,",
+          "start": 131.525,
+          "end": 131.925
+        },
+        {
+          "text": "set",
+          "start": 132.606,
+          "end": 132.786
+        },
+        {
+          "text": "to",
+          "start": 132.806,
+          "end": 132.906
+        },
+        {
+          "text": "trip",
+          "start": 132.946,
+          "end": 133.146
+        },
+        {
+          "text": "at",
+          "start": 133.206,
+          "end": 133.266
+        },
+        {
+          "text": "a",
+          "start": 133.306,
+          "end": 133.326
+        },
+        {
+          "text": "higher",
+          "start": 133.366,
+          "end": 133.626
+        },
+        {
+          "text": "temperature,",
+          "start": 133.666,
+          "end": 134.127
+        },
+        {
+          "text": "which",
+          "start": 134.667,
+          "end": 134.807
+        },
+        {
+          "text": "acts",
+          "start": 134.927,
+          "end": 135.087
+        },
+        {
+          "text": "only",
+          "start": 135.187,
+          "end": 135.347
+        },
+        {
+          "text": "if",
+          "start": 135.387,
+          "end": 135.448
+        },
+        {
+          "text": "the",
+          "start": 135.488,
+          "end": 135.548
+        },
+        {
+          "text": "guard",
+          "start": 135.588,
+          "end": 135.788
+        },
+        {
+          "text": "itself",
+          "start": 135.828,
+          "end": 136.128
+        },
+        {
+          "text": "fails,",
+          "start": 136.188,
+          "end": 136.528
+        },
+        {
+          "text": "for",
+          "start": 137.089,
+          "end": 137.229
+        },
+        {
+          "text": "example",
+          "start": 137.269,
+          "end": 137.649
+        },
+        {
+          "text": "if",
+          "start": 137.689,
+          "end": 137.749
+        },
+        {
+          "text": "its",
+          "start": 137.809,
+          "end": 137.909
+        },
+        {
+          "text": "contacts",
+          "start": 137.949,
+          "end": 138.429
+        },
+        {
+          "text": "weld",
+          "start": 138.489,
+          "end": 138.77
+        },
+        {
+          "text": "shut.",
+          "start": 138.83,
+          "end": 139.07
+        }
+      ]
+    },
+    {
+      "id": "07-the-reset",
+      "title": "The reset",
+      "start": 140.13,
+      "duration": 14.97,
+      "words": [
+        {
+          "text": "One",
+          "start": 140.47,
+          "end": 140.59
+        },
+        {
+          "text": "last",
+          "start": 140.63,
+          "end": 140.87
+        },
+        {
+          "text": "detail",
+          "start": 140.911,
+          "end": 141.331
+        },
+        {
+          "text": "is",
+          "start": 141.411,
+          "end": 141.471
+        },
+        {
+          "text": "that",
+          "start": 141.511,
+          "end": 141.631
+        },
+        {
+          "text": "the",
+          "start": 141.671,
+          "end": 141.751
+        },
+        {
+          "text": "kettle",
+          "start": 141.791,
+          "end": 142.071
+        },
+        {
+          "text": "has",
+          "start": 142.111,
+          "end": 142.251
+        },
+        {
+          "text": "to",
+          "start": 142.291,
+          "end": 142.351
+        },
+        {
+          "text": "be",
+          "start": 142.392,
+          "end": 142.472
+        },
+        {
+          "text": "ready",
+          "start": 142.532,
+          "end": 142.732
+        },
+        {
+          "text": "for",
+          "start": 142.752,
+          "end": 142.872
+        },
+        {
+          "text": "the",
+          "start": 142.892,
+          "end": 142.972
+        },
+        {
+          "text": "next",
+          "start": 143.012,
+          "end": 143.212
+        },
+        {
+          "text": "morning.",
+          "start": 143.292,
+          "end": 143.632
+        },
+        {
+          "text": "After",
+          "start": 144.333,
+          "end": 144.553
+        },
+        {
+          "text": "a",
+          "start": 144.593,
+          "end": 144.633
+        },
+        {
+          "text": "trip,",
+          "start": 144.693,
+          "end": 144.973
+        },
+        {
+          "text": "the",
+          "start": 145.113,
+          "end": 145.213
+        },
+        {
+          "text": "disc",
+          "start": 145.253,
+          "end": 145.494
+        },
+        {
+          "text": "cools,",
+          "start": 145.554,
+          "end": 145.954
+        },
+        {
+          "text": "and",
+          "start": 146.294,
+          "end": 146.374
+        },
+        {
+          "text": "in",
+          "start": 146.434,
+          "end": 146.514
+        },
+        {
+          "text": "one",
+          "start": 146.654,
+          "end": 146.754
+        },
+        {
+          "text": "design",
+          "start": 146.794,
+          "end": 147.195
+        },
+        {
+          "text": "it",
+          "start": 147.255,
+          "end": 147.315
+        },
+        {
+          "text": "springs",
+          "start": 147.375,
+          "end": 147.675
+        },
+        {
+          "text": "back",
+          "start": 147.735,
+          "end": 147.935
+        },
+        {
+          "text": "by",
+          "start": 147.995,
+          "end": 148.115
+        },
+        {
+          "text": "itself",
+          "start": 148.155,
+          "end": 148.516
+        },
+        {
+          "text": "once",
+          "start": 148.696,
+          "end": 148.856
+        },
+        {
+          "text": "it",
+          "start": 148.896,
+          "end": 148.956
+        },
+        {
+          "text": "has",
+          "start": 148.996,
+          "end": 149.136
+        },
+        {
+          "text": "cooled",
+          "start": 149.216,
+          "end": 149.516
+        },
+        {
+          "text": "about",
+          "start": 149.576,
+          "end": 149.796
+        },
+        {
+          "text": "thirty",
+          "start": 149.897,
+          "end": 150.197
+        },
+        {
+          "text": "degrees",
+          "start": 150.257,
+          "end": 150.617
+        },
+        {
+          "text": "below",
+          "start": 150.697,
+          "end": 150.977
+        },
+        {
+          "text": "its",
+          "start": 151.037,
+          "end": 151.137
+        },
+        {
+          "text": "switching",
+          "start": 151.177,
+          "end": 151.558
+        },
+        {
+          "text": "temperature.",
+          "start": 151.618,
+          "end": 152.118
+        },
+        {
+          "text": "In",
+          "start": 152.738,
+          "end": 152.818
+        },
+        {
+          "text": "other",
+          "start": 152.879,
+          "end": 153.059
+        },
+        {
+          "text": "designs,",
+          "start": 153.099,
+          "end": 153.559
+        },
+        {
+          "text": "you",
+          "start": 153.599,
+          "end": 153.699
+        },
+        {
+          "text": "press",
+          "start": 153.759,
+          "end": 154.019
+        },
+        {
+          "text": "a",
+          "start": 154.059,
+          "end": 154.099
+        },
+        {
+          "text": "reset",
+          "start": 154.139,
+          "end": 154.52
+        },
+        {
+          "text": "knob.",
+          "start": 154.56,
+          "end": 154.84
+        }
+      ]
+    },
+    {
+      "id": "08-the-close",
+      "title": "The close",
+      "start": 155.7,
+      "duration": 16.14,
+      "words": [
+        {
+          "text": "All",
+          "start": 155.98,
+          "end": 156.1
+        },
+        {
+          "text": "in",
+          "start": 156.161,
+          "end": 156.221
+        },
+        {
+          "text": "all,",
+          "start": 156.321,
+          "end": 156.481
+        },
+        {
+          "text": "the",
+          "start": 156.541,
+          "end": 156.641
+        },
+        {
+          "text": "story",
+          "start": 156.681,
+          "end": 156.942
+        },
+        {
+          "text": "is",
+          "start": 157.002,
+          "end": 157.062
+        },
+        {
+          "text": "simple.",
+          "start": 157.102,
+          "end": 157.422
+        },
+        {
+          "text": "Steam",
+          "start": 158.063,
+          "end": 158.363
+        },
+        {
+          "text": "tells",
+          "start": 158.403,
+          "end": 158.624
+        },
+        {
+          "text": "the",
+          "start": 158.664,
+          "end": 158.744
+        },
+        {
+          "text": "kettle",
+          "start": 158.764,
+          "end": 159.044
+        },
+        {
+          "text": "the",
+          "start": 159.084,
+          "end": 159.164
+        },
+        {
+          "text": "boil",
+          "start": 159.184,
+          "end": 159.445
+        },
+        {
+          "text": "has",
+          "start": 159.485,
+          "end": 159.605
+        },
+        {
+          "text": "come,",
+          "start": 159.665,
+          "end": 159.925
+        },
+        {
+          "text": "and",
+          "start": 160.246,
+          "end": 160.346
+        },
+        {
+          "text": "a",
+          "start": 160.366,
+          "end": 160.386
+        },
+        {
+          "text": "bimetal",
+          "start": 160.446,
+          "end": 160.826
+        },
+        {
+          "text": "disc",
+          "start": 160.866,
+          "end": 161.147
+        },
+        {
+          "text": "turns",
+          "start": 161.207,
+          "end": 161.447
+        },
+        {
+          "text": "that",
+          "start": 161.487,
+          "end": 161.627
+        },
+        {
+          "text": "heat",
+          "start": 161.667,
+          "end": 161.848
+        },
+        {
+          "text": "into",
+          "start": 161.908,
+          "end": 162.108
+        },
+        {
+          "text": "a",
+          "start": 162.148,
+          "end": 162.168
+        },
+        {
+          "text": "bend.",
+          "start": 162.208,
+          "end": 162.488
+        },
+        {
+          "text": "A",
+          "start": 163.049,
+          "end": 163.089
+        },
+        {
+          "text": "snap",
+          "start": 163.129,
+          "end": 163.41
+        },
+        {
+          "text": "makes",
+          "start": 163.45,
+          "end": 163.65
+        },
+        {
+          "text": "the",
+          "start": 163.67,
+          "end": 163.75
+        },
+        {
+          "text": "cut",
+          "start": 163.79,
+          "end": 163.95
+        },
+        {
+          "text": "clean,",
+          "start": 164.01,
+          "end": 164.311
+        },
+        {
+          "text": "and",
+          "start": 164.531,
+          "end": 164.631
+        },
+        {
+          "text": "a",
+          "start": 164.651,
+          "end": 164.691
+        },
+        {
+          "text": "separate",
+          "start": 164.731,
+          "end": 165.052
+        },
+        {
+          "text": "guard",
+          "start": 165.072,
+          "end": 165.332
+        },
+        {
+          "text": "covers",
+          "start": 165.392,
+          "end": 165.692
+        },
+        {
+          "text": "the",
+          "start": 165.732,
+          "end": 165.833
+        },
+        {
+          "text": "empty",
+          "start": 165.873,
+          "end": 166.093
+        },
+        {
+          "text": "kettle.",
+          "start": 166.113,
+          "end": 166.393
+        },
+        {
+          "text": "Behind",
+          "start": 167.214,
+          "end": 167.495
+        },
+        {
+          "text": "a",
+          "start": 167.555,
+          "end": 167.575
+        },
+        {
+          "text": "whole",
+          "start": 167.615,
+          "end": 167.815
+        },
+        {
+          "text": "morning",
+          "start": 167.875,
+          "end": 168.155
+        },
+        {
+          "text": "ritual",
+          "start": 168.195,
+          "end": 168.596
+        },
+        {
+          "text": "is",
+          "start": 168.676,
+          "end": 168.736
+        },
+        {
+          "text": "two",
+          "start": 168.796,
+          "end": 168.976
+        },
+        {
+          "text": "metals",
+          "start": 169.017,
+          "end": 169.317
+        },
+        {
+          "text": "growing",
+          "start": 169.377,
+          "end": 169.677
+        },
+        {
+          "text": "at",
+          "start": 169.737,
+          "end": 169.797
+        },
+        {
+          "text": "different",
+          "start": 169.817,
+          "end": 170.078
+        },
+        {
+          "text": "speeds,",
+          "start": 170.118,
+          "end": 170.478
+        },
+        {
+          "text": "and",
+          "start": 170.939,
+          "end": 171.039
+        },
+        {
+          "text": "a",
+          "start": 171.079,
+          "end": 171.099
+        },
+        {
+          "text": "snap.",
+          "start": 171.139,
+          "end": 171.46
+        }
+      ]
+    },
+    {
+      "id": "09-the-outro",
+      "title": "The outro",
+      "start": 172.44,
+      "duration": 10.36,
+      "words": [
+        {
+          "text": "A",
+          "start": 172.701,
+          "end": 172.741
+        },
+        {
+          "text": "disc",
+          "start": 172.801,
+          "end": 173.061
+        },
+        {
+          "text": "that",
+          "start": 173.121,
+          "end": 173.282
+        },
+        {
+          "text": "bends",
+          "start": 173.342,
+          "end": 173.622
+        },
+        {
+          "text": "and",
+          "start": 173.702,
+          "end": 173.783
+        },
+        {
+          "text": "snaps",
+          "start": 173.843,
+          "end": 174.203
+        },
+        {
+          "text": "is",
+          "start": 174.264,
+          "end": 174.344
+        },
+        {
+          "text": "a",
+          "start": 174.384,
+          "end": 174.424
+        },
+        {
+          "text": "kind",
+          "start": 174.464,
+          "end": 174.704
+        },
+        {
+          "text": "of",
+          "start": 174.744,
+          "end": 174.825
+        },
+        {
+          "text": "decision",
+          "start": 174.885,
+          "end": 175.326
+        },
+        {
+          "text": "made",
+          "start": 175.366,
+          "end": 175.526
+        },
+        {
+          "text": "by",
+          "start": 175.566,
+          "end": 175.686
+        },
+        {
+          "text": "metal",
+          "start": 175.746,
+          "end": 175.987
+        },
+        {
+          "text": "alone.",
+          "start": 176.087,
+          "end": 176.408
+        },
+        {
+          "text": "There",
+          "start": 176.909,
+          "end": 177.049
+        },
+        {
+          "text": "are",
+          "start": 177.089,
+          "end": 177.189
+        },
+        {
+          "text": "more",
+          "start": 177.209,
+          "end": 177.37
+        },
+        {
+          "text": "everyday",
+          "start": 177.45,
+          "end": 177.79
+        },
+        {
+          "text": "objects",
+          "start": 177.911,
+          "end": 178.251
+        },
+        {
+          "text": "worth",
+          "start": 178.311,
+          "end": 178.552
+        },
+        {
+          "text": "opening",
+          "start": 178.652,
+          "end": 178.933
+        },
+        {
+          "text": "up,",
+          "start": 179.033,
+          "end": 179.113
+        },
+        {
+          "text": "so",
+          "start": 179.373,
+          "end": 179.514
+        },
+        {
+          "text": "the",
+          "start": 179.554,
+          "end": 179.634
+        },
+        {
+          "text": "next",
+          "start": 179.674,
+          "end": 179.874
+        },
+        {
+          "text": "part",
+          "start": 179.934,
+          "end": 180.095
+        },
+        {
+          "text": "of",
+          "start": 180.115,
+          "end": 180.175
+        },
+        {
+          "text": "the",
+          "start": 180.215,
+          "end": 180.295
+        },
+        {
+          "text": "series",
+          "start": 180.335,
+          "end": 180.636
+        },
+        {
+          "text": "looks",
+          "start": 180.696,
+          "end": 180.916
+        },
+        {
+          "text": "at",
+          "start": 180.976,
+          "end": 181.057
+        },
+        {
+          "text": "another",
+          "start": 181.117,
+          "end": 181.377
+        },
+        {
+          "text": "one.",
+          "start": 181.457,
+          "end": 181.578
+        },
+        {
+          "text": "See",
+          "start": 182.079,
+          "end": 182.219
+        },
+        {
+          "text": "you",
+          "start": 182.259,
+          "end": 182.359
+        },
+        {
+          "text": "there.",
+          "start": 182.379,
+          "end": 182.56
+        }
+      ]
+    }
+  ]
+}

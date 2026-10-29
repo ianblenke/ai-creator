@@ -1,0 +1,20 @@
+# Alignment, ASR, desniff and voice review (CPU is enough). Python 3.12 (the tools image's Ubuntu 24.04 python3).
+# The tools image (Dockerfile) installs this; manual: python3 -m venv .venv-align && .venv-align/bin/pip install -r requirements-align.txt
+# CPU-only PyTorch: without this index, pip takes PyPI's Linux torch, which pulls several GB of CUDA libraries into a CPU image.
+--extra-index-url https://download.pytorch.org/whl/cpu
+#
+# Where the versions come from: the author's working alignment environment, recorded 2026-10-26 (torch 2.8.0+cpu, whisperx 3.7.9,
+# faster-whisper 1.2.1, pyannote-audio 3.4.0, transformers 4.57.6, scipy 1.18.1; about 2.5 GB installed).
+# Verified 2026-10-29: a clean `docker compose build` from this file passed and whisperx imports in the image (torch 2.8.0+cpu, no nvidia-*).
+# pip takes 2.8.0+cpu from the CPU index (a local version sorts above PyPI's plain 2.8.0); if a build pulls nvidia-* packages, write torch==2.8.0+cpu
+torch==2.8.0
+# torchaudio 2.8.0 is the release paired with torch 2.8.0; the recorded environment's own torchaudio version was not written down
+torchaudio==2.8.0
+whisperx==3.7.9
+pyannote-audio==3.4.0
+faster-whisper==1.2.1
+transformers==4.57.6
+scipy==1.18.1
+# numpy: the version that clean build resolved; soundfile: the newest release on that date (what pip picks; not read from the image)
+numpy==2.5.4
+soundfile==0.14.0

@@ -1,0 +1,9 @@
+# Copy to safety/denylist.txt (gitignored), then REPLACE these lines with your own. The gate warns loudly while the copy is unchanged.
+# One word or phrase per line (whole-word, case-insensitive) that must never appear in scripts, scenes, subtitles or metadata:
+# your hostnames, machine and container names, LAN/Wi-Fi names, your login name, room, street and family names, private project names,
+# your voice name, your email, your cloud project and OAuth client IDs, your channel ID. The checklist is in docs/safety.md.
+# Do NOT list a name you show on purpose (the shipped example shows its series tag), or every episode fails its own gate.
+# These are INVENTED examples; none of them appears in examples/ep01-kettle (a test checks that):
+example-gpu-box
+Springfield
+Project Nightjar

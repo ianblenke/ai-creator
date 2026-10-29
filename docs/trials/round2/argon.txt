@@ -1,0 +1,94 @@
+1. Scene 05 (05-the-snap) | Severity: HIGH
+What is wrong:
+- Complete audio-visual desync and a 14-second dead stretch in the switch mechanism (Frames 5-21). First, the disc flips twice: it snaps as a standalone disc in Frame 5 (~9.5 s, "it flips all at once with a snap") while the green power circle stays ON; then in Frame 7 (~12 s, "In one common design") the full snapSwitch mechanism appears with the disc reset to un-flipped and contacts closed; then in Frame 8 (~13.3 s, "the snap pushes a rod") the disc snaps a second time.
+- Because snapSwitch couples the disc, rod, lever, contacts, and power circle together, the entire chain reaction finishes in Frame 8 (~13.3 s): the seesaw lever has already tipped over, the electrical contacts have already sprung wide open, and the power circle has already turned OFF — 12 to 13 seconds before the narration says "pulls the electrical contacts apart" (20.59 s) and "the power is cut cleanly" (25.54 s).
+- From Frame 8 through Frame 21 (~13.5 s to 27.1 s), no part of the mechanism moves at all; for nearly 14 seconds, spotlight halos and labels ("rod", "like a seesaw", "past the middle", "contacts", "open sharply", "power") simply step across a frozen switch that already tripped and cut the power at t=13.3 s.
+Concrete fix:
+- Show the snapSwitch mechanism before 9.49 s so the disc only snaps once, or if re-staging the snap for the full mechanism, synchronize the visual progression with the narration cues so the viewer sees the rod push at 13.33 s ("pushes a rod"), the lever tip past the dashed middle line at 17.53-19.13 s ("tips over once it goes past the middle"), the contacts open sharply at 20.59-23.56 s ("pulls the electrical contacts apart, so they open sharply"), and the power circle switch from green ON to dim OFF at 25.54-26.40 s ("and the power is cut cleanly").
+
+2. Scene 06 (06-the-second-safety) | Severity: HIGH
+What is wrong:
+- Physical inversion of the guard and backup discs in the magnified callout box vs. the kettle and the bible (Frames 8-21): in the kettle on the left, k.guard and k.backup follow the bible convention (CURL.cold = +1, dish centre lowest `⌣` when cold, flipping to CURL.flipped = -1, centre highest `⌢` in Frame 14 when tripped). In the magnified inset right beside it, both discs are drawn upside-down (`⌢` centre highest when cold in Frames 8-13, flipping to `⌣` centre lowest in Frame 14).
+- Broken custom contacts graphic instead of `_kettle.js` contacts (Frames 8-21): beneath the guard and backup discs in the inset, instead of using `contacts(parent).set({ open, weld })` from `_kettle.js` (horizontal contact arms with amber contact pads as seen in Scene 05), the scene draws a single vertical white stick `|` that splits sideways into two parallel vertical lines `||` when open (Frames 14-18, 20-21) and puts a tiny magenta dot on the vertical stick for "contacts weld shut" (Frame 19). This violates the bible rule ("Do not draw your own kettle, disc, steam, power circle or switch mechanism... Contacts that open or weld shut: `contacts(parent).set({ open, weld })`") and is unreadable as electrical contacts opening or welding shut.
+- Un-synced backup trip at the end (Frame 20): the backup disc trips and cuts the power in Frame 20 (~32.5 s) after the narration has already finished saying "if its contacts weld shut" (32.34 s), with no label explaining the action.
+Concrete fix:
+- Zoom the stage camera to `k.toWorld(KETTLE.guard)` (as recommended in `_bible.md` so the guard is >=200 px wide) or ensure the inset `guardDisc` items use the exact same curl polarity (`CURL.cold = +1` to `CURL.flipped = -1`) as `k.guard` on the kettle. Replace the custom vertical sticks `|` / `||` with `contacts(parent).set({ open, weld })` from `_kettle.js`. Trigger the weld-shut and backup trip during "acts only if the guard itself fails, for example if its contacts weld shut" (28.44-32.34 s).
+
+3. Scene 04 (04-the-disc-that-bends) | Severity: HIGH
+What is wrong:
+- The bimetal disc does not bend when the narration says it bends (Frames 4-10, t=5.4 s to ~18 s): across "Heat makes both layers expand, but one expands faster than the other, and that mismatch makes the whole disc bend as it warms" (11.48-17.55 s), the disc remains completely frozen in its initial cold curvature (`CURL.cold`). In Frame 10, while the label on screen literally says "the whole disc bend" (also a grammatically broken fragment), the disc still has not bent at all.
+- The disc only flattens to `CURL.trip` around Frame 11 (~19.5 s, during "turns heat into movement") and then stays completely static for the last 7.5 seconds of the scene (Frames 11-15, ~19.5-27.25 s) while the narrator explains "but the bend by itself is gradual, and a gradual bend is not much use...".
+- In Frames 1-3 ("The sensor sitting in that steam"), the water is boiling and steam is in the headspace (`k.steamIn`), but no steam flows through the pipe (`k.steamToSensor`) to the sensor.
+- In Frames 14-15 ("pulling a switch apart"), a tiny custom two-bar icon labeled "switch" with a dashed arrow appears beside the disc, violating the `_bible.md` ban on custom-drawn switches and cluttering the final restatement frame while dimmed "heat -> movement" also remains on screen.
+Concrete fix:
+- Enable `k.steamToSensor` in Frames 1-3 so steam actually reaches the sensor. Run `bendCurl(t, start, dur)` starting at ~15.6 s ("makes the whole disc bend as it warms") and continue the slow bend through "the bend by itself is gradual" (~23.5 s) so the viewer sees the disc gradually curving while it is narrated. Change the label "the whole disc bend" to "whole disc bends" or "bend as it warms". Remove the custom "switch" graphic in Frames 14-15 (or use `contacts` from `_kettle.js` and fade it plus "heat -> movement" out before the final restatement frame).
+
+4. Scene 01 (01-the-hook) & Scene 02 (02-the-steam) | Severity: HIGH
+What is wrong:
+- Cross-scene kettle continuity violation and premature mechanism reveal: in Scene 01, all 15 frames show the internal steam pipe (`k.channel`), sensor housing, and two-layer amber/blue `k.sensor` disc on top of the handle, and in Frame 6 ("it stops", ~7.9 s) the `k.sensor` disc visibly flips from concave (`⌣`) to convex (`⌢`) and remains flipped through Frame 15. This spoils the steam pipe (not introduced until Scene 02 at 11.63 s), the two-layer disc (not introduced until Scene 04), and the snap flip (Scene 05) while the narration is asking "so how does a plain kettle know the water is ready?".
+- Then in Scene 02, Frames 1-8 hide the steam pipe and sensor housing completely (breaking visual continuity with Scene 01), only to fade the pipe back in at Frame 9 ("a small pipe", 11.63 s) and the sensor in at Frame 11 ("sensor", 13.05 s) with `k.sensor` back in its un-flipped cold state (violating `_bible.md`: "never start a scene with the disc in a shape the previous scene did not end on").
+Concrete fix:
+- Hide `k.channel` and `k.sensor` throughout Scene 01 so the kettle silhouette matches Scene 02 Frames 1-8 and does not spoil the sensor before Scene 02 introduces "a small pipe carries that steam to a sensor" at 11.29 s.
+
+5. Scene 07 (07-the-reset) | Severity: HIGH
+What is wrong:
+- Wrong reset knob location and broken physical state in "other designs" (Frames 10-13): at "In other designs, you press a reset knob" (12.61-14.43 s), a custom white plunger knob is drawn sticking out of the left side of the kettle base (under the spout) with a blocky hand pushing it, while the kettle's actual rocker switch (`k.click`) on the right side of the base stays popped up. Worse, when the hand presses the reset knob in Frames 11-13, the kettle's sensor disc (`k.sensor` in the handle housing) remains stuck in its tripped, flipped-up state (`CURL.flipped = -1`, `⌢`) right through Frame 13 — pressing the reset knob never resets the disc.
+- Static thermometer and premature reset/dimming in "one design" (Frames 5-9): the blue indicator dot on the thermometer is already at the bottom of the 30-degree bracket in Frame 5 ("the disc cools", ~5.4 s) and never moves between Frames 5 and 9. The disc already flips back to `CURL.cold` in Frame 6 (~7.5 s) before "once it has cooled about thirty degrees below its switching temperature" (8.57-11.49 s) is spoken, and the disc dims in Frame 8 (~10 s) while the narrator is still talking about it.
+Concrete fix:
+- In the left ("one design") view, animate the thermometer marker dropping from the amber "switching temperature" line down to the bottom of the bracket between 5.1 s and 10.5 s, trigger `flipCurl(t, at, CURL.flipped, CURL.cold)` when the marker reaches the bottom of the bracket, and keep the disc bright until 12.6 s. In the right ("other designs") view, remove the extra knob under the spout (use the kettle's switch on the right of the base) and flip `k.sensor` from `CURL.flipped` (-1) back to `CURL.cold` (+1) when pressed.
+
+6. Scene 06 (06-the-second-safety) | Severity: HIGH
+What is wrong:
+- Steam rises from an empty, non-boiling kettle (Frames 3-4): at t=4.0-6.5 s ("because with no water there is no boil, and with no boil there is no steam"), the water in the kettle is completely gone and the on-screen labels read "no water" and "no boil", yet wisps of steam (`k.steamOut`) continue drifting out of the spout in Frames 3 and 4. This directly contradicts both the narration and `_bible.md` ("Steam appears only while the water is boiling or just after").
+- In Frames 13-14 ("since no water is carrying the heat away"), three tall vertical magenta wavy lines are custom-drawn inside the empty kettle body, violating the `_bible.md` rule to draw the kettle and its states only via `_kettle.js`.
+Concrete fix:
+- Set `k.steamOut.update(t, 0)` (along with `k.steamIn` and `k.steamToSensor`) as soon as the water empties at ~4.4 s ("no water"), and remove the custom vertical magenta wavy lines inside the jug in Frames 13-14 (rely on `k.heat(1)` glowing the heating coil).
+
+7. Scene 09 (09-the-outro) | Severity: MEDIUM
+What is wrong:
+- Direct violation of the bible's outro rule and brief (Frames 8-11): `_bible.md` states "the outro has a series title tag 'AI Creator' in `accent` and a small unlabeled silhouette of the next object, nothing else", and `script.md` specifies "unlabeled, with the series title below". Yet Frames 8-11 display the text label "the next part" above the toaster silhouette right through the final frame.
+- Contradictory disc states on screen simultaneously (Frames 2-7): while a large standalone `sensorDisc` on the right bends (Frame 3) and snaps to `CURL.flipped` (`⌢`, Frames 4-7) during "A disc that bends and snaps is a kind of decision made by metal alone", the kettle right beside it on the left still shows its own `k.sensor` disc in the cold un-flipped state (`⌣`) and holds full blue water (instead of fading to a soft outline per the brief). In Frame 8, the toaster slides in next to the dimmed kettle before the kettle has faded out.
+Concrete fix:
+- Remove the "the next part" label completely so the final frames show only the unlabeled toaster silhouette and "AI Creator" in `accent` green. In Frames 1-7, fade the kettle to a soft outline (as specified in the brief) or sync `k.sensor` with the snapping close-up disc, and fade the kettle out completely before sliding the toaster silhouette into the center.
+
+8. Scene 03 (03-the-steam-and-the-mountain) | Severity: MEDIUM
+What is wrong:
+- Physical/sync contradiction in Frames 5-6 (~4-5 s): while the kettle shows only "a little steam" (two small wisps in the jug, none in the pipe) and the label says "can't be mistaken", the sensor housing on top of the handle lights up with a warm amber glow as if the sensor is tripping on a little steam — the opposite of "A little steam can't be mistaken for a boil".
+- Thermometer contradiction in Frames 11-12 ("where water boils cooler"): when the mountain appears, the "a boil" tick drops down near the "trip" tick, but the bracket between them still says "well under" even though the gap is now small; additionally, the thermometer is an empty outline with no liquid column.
+- Style inconsistency and small text: labels "a bonus", "a little steam", "can't be mistaken", and "boils cooler" are enclosed in rounded pill boxes not used in any other scene, and "boils cooler" at the bottom-right of Frames 11-12 is smaller than the 38 px minimum and crowds the `y = 900` subtitle strip.
+- Zero camera movement across all 12 frames (violating `_bible.md`: "shorter: at least one gentle move").
+Concrete fix:
+- Remove the amber glow on `k.sensor` during "can't be mistaken" (Frames 5-6). Fade out the "well under" bracket label when "a boil" drops lower on the mountain in Frames 11-12. Remove the pill-box borders from all labels, enlarge "boils cooler" to >=38 px above `y = 900`, and add a gentle camera glide from the kettle toward the thermometer and mountain.
+
+9. Scene 02 (02-the-steam) | Severity: MEDIUM
+What is wrong:
+- Spout steam disappears mid-boil (Frames 9-14): from ~10 s to ~17 s, while the kettle is actively boiling (heating element hot magenta, bubbles rising, steam in headspace and channel), the spout steam (`k.steamOut`) vanishes completely for 6 frames and then abruptly reappears in Frame 15.
+- Stray blue dashed line inside the handle loop (Frames 13-15): at "and not in the water" (15.36-15.76 s), a short horizontal dashed blue line is drawn inside the hollow gap between the kettle wall and the handle just below the sensor housing, where water could never be.
+- Stacked text clutter and no camera move (Frames 3-13): labels accumulate in a vertical list on the right side of the screen (up to 4 stacked phrases at once in Frame 13: "a small pipe", "sensor", "in the steam", "not in the water"), and the camera stays static instead of gliding toward the pipe and sensor when they are introduced.
+Concrete fix:
+- Keep `k.steamOut` active throughout the boil in Frames 9-15. Remove the stray dashed blue line inside the handle loop and instead highlight the separation between the sensor at the top of the handle and the blue water surface inside the jug. Fade out prior labels instead of stacking four vertically, and add a camera glide toward `k.toWorld(KETTLE.sensor)` at 11.29 s ("a small pipe carries that steam to a sensor").
+
+10. Scene 04, Scene 06, Scene 07 | Severity: MEDIUM
+What is wrong:
+- Legibility violations of the `_bible.md` rule "NOTHING under 38 px":
+  - In Scene 06 (Frames 8-21), the labels "second small disc" and "backup" inside the bottom of the inset box are ~20-24 px and hard to read.
+  - In Scene 07 (Frames 10-13), scaling down both setups side by side shrinks "springs back by itself", "switching temperature", and "reset knob" well below 38 px.
+  - In Scene 04 (Frames 7-10), the expansion arrows (`<-` and `->`) at the left and right ends of the amber and blue layers during "both layers expand, but one expands faster than the other" are microscopic specks, and the "switch" label in Frames 14-15 is under 38 px.
+Concrete fix:
+- Render all text labels at >=38 px in screen space (do not scale text down inside miniature sub-containers). In Scene 04, draw bold, high-visibility expansion arrows along the top and bottom layers and visibly stretch the amber layer more than the blue layer during Frames 7-10.
+
+11. Scene 08 (08-the-close) | Severity: MEDIUM
+What is wrong:
+- Static recap icons that do not show what is narrated: in Frames 4-5 ("and a bimetal disc turns that heat into a bend", 4.55-6.51 s), the "bimetal disc" icon stays in its cold curvature (`CURL.cold`) and never bends; in Frame 8 ("and a separate guard covers the empty kettle", 8.83-10.41 s), the violet "guard" icon stays in its cold dish shape and never flips.
+- Cramped bottom layout and subtitle strip overlap (Frames 10-12): when the resting kettle and final headline "Two metals and a snap" appear in Frames 10-12 while the four icons remain across the top, the kettle is squashed small in the lower middle and "Two metals and a snap" is pushed down into the `y > 900` subtitle strip zone. There is also no camera movement across the scene.
+Concrete fix:
+- Animate `bendCurl` on the "bimetal disc" icon at 5.5-6.5 s and `flipCurl` on the "guard" icon at 9.3-10.0 s. At 11.5 s ("Behind a whole morning ritual..."), glide the camera down (or fade out the top "The story is simple" space and shift the icons/kettle upward) so the resting kettle has breathing room and "Two metals and a snap" sits cleanly above `y = 900`.
+
+12. Scene 01 (01-the-hook) & Scene 06 (06-the-second-safety) | Severity: LOW
+What is wrong:
+- Dead stretches and lingering steam/labels in Scene 01: Frames 7 and 8 (~9.5-10.8 s) are identical, with the dimmed label "it stops" lingering under the kettle while "no clock" is shown; between ~13 s and ~18 s (Frames 10-13), nothing changes for ~5 seconds except the "?" fading out; spout steam (`k.steamOut`) keeps rising continuously in Frames 6-15 even though the kettle stopped boiling and switched off in Frame 6 (7.90 s); and the "?" above the lid in Frames 10-11 is full-opacity bright white instead of "A faint question mark over the lid" per the brief.
+- Weak final-frame restatements in Scene 01 (Frame 15) and Scene 06 (Frame 21): `_bible.md` requires "The last frame restates the scene's point in one big phrase (at least 56 px) and is held through the 0.6 s tail; end wide." In Scene 01 Frame 15, "rising from the spout" is a small caption under the base; in Scene 06 Frame 21, "a separate part guards against that" is small (~38-42 px) and off-center over the left half of the screen only.
+Concrete fix:
+- In Scene 01, fade out "it stops" before "no clock" appears at 9.45 s, draw the "?" at faint opacity (~0.4), fade out spout steam shortly after the kettle stops at 7.90 s and bring back a highlighted wisp at 18.11 s ("see rising from the spout"), and add a camera move between 12.7 s and 17.5 s to eliminate the dead stretch. Increase the final restatement headlines in Scene 01 and Scene 06 to >=56 px centered across the wide frame.
+
+Score: 2/5

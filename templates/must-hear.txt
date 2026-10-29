@@ -1,0 +1,2 @@
+# Phrases that must be pronounced correctly, one per line, copied from the script (lines starting with # are ignored).
+# asr checks each one in the transcript; add names, numbers and any word the voice has said wrongly before.

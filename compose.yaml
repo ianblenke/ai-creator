@@ -1,0 +1,119 @@
+# One command per job. Nothing here needs SSH. Needs Docker Compose v2.24 or newer (env_file `required:`).
+# ${...} below comes from .env (compose settings); tool settings come from .env.local (see .env.example).
+#   docker compose run --rm media tts examples/ep01-kettle                    (VOICE_TRANSPORT=fixture: no voice, offline)
+#   docker compose --profile chatterbox up -d voice-chatterbox                (your cloned voice; needs an NVIDIA GPU)
+#   EPISODE=examples/ep01-kettle docker compose --profile preview up preview  (scrub preview on http://127.0.0.1:8765)
+#   docker compose run --rm --entrypoint bash media tools/pipeline.sh examples/ep01-kettle
+x-media: &media
+  build: .
+  image: ai-creator-media:local # one image for media and preview
+  # Run as you, so files written into this folder are yours. Linux: printf 'HOST_UID=%s\nHOST_GID=%s\n' "$(id -u)" "$(id -g)" > .env
+  user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+  environment:
+    MEDIA_LOCAL: "1"
+    HOME: /tmp
+    XDG_CACHE_HOME: /work/.cache
+    # the Chatterbox knobs the voice server was started with, so the tts cache key changes with them
+    VOICE_EXAGGERATION: ${VOICE_EXAGGERATION:-0.6}
+    VOICE_CFG_WEIGHT: ${VOICE_CFG_WEIGHT:-0.3}
+    VOICE_TEMPERATURE: ${VOICE_TEMPERATURE:-0.9}
+    VOICE_SEED: ${VOICE_SEED:-}
+  env_file:
+    - path: .env.local
+      required: false
+  volumes:
+    - .:/work
+    - /work/node_modules
+  shm_size: 1gb
+
+services:
+  media: *media
+
+  preview:
+    <<: *media
+    profiles: [preview]
+    command: ["preview", "${EPISODE:-examples/ep01-kettle}", "--host", "0.0.0.0"]
+    ports: ["127.0.0.1:8765:8765"]
+
+  voice-stub:
+    profiles: [stub]
+    # A transport test only (a tone, not speech): run tts with -e VOICE_TRANSPORT=http -e VOICE_NAME=stub. For a first run use fixture.
+    image: node:22-slim
+    working_dir: /work
+    command: ["node", "tools/voice-stub.js"]
+    volumes: [".:/work:ro"]
+    networks: { default: { aliases: [voice] } }
+
+  voice:
+    profiles: [gpu]
+    # Third-party Apache-2.0 image around OmniVoice (OpenAI-style API on 8080). Pinned by digest below.
+    image: ${VOICE_IMAGE:-ghcr.io/hsiang-han/omnivoice-triton-api@sha256:541b1fccae930da712eddf6548b7de7b640207b1f441ac4427e6d9839ac1205b}
+    ports: ["127.0.0.1:8080:8080"]
+    environment:
+      NUM_STEPS: "24" # fallback only: tts sends VOICE_NUM_STEP with every request
+      # this image's /health names no engine: tts keys its takes as "unreported" (set VOICE_ENGINE_TAG in .env.local after changing VOICE_IMAGE)
+    volumes: [voice-models:/root/.cache/huggingface]
+    deploy:
+      resources:
+        reservations:
+          devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
+
+  voice-cpu-clone:
+    profiles: [cpu-clone]
+    # OmniVoice on CPU, your own cloned voice without a GPU (docker/cpu-clone). Cloning: real-time factor 8.4 on 16 cores (one sentence).
+    # The OmniVoice WEIGHTS are CC-BY-NC (non-commercial), as read on 2026-10-28: see NOTICE before any monetized use.
+    build: docker/cpu-clone
+    environment:
+      NUM_STEPS: "24" # fallback only, as above (the server's own default is 32)
+      VOICE_ENGINE_TAG: omnivoice-cpu # /health reports it with the package version; tts puts it in its cache key
+    volumes: [voice-cpu-clone-models:/root/.cache/huggingface]
+    networks: { default: { aliases: [voice] } }
+
+  voice-cpu:
+    profiles: [cpu]
+    # Kokoro-82M on CPU (docker/kokoro): no GPU, NO cloning (preset voices like af_heart), flat delivery. Apache-2.0 code and weights.
+    build: docker/kokoro
+    environment: { VOICE_ENGINE_TAG: kokoro-cpu }
+    volumes: [voice-cpu-models:/root/.cache/huggingface]
+    networks: { default: { aliases: [voice] } }
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 10s
+      start_period: 120s
+
+  voice-chatterbox:
+    profiles: [chatterbox]
+    # Chatterbox (original) on an NVIDIA GPU (docker/chatterbox): your own voice. Real-time factor about 0.43,
+    # measured once on a card whose model was not recorded; which cards work is untested. Code MIT, weights tagged MIT; every output
+    # carries Resemble's Perth watermark (kept on purpose). See NOTICE and docs/licences.md.
+    build: { context: docker/chatterbox, args: { TORCH_INDEX: "${CHATTERBOX_TORCH_INDEX:-https://download.pytorch.org/whl/cu124}" } }
+    environment: &chatterbox-env
+      # settings "F"; set the VOICE_* names in .env (the media service passes the same values to tts for its cache key)
+      CHATTERBOX_EXAGGERATION: ${VOICE_EXAGGERATION:-0.6}
+      CHATTERBOX_CFG_WEIGHT: ${VOICE_CFG_WEIGHT:-0.3}
+      CHATTERBOX_TEMPERATURE: ${VOICE_TEMPERATURE:-0.9}
+      CHATTERBOX_SEED: ${VOICE_SEED:-}
+      # /health reports this lane tag with the package version and the weights revision the Dockerfile pins; tts puts that in its
+      # cache key, so switching lanes or changing the pin re-synthesizes instead of reusing another engine's takes
+      VOICE_ENGINE_TAG: chatterbox-gpu
+    volumes: [chatterbox-models:/models]
+    networks: { default: { aliases: [voice] } }
+    deploy:
+      resources:
+        reservations:
+          devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
+
+  voice-chatterbox-cpu:
+    profiles: [chatterbox-cpu]
+    # Same server on CPU: real-time factor about 3.5 on 8 threads, 7.3 GB RAM peak, 18 s model load (bake-off, 2026-10-29). No THREADS
+    # here, so it uses every core (speed at that default not measured). The first start downloads about 3.19 GB of weights.
+    build: docker/chatterbox
+    environment: { <<: *chatterbox-env, VOICE_ENGINE_TAG: chatterbox-cpu }
+    volumes: [chatterbox-models:/models]
+    networks: { default: { aliases: [voice] } }
+
+volumes:
+  chatterbox-models:
+  voice-models:
+  voice-cpu-clone-models:
+  voice-cpu-models:

@@ -1,0 +1,27 @@
+1. Scene 05 — HIGH: The switch mechanism appears with its contacts already separated and the power circle off when the “one common design” sequence begins. The narration does not say the contacts open until later, or that power is cut until the end. Start with closed contacts and green power; show the disc drive the rod and lever, then open the contacts and turn the circle off in sequence.
+
+2. Scene 06 — HIGH: The backup appears to trip before the example of the guard’s contacts welding shut has been established. That reverses the narrated cause and effect. Show the guard contacts weld closed first, keep power on, then show the backup trip and power go off.
+
+3. Scene 03 — HIGH: The thermometer shows a large fixed gap between “trip” and “a boil,” but does not show the mountain’s lower boiling point or how the sensor still responds to boiling there. The picture can suggest that the kettle trips before boiling. Lower the boiling mark when the mountain appears and show that sufficient steam at the lower boiling temperature triggers the sensor.
+
+4. Scene 02 — MEDIUM: The pipe and sensor are shown, but the sampled frames do not clearly show steam travelling through the pipe. The central claim that the pipe carries steam to the sensor is therefore hard to read. Animate visible low-opacity wisps from the steam space through the channel into the sensor housing.
+
+5. Scene 04 — MEDIUM: The close-up disc appears as a separate object after the kettle view, without a clear visual hand-off from the sensor housing. Its origin and location are easy to miss. Zoom or expand the disc directly out of the housing on top of the handle.
+
+6. Scene 06 — MEDIUM: In the enlarged safety diagram, the violet guard sits below a horizontal line beneath the coil, so its contact with the heating element is ambiguous. Place the guard visibly against the element’s underside and show its snap clearly before power goes dark.
+
+7. Scene 07 — MEDIUM: The reset knob is shown, but the intended hand press is missing from the sampled frames. The image does not clearly convey the narrated action. Add a simple hand pressing the knob, with a visible inward movement.
+
+8. Scene 08 — MEDIUM: The guard icon is identified, but the recap does not visually connect it to an empty kettle; the kettle subsequently shown contains water. Show a small empty kettle alongside the guard when that part of the narration is spoken, then return to the resting kettle.
+
+9. Scenes 01, 03, 04 and 07 — MEDIUM: The final phrases do not fully restate their scenes’ points: “rising from the spout,” “helps on a mountain,” “a gradual bend,” and “ready for the next morning” each omit the key mechanism or qualification. Replace them with concise narration-based phrases that preserve the point, and hold each final composition through the tail.
+
+10. Scene 09 — LOW: “the next part” appears above the next-object silhouette, although the outro rules call for an unlabeled silhouette and the “AI Creator” title only. Remove that extra label.
+
+11. Scenes 02, 03, 06 and 07 — LOW: Several explanatory labels are small and dim, especially the sensor, thermometer, safety and reset annotations. They compete with the diagrams rather than reading at a glance. Enlarge the active label, brighten it while spoken, and fade earlier labels further.
+
+12. Scene 03 — LOW: “a little steam” and “can’t be mistaken” appear as text, but the image does not make the distinction between a little steam and a boiling burst clear. Show the small amount first, followed by a visibly stronger burst when the boil is named.
+
+The contact sheets sample the animation, so brief transitions, exact timing, text size in the full-resolution video, and the 0.6-second holds cannot be verified conclusively from these frames alone.
+
+Score: 3/5

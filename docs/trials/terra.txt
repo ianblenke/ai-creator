@@ -1,0 +1,33 @@
+1. Scene 06 — HIGH: The final frames show the heating element glowing and the power circle green while the guard’s contacts are described as welded shut. The backup is said to act if that happens, but it never visibly trips or cuts power. Show the backup disc snapping after the guard fails, followed by a dark element and an outlined power circle.
+
+2. Scenes 02–04 — HIGH: The sensor changes location and connection between scenes. In scene 02, a pipe runs down the kettle’s right side to a glowing dot near the base; in scene 03, a disc floats beside the upper right of the kettle with no visible pipe; in scene 04, it sits above the opposite side. Keep the same steam channel and sensor location through the transition, then zoom into that sensor.
+
+3. Scene 05 — HIGH: The seesaw lever appears to end short of the electrical contact assembly, so the image does not explain how it pulls the contacts apart. Connect the lever to the moving contact and show the disc pushing the rod, the lever passing its balance point, and a clear contact gap opening.
+
+4. Scene 06 — HIGH: The guard disc is drawn below the kettle base, visually separated from the heating coil inside the kettle. Its contact with the element and its snap are difficult to read. Place the violet disc directly against the element, enlarge that contact point, and show the disc flipping before power goes off.
+
+5. Scenes 04–05 — HIGH: The disc ends scene 04 as an upward arch and starts scene 05 as a downward dish without an explained transition. That makes the subsequent flip hard to follow. Carry the same disc orientation into scene 05, then show one quick flip at “snap,” preserving the amber top and blue bottom layers.
+
+6. Scenes 01–09 — MEDIUM: The kettle changes silhouette and orientation repeatedly: the spout and handle swap sides, the body changes proportions, and the base and lid vary. Reuse one consistent kettle drawing, including in the cutaway, reset, recap, and outro.
+
+7. Scenes 01, 03, 06, 07, and 09 — MEDIUM: The power indicator moves between the base and a detached circle beside the kettle; in scene 01 it is tiny enough to resemble a base detail. Use the same clearly visible circle in the same position throughout, green when on and a dim outline when off.
+
+8. Scene 02 — MEDIUM: Steam inside the kettle and at the spout is represented by clusters of solid gray circles, and its movement through the pipe is unclear. Use low-opacity wisps and animate them traveling from the headspace through the pipe to the sensor.
+
+9. Scene 03 — MEDIUM: The final phrase, “trip well under a boil,” restates the temperature setting but omits the mountain benefit, the scene’s concluding point. End on the mountain and thermometer with a large phrase such as “water boils cooler,” held through the tail.
+
+10. Scene 07 — MEDIUM: The reset knob appears without a hand pressing it, so the alternative reset action is not shown. Add a simple hand pressing the knob when narrated. Make the temperature gap clearly represent cooling below the switching point.
+
+11. Scene 08 — MEDIUM: The recap’s guard appears as two violet dishes, which can be confused with the guard and backup together. Use one violet guard icon for the narrated separate guard, and show the kettle empty when that point is named.
+
+12. Scenes 01 and 09 — MEDIUM: Steam is already visible in the opening kettle images before boiling is established, and the outro kettle again shows steam while its power state changes. Introduce prominent steam with the boil and keep the outro’s kettle state consistent with the preceding rest state.
+
+13. Scenes 02, 03, 05, 06, and 07 — MEDIUM: Several explanatory labels and diagram details are very small relative to the frame, particularly the pipe, contacts, thermometer marks, and reset knob. Enlarge the active mechanism and its labels, and fade older labels before introducing the next point.
+
+14. Scenes 01, 02, 04, and 07 — LOW: The final phrases are incomplete or generic: “something you can see,” “reacts to the boil itself,” “slow bend,” and “ready for the next morning” do not each fully restate the visual mechanism just explained. End with a large, narration-based phrase paired with the relevant steam, sensor, disc, or reset action.
+
+15. Scene 09 — LOW: The ending still includes a faint kettle alongside the next-object silhouette, although the outro rule calls for the title and next object alone. Fade the kettle completely before holding the final “AI Creator” card.
+
+16. All scenes — LOW: The sheets sample keyframes rather than every instant, so they cannot establish whether the disc flips in 0.15 seconds, every cue lands within 0.5 seconds, or the final state holds for the full tail. Check those timings in playback; the sampled frames alone do not prove a dead stretch.
+
+Score: 2/5

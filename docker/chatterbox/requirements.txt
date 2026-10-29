@@ -1,0 +1,10 @@
+# Versions measured working together on 2026-10-29 (torch/torchaudio are installed separately in the Dockerfile).
+chatterbox-tts==0.1.7
+transformers==5.2.0
+numpy==1.26.4
+resemble-perth==1.0.1
+setuptools<81
+huggingface_hub
+fastapi==0.162.0
+uvicorn==0.54.0
+python-multipart==0.0.32

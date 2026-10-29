@@ -1,0 +1,23 @@
+{
+  "name": "ai-creator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Spec-first pipeline for AI-generated 2D YouTube videos narrated in your own cloned voice",
+    "license": "MIT",
+  "bin": {
+    "media": "tools/cli.js"
+  },
+  "scripts": {
+    "test": "node --test \"tools/**/*.test.js\" && python3 tools/asr_diff_test.py",
+    "test:py": "python3 -m unittest discover -s tools -p \"*_test.py\"",
+    "media": "node tools/cli.js"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "dependencies": {
+    "playwright": "1.64.0",
+    "three": "0.186.1"
+  }
+}

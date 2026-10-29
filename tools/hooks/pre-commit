@@ -1,0 +1,15 @@
+#!/bin/sh
+# Enable once per clone: sh tools/hooks/install.sh (it runs `git config core.hooksPath tools/hooks`).
+# Blocks staged local-only files: .env.local, safety/denylist.txt, voice/ files, .secrets/, any audio or video. It does NOT scan file text;
+# run `docker compose run --rm media safety <episode-dir>` for that (docs/safety.md).
+# Uses node on the host when there is one, otherwise the tools container (Docker-only setups).
+if command -v node >/dev/null 2>&1; then
+  node tools/safety/repo-check.js --staged || exit 1
+elif command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
+  idx=${GIT_INDEX_FILE:-.git/index}; idx=${idx#"$(pwd)/"} # the index git is committing from, as a path inside the container
+  docker compose run --rm --no-deps -T -e GIT_INDEX_FILE="/work/$idx" --entrypoint node media tools/safety/repo-check.js --staged || exit 1
+else
+  echo "pre-commit: neither node nor docker compose is on PATH, so the local-only file check cannot run." >&2
+  echo "Install Node 22.23.4+ or Docker (README, 'Before you start'), or skip it once with git commit --no-verify." >&2
+  exit 1
+fi

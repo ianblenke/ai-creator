@@ -1,0 +1,43 @@
+node_modules/
+.venv*/
+.env
+.env.local
+safety/denylist.txt
+voice/*
+!voice/README.md
+!voice/CONSENT.example.md
+voice/CONSENT.md
+# Your episodes go in episodes/<id>/ (copy the example there); the shipped example is examples/<id>/.
+# Generated folders are local for both. The example's committed keyframes/ are reference frames, so only episodes/ ignores keyframes.
+episodes/*/audio/
+episodes/*/keyframes/
+episodes/*/frames/
+episodes/*/out/
+examples/*/audio/
+examples/*/frames/
+examples/*/out/
+out/
+# No audio or video is ever committed (tools/safety/repo-check.js blocks the same list).
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.ogg
+*.oga
+*.opus
+*.aac
+*.wma
+*.aif
+*.aiff
+*.mp4
+*.m4v
+*.mov
+*.mkv
+*.webm
+__pycache__/
+*.pyc
+
+# OAuth credentials and tokens for the YouTube upload tool (never commit)
+.secrets/
+
+.cache/

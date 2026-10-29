@@ -1,0 +1,20 @@
+{
+  "provided": [
+    "script.md",
+    "timeline.json",
+    "docs/scene-contract.md",
+    "tools/stage/style.js",
+    "scenes/_brief/_bible.md"
+  ],
+  "briefs": [
+    "scenes/_brief/01-the-hook.md",
+    "scenes/_brief/02-the-steam.md",
+    "scenes/_brief/03-the-steam-and-the-mountain.md",
+    "scenes/_brief/04-the-disc-that-bends.md",
+    "scenes/_brief/05-the-snap.md",
+    "scenes/_brief/06-the-second-safety.md",
+    "scenes/_brief/07-the-reset.md",
+    "scenes/_brief/08-the-close.md",
+    "scenes/_brief/09-the-outro.md"
+  ]
+}

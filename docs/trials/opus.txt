@@ -1,0 +1,86 @@
+ADVERSARIAL VISUAL REVIEW: "How a Kettle Knows When to Switch Off" (9 scenes)
+Read: script.md, _bible.md, all 9 briefs, all 9 contact sheets. Sheets are at 1/4 scale, so text sizes below are estimates (sheet px x 4).
+
+1. Scenes 2, 3, 4, 6 (also 7, 8, 9) - HIGH - The kettle is not one object. Two problems:
+   (a) Orientation: spout LEFT in 1, 2, 3, 6, 9; spout RIGHT (mirrored) in 4, 7 and 8.
+   (b) Silhouette: 1, 3 and 6 are a tapered jug on a base with a lid knob. 2 is a wide, straight-walled cutaway with no base. 4, 7 and 8 are a small mirrored jug with a straight stick spout. 9 has no base and its walls are nearly straight.
+   The bible says "the same silhouette in every scene", and scene 3's brief asks for "the same cutaway" as scene 2. As drawn, it looks like a different kettle in every scene.
+   FIX: make one shared kettle drawing (scenes 1/3/6 are the best basis: spout left, base, power circle on the base). Use it in every scene and change only the scale, opacity and cutaway fill. Never mirror it.
+
+2. Scenes 2, 3, 4, 6 - HIGH - The sensor moves around the kettle.
+   - Scene 2: a glowing dot at the BOTTOM right, level with the element and the water floor, fed by a pipe running down the handle side.
+   - Scenes 3 and 6: a bimetal arc at the TOP right, by the handle.
+   - Scene 4: at the top LEFT (on the mirrored kettle), fed by a pipe from the lid.
+   Scene 2 is also where the narration says "the sensor sits in the steam and not in the water". With the dot drawn at water level, the picture reads as the opposite.
+   FIX: pick one place and keep it in scenes 2, 3, 4 and 6. Clearest choice: the top of the handle side, clearly ABOVE the water line, with the pipe starting from the steam space. In scene 2, animate steam dots travelling along the pipe to the sensor on "carries that steam to a sensor". Draw the sensor as the amber/blue bimetal arc from the start, not as a separate amber dot, so scene 4's "the sensor... what is it made of?" zooms into the same object.
+
+3. Scenes 4 -> 5 (also 7, 8, 9) - HIGH - The disc's curvature is not consistent.
+   - Scene 4 starts the cold disc as a gentle DOME (convex up) that slowly bends into a strong dome, and ends on "slow bend".
+   - Scene 5 opens on the opposite shape, a BOWL (concave up), then snaps to a dome.
+   - Scenes 7 and 8 follow the scene 5 code: bowl = cold/reset, dome = tripped.
+   The handover from scene 4 to scene 5 therefore jumps from a strong dome to a bowl with no explanation.
+   FIX: use the scene 5/7 code everywhere (cold = shallow bowl; the slow bend flattens it; the snap = an instant flip to a dome). Rework scene 4 so its slow bend goes from a deep bowl toward flatter, with amber on the side that lengthens. Open scene 5 on scene 4's last frame. Physics check: in the dome state the amber layer must be on the outside (convex) face. It is in scenes 5 and 7; keep it so.
+
+4. Scene 6 - HIGH - The second safety, the point of the scene, is too small to see, and the ending shows the opposite of the point.
+   (a) The violet guard disc is a tiny arc inside the base, below the element (about 60 px wide at full size). Its "flip" on "that disc trips" cannot be seen. Only the power circle going dark tells the viewer anything happened.
+   (b) The backup is a few faint violet dashes beside the guard, not "a faint second disc behind the first".
+   (c) On "contacts weld shut" the power turns back ON and the element turns hot again (fine: the guard failed). But the scene ENDS that way: the last frame shows "backup if the guard fails" over a kettle that is powered and heating while empty. The backup is never shown tripping, so the viewer leaves on the failure case.
+   FIX: on "a second small disc", zoom (makeStage) to the base/element area so the guard disc is at least 200 px wide, pressed visibly against the underside of the element. Flip it in 0.15 s on "trips", with the power circle going dark on the same frame. Draw the backup as the same dish in faint violet behind the guard on "further backup". After "weld shut", flip the BACKUP disc and turn the power OFF, then hold the wide shot with the closing phrase.
+
+5. Scene 1 - MEDIUM - The visual intent's key beat is missing. The brief asks for "a button clicking down, then the click popping back up by itself". All that is drawn is a tiny green dot on the base that turns on, then off at "it stops". No switch is pressed and nothing pops up, so "with nobody touching it, it stops" has no picture.
+   FIX: add a visible rocker or lever on the base, about 60-80 px. It goes down on "heats water" (power circle ON) and snaps up on "it stops" (power circle OFF), with a small motion tick.
+
+6. Scene 2 - MEDIUM - Steam breaks the bible, and "little vs burst" is not shown.
+   - Steam inside the kettle is drawn as SOLID grey circles, both at the top of the water and at the spout. The bible says steam is soft ink wisps at low opacity, never a solid shape.
+   - The steam space is almost as full on "only a little steam forms" as on "a burst of it". The contrast the argument rests on is weak.
+   FIX: redraw the steam as wisps. On "only a little steam" show two or three faint wisps. On "a burst" show a sudden thick billow, with the "the boil has begun" pill.
+
+7. Scene 3 - MEDIUM - The mountain is drawn but the logic is not. The narration says a trip point below boiling also helps on a mountain, where water boils cooler. The thermometer's "a boil" line never moves, so the mountain is just a picture beside a static gauge.
+   FIX: on "on a mountain", slide the "a boil" line DOWN toward the trip line but stop it still above it. Keep the "well under" bracket shrinking but positive. This shows WHY tripping under a boil still works up there. A second short thermometer beside the mountain would also work.
+
+8. Scenes 1, 3, 5, 6, 7, 8, 9 - MEDIUM - The power circle is inconsistent.
+   - Placement varies: front centre of the base (1), left of the base (3), on a stub to the right of the base (6), floating to the right of the kettle (7, 8), under the disc (9).
+   - In scene 5 the ON circle is dimmed to about 0.35 by the spotlight. It turns olive and is easy to read as OFF before it is actually cut.
+   FIX: one fixed place, attached to the shared kettle's base. When the kettle is not on screen (scenes 4, 5), put it at one consistent screen position. Exempt the power circle from spotlight dimming: its colour IS the state.
+
+9. Scenes 1, 2, 3, 6, 7, 8 - MEDIUM - Steam looks different everywhere: dark squiggles from the spout (1), solid blobs (2), faint inside wisps (3), squiggles (6), vertical lines from the LID (7), a three-line icon (8).
+   FIX: one steam component (soft ink wisps from the spout, low opacity), reused everywhere. Scene 7's steam should come from the spout, or be removed: it is a reset scene.
+
+10. Scene 5 - MEDIUM - The opening is not synced, and the "slow bend" is not shown.
+    - For about the first 6 s the disc is static while labels come and go ("the bend", "sudden jerk", "shallow-dish shape", "switching temperature"). "sudden jerk" appears while nothing jerks.
+    - The visual intent asks for "slow bend, then an instant flip"; the slow bend is missing.
+    - The "switching temperature" label touches the disc's right end.
+    FIX: animate a slow flattening of the bowl from 0 to 6 s, using scene 4's motion so the two scenes join up. Mark the switching point with a small warm tick or glow, not just a label. Give the label at least 24 px of clearance from the disc.
+
+11. Scene 7 - MEDIUM - The reset has two sync and clarity problems.
+    (a) "springs back by itself" appears at about 7 s, but the disc stays a dome until about 9.5 s ("cooled about thirty degrees"). For about 2 s the label states something the picture contradicts. Flipping on the cooling cue is physically right, so instead hold the label until the flip, or introduce it as "springs back" at the moment of the flip.
+    (b) The brief's "hand pressing a small reset knob" is drawn as a piston/stamp coming down on a box. It reads as a press machine, not a knob.
+    FIX: draw a small round knob on the kettle base (or a button) and a simple fingertip or arrow pressing it, with the disc flipping back beside it.
+
+12. Scene 9 - MEDIUM/LOW - The "AI Creator" title is drawn over the kettle's base line (frames 8-9), so text sits over a drawing. The label "made by metal alone" drops the key word: the narration's point is "a kind of decision made by metal alone".
+    FIX: move the title below the art, or move the art up so the two never overlap. Use "a decision made by metal" (at most 5 words) as the label.
+
+13. Scenes 1, 7, 8 - LOW - The first frame of each is empty (background only) while narration has already started (scene 7: "One last detail" at 0.34 s). It is a brief dead start.
+    FIX: have content on screen by about 0.3 s, or start from the previous scene's last composition and transition out of it.
+
+14. Scene 4 - LOW - The green "switch" circle at the end reuses the power-state colour code for a different thing (a switch being pulled apart). The narration only says a gradual bend is not much use for that, and nothing shows that failing.
+    FIX: draw two contacts instead. On "not much use for pulling a switch apart", have them creep apart slowly and only partly, and show a small magenta spark (the case a snap avoids). Keep the power circle for power state only.
+
+15. Scene 8 - LOW - Label case is inconsistent ("Steam" capitalised; "bimetal disc", "snap", "guard" lowercase). The kettle at rest is the mirrored variant (see 1).
+    FIX: lowercase "steam"; use the shared kettle.
+
+16. Scene 3 / Scene 5 - LOW - Faint fading text sits next to other labels in a few frames: scene 3 row 2 frame 4, right of "trip"; scene 5 row 5 frame 1, "contacts" fading in beside "past the middle". It is brief, but the bible asks for one label to fade fully out before the next fades in, in the same area.
+    FIX: sequence those fades, or move the incoming label to a separate slot.
+
+17. Legibility, general - LOW - Most pills look about 40 px at full size (passes). In scene 7's last frame, the dimmed small labels ("springs back by itself", "switching temperature") look 36-38 px and at 0.35 opacity they are hard to read. Scene 5's opening composition is a small disc in the top-left of an otherwise empty frame.
+    FIX: raise the small labels to at least 40 px, or drop them in the final wide shot and keep only the big phrase. Centre and enlarge the disc in scene 5's opening.
+
+WHAT WORKS
+- Scenes 2, 3, 4, 5, 6 and 7 end on a large restating phrase as the bible asks.
+- Spotlight dimming is used consistently.
+- Scene 5's rod -> seesaw lever -> contacts chain is clear and in the right order, and the power goes dark on "cut".
+- Scene 7's thermometer gap marker shows "about thirty degrees below" with no digits, as required.
+- Scene 8's four-icon recap lights up roughly on each spoken word.
+- No numbers, brands or places appear on screen.
+
+SCORE: 3/5. The scenes are clean and mostly in sync, but the kettle, the sensor's location and the disc's curvature change from scene to scene, and the second-safety scene ends on the failure case.
