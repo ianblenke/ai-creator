@@ -17,6 +17,8 @@ examples/*/audio/
 examples/*/frames/
 examples/*/out/
 out/
+# SEO research reports (tools/seo.js): your own research notes, local only
+seo-reports/
 # No audio or video is ever committed (tools/safety/repo-check.js blocks the same list).
 *.wav
 *.mp3

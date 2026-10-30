@@ -137,6 +137,7 @@ and in what form; a spoken or on-screen line saying the voice is a clone is the 
 ## Read first
 - `docs/tutorial/README.md`: the tutorial pages in watch order (`full-run.md`, `takes.md`).
 - `docs/upload.md`: the YouTube upload setup checklist.
+- `docs/seo.md`: free research for titles, tags and descriptions (autocomplete, top videos, your own search terms); relative interest, not volume.
 - `docs/agent-layer.md`: what the hosted model writes (scenes, critique, reviews) and the prompts it gets.
 - `docs/hardware-and-models.md`: sizes, the models downloaded at first use, and the machines behind every number.
 - `docs/voice-cloning-law.md`: cloning a voice for content, with its sources and who read them; not legal advice.

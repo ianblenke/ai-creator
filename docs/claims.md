@@ -76,3 +76,10 @@ example's README; rerun the step to reproduce them.
 | a real ghost frame against a fresh render | about 30 dB; healthy clips 36 dB or more | `tools/stages/render.js`, `tools/stages/verifyclips.js` | not recorded in this repo | not recorded | measured |
 
 Every check threshold above was set on one voice (the author's) with OmniVoice; none has been re-derived on Chatterbox output.
+
+## SEO research
+
+| claim | value | source | date | n | status |
+|---|---|---|---|---|---|
+| suggestions per autocomplete list (`client=firefox`, with and without `ds=yt`) | 10 | two requests by hand, `docs/seo.md` | 2026-10-30 | 2 | measured |
+| YouTube Data API calls from `tools/seo.js` | not run live | | | | not measured |

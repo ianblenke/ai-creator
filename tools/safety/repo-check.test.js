@@ -16,5 +16,6 @@ test('blocks every audio and video container anywhere, and generated folders of 
   assert.deepEqual(forbiddenFiles(media), media);
   const generated = ['examples/ep01-kettle/audio/s1.json', 'examples/ep01-kettle/out/x.json', 'episodes/e1/frames/1.png'];
   assert.deepEqual(forbiddenFiles(generated), generated);
+  assert.deepEqual(forbiddenFiles(['seo-reports/2026-10-30-kettles.md', 'docs/seo.md', 'tools/seo.js']), ['seo-reports/2026-10-30-kettles.md']);
   assert.deepEqual(forbiddenFiles(['examples/ep01-kettle/keyframes/01-the-hook/00-t0.05.png', 'examples/ep01-kettle/timeline.json', 'docs/audio.md']), []);
 });

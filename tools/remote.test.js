@@ -24,4 +24,5 @@ test('pull keyframes for keyframes, out for render and encode', () => {
 });
 test('sync excludes generated folders for both episodes/ and examples/', () => {
   for (const d of ['episodes', 'examples']) for (const sub of ['keyframes', 'out']) assert.ok(EXCLUDES.includes(`--exclude=${d}/*/${sub}`));
+  assert.ok(EXCLUDES.includes('--exclude=/seo-reports'), 'SEO reports stay on this machine');
 });

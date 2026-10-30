@@ -19,6 +19,6 @@ the part's own page does not exist yet; the related reference pages already do.
 | Scenes as functions of time | the scene contract and the visual kit | `docs/scene-contract.md`, `docs/visual-kit.md` |
 | Authors and adversarial reviews | a hosted model writes and reviews the scenes | `prompts/scene-author.md`, `prompts/keyframe-review.md`, `prompts/continuity-review.md` |
 | Renders you can trust | ghost frames, determinism, checking what ships | `docs/tutorial/full-run.md` (section 5) |
-| Shipping | upload, captions, corrections | `docs/upload.md`, `docs/tutorial/full-run.md` (section 6) |
+| Shipping | upload, captions, corrections, titles people search for | `docs/upload.md`, `docs/tutorial/full-run.md` (section 6), `docs/seo.md` |
 
 Every number a video or page states is listed, with its source, date and sample size, in `docs/claims.md`.

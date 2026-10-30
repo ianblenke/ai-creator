@@ -28,7 +28,7 @@ const run = (cmd, args, opts = {}) => new Promise((resolve) => {
 });
 
 // Same layout rule as .gitignore and repo-check: episodes/<id> (yours) and examples/<id> (shipped) are treated alike.
-export const EXCLUDES = ['--exclude=node_modules', '--exclude=.venv-align', ...['episodes', 'examples'].flatMap((d) => [`--exclude=${d}/*/keyframes`, `--exclude=${d}/*/out`]), '--exclude=.git'];
+export const EXCLUDES = ['--exclude=node_modules', '--exclude=.venv-align', ...['episodes', 'examples'].flatMap((d) => [`--exclude=${d}/*/keyframes`, `--exclude=${d}/*/out`]), '--exclude=/seo-reports', '--exclude=.git'];
 
 export async function runRemote(cmd, episode, args, cfg) {
   const ssh = ['-o', 'BatchMode=yes', cfg.host];

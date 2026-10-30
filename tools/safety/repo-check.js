@@ -7,7 +7,7 @@ export const MEDIA_EXT = /\.(?:wav|mp3|flac|m4a|ogg|oga|opus|aac|wma|aif|aiff|mp
 // Explicit exceptions to MEDIA_EXT (exact repo paths). Empty on purpose: no voice audio is ever committed.
 export const MEDIA_ALLOW = [];
 
-const FORBIDDEN = [/^\.env\.local$/, /^\.env$/, /^safety\/denylist\.txt$/, /^voice\/(?!README\.md$|CONSENT\.example\.md$)/, /^\.secrets\//, /^(?:episodes|examples)\/[^/]+\/(?:audio|frames|out)\//];
+const FORBIDDEN = [/^\.env\.local$/, /^\.env$/, /^safety\/denylist\.txt$/, /^voice\/(?!README\.md$|CONSENT\.example\.md$)/, /^\.secrets\//, /^(?:episodes|examples)\/[^/]+\/(?:audio|frames|out)\//, /^seo-reports\//];
 
 export function forbiddenFiles(files) {
   return files.filter((f) => FORBIDDEN.some((re) => re.test(f)) || (MEDIA_EXT.test(f) && !MEDIA_ALLOW.includes(f)));
