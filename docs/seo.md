@@ -69,8 +69,8 @@ From the offline test fixture in `tools/seo.test.js` (invented videos), shortene
 
     | # | title | channel | published | views | views per day | length |
     |---|---|---|---|---|---|---|
-    | 1 | [How a kettle knows when to stop \| explained](...) | Physics Desk | 2026-09-30 | 3000 | 100 | 4:00 |
-    | 2 | [Kettle descaler test: vinegar or citric acid?](...) | Home Lab | 2026-10-20 | 500 | 50 | 12:05 |
+    | 1 | [How a kettle knows when to stop \| explained](https://example.com/watch) | Physics Desk | 2026-09-30 | 3000 | 100 | 4:00 |
+    | 2 | [Kettle descaler test: vinegar or citric acid?](https://example.com/watch) | Home Lab | 2026-10-20 | 500 | 50 | 12:05 |
 
     | tag | videos |
     |---|---|
