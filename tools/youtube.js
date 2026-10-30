@@ -4,6 +4,7 @@
 //   node tools/youtube.js auth --manual              sign-in from a remote machine, step 1 (prints a link), then:
 //   node tools/youtube.js auth --finish '<address>'  step 2 (paste the address the browser ended on)
 //   node tools/youtube.js auth --port 8765           local sign-in on a fixed port (for an SSH tunnel: ssh -L 8765:127.0.0.1:8765 ...)
+//   add --analytics to any auth form to also grant read-only YouTube Analytics (for tools/seo.js analytics; docs/seo.md)
 //   node tools/youtube.js check                      which channel am I signed in to?
 //   node tools/youtube.js short <clip.mp4> [--yes]  uploads a Short (needs clip.json with title and description), private only
 //   node tools/youtube.js upload <episode-dir> [--title N] [--privacy private|unlisted] [--yes] [--force]
@@ -18,7 +19,7 @@ import http from 'node:http';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { Readable } from 'node:stream';
-import { SCOPES, openBrowser, parseRedirect, parseDraft, validateUpload, buildDescription, episodeFiles, insertMetadata, MAX_TITLE, MAX_DESCRIPTION_BYTES, findPlaceholders, disclosureProblems } from './youtube-lib.js';
+import { SCOPES, authScopes, openBrowser, parseRedirect, parseDraft, validateUpload, buildDescription, episodeFiles, insertMetadata, MAX_TITLE, MAX_DESCRIPTION_BYTES, findPlaceholders, disclosureProblems } from './youtube-lib.js';
 
 const SECRETS = path.resolve('.secrets');
 const CLIENT_FILE = path.join(SECRETS, 'client_secret.json');
@@ -37,18 +38,18 @@ function loadClient() {
 
 const PENDING_FILE = path.join(SECRETS, 'pending-auth.json');
 
-function authUrl(c, { redirect, challenge, state }) {
-  return `${c.auth_uri}?${new URLSearchParams({ client_id: c.client_id, redirect_uri: redirect, response_type: 'code', scope: SCOPES.join(' '), code_challenge: challenge, code_challenge_method: 'S256', state, access_type: 'offline', prompt: 'consent' })}`;
+function authUrl(c, { redirect, challenge, state, scopes = SCOPES }) {
+  return `${c.auth_uri}?${new URLSearchParams({ client_id: c.client_id, redirect_uri: redirect, response_type: 'code', scope: scopes.join(' '), code_challenge: challenge, code_challenge_method: 'S256', state, access_type: 'offline', prompt: 'consent' })}`;
 }
 
-async function exchangeAndSave(c, { code, verifier, redirect }) {
+async function exchangeAndSave(c, { code, verifier, redirect, scopes = SCOPES }) {
   const r = await fetch(c.token_uri, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ code, client_id: c.client_id, client_secret: c.client_secret, code_verifier: verifier, redirect_uri: redirect, grant_type: 'authorization_code' }) });
   const j = await r.json();
   if (!r.ok || !j.refresh_token) fail(`token exchange failed: ${j.error_description || j.error || r.status}`);
   fs.writeFileSync(TOKEN_FILE, JSON.stringify({ refresh_token: j.refresh_token, scope: j.scope, obtained: new Date().toISOString() }, null, 2), { mode: 0o600 });
   const granted = (j.scope || '').split(' ');
   console.log('Signed in. Granted:', granted.map((s) => s.replace('https://www.googleapis.com/auth/', '')).join(', '));
-  const extra = granted.filter((s) => !SCOPES.includes(s) && !/^(openid|email|profile)$/.test(s));
+  const extra = granted.filter((s) => !scopes.includes(s) && !/^(openid|email|profile)$/.test(s));
   if (extra.length) console.log('WARNING: unexpected extra permissions:', extra.join(' '));
   console.log('Next: node tools/youtube.js check');
 }
@@ -59,14 +60,14 @@ const newPkce = () => {
 };
 
 /** Local browser: listen on 127.0.0.1 (optionally a fixed port, for an SSH tunnel) and catch the redirect. */
-async function auth(port = 0) {
+async function auth(port = 0, scopes = SCOPES) {
   const c = loadClient();
   const { verifier, challenge, state } = newPkce();
   const server = http.createServer();
   await new Promise((r) => server.listen(port, '127.0.0.1', r));
   const redirect = `http://127.0.0.1:${server.address().port}`;
-  const url = authUrl(c, { redirect, challenge, state });
-  console.log(`Open this page, sign in with the account that owns the channel, and approve the two permissions (listening on ${redirect}):\n\n${url}\n`);
+  const url = authUrl(c, { redirect, challenge, state, scopes });
+  console.log(`Open this page, sign in with the account that owns the channel, and approve the ${scopes.length} permissions (listening on ${redirect}):\n\n${url}\n`);
   openBrowser(url, spawn);
   const code = await new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error('timed out waiting for the browser (5 minutes)')), 300000);
@@ -78,16 +79,16 @@ async function auth(port = 0) {
       try { resolve(parseRedirect(`${redirect}${req.url}`, state)); } catch (e) { reject(e); }
     });
   }).finally(() => server.close());
-  await exchangeAndSave(c, { code, verifier, redirect });
+  await exchangeAndSave(c, { code, verifier, redirect, scopes });
 }
 
 /** Remote machine, step 1: print the link and remember the sign-in attempt. The browser's redirect will not load; the author pastes its address in step 2. */
-function authManual(port = 8765) {
+function authManual(port = 8765, scopes = SCOPES) {
   const c = loadClient();
   const { verifier, challenge, state } = newPkce();
   const redirect = `http://127.0.0.1:${port}`;
-  fs.writeFileSync(PENDING_FILE, JSON.stringify({ verifier, state, redirect, created: new Date().toISOString() }), { mode: 0o600 });
-  console.log(`1. Open this link in a browser on ANY computer, sign in with the account that owns the channel, and approve the two permissions:\n\n${authUrl(c, { redirect, challenge, state })}\n`);
+  fs.writeFileSync(PENDING_FILE, JSON.stringify({ verifier, state, redirect, scopes, created: new Date().toISOString() }), { mode: 0o600 });
+  console.log(`1. Open this link in a browser on ANY computer, sign in with the account that owns the channel, and approve the ${scopes.length} permissions:\n\n${authUrl(c, { redirect, challenge, state, scopes })}\n`);
   console.log(`2. The browser will then show an error page ("can't connect" / "refused") for an address starting with ${redirect}. That is expected.\n   Copy the FULL address from the browser's address bar and run:\n\n   node tools/youtube.js auth --finish '<paste the address here>'\n`);
 }
 
@@ -95,11 +96,11 @@ function authManual(port = 8765) {
 async function authFinish(pasted) {
   const c = loadClient();
   if (!fs.existsSync(PENDING_FILE)) fail('no sign-in in progress: run `node tools/youtube.js auth --manual` first');
-  const { verifier, state, redirect, created } = JSON.parse(fs.readFileSync(PENDING_FILE, 'utf8'));
+  const { verifier, state, redirect, scopes, created } = JSON.parse(fs.readFileSync(PENDING_FILE, 'utf8'));
   if (Date.now() - Date.parse(created) > 600000) { fs.rmSync(PENDING_FILE); fail('that sign-in attempt is more than 10 minutes old: run `auth --manual` again'); }
   let code;
   try { code = parseRedirect(pasted, state); } catch (e) { fail(e.message); }
-  await exchangeAndSave(c, { code, verifier, redirect });
+  await exchangeAndSave(c, { code, verifier, redirect, scopes });
   fs.rmSync(PENDING_FILE, { force: true });
 }
 
@@ -251,16 +252,17 @@ async function playlistAdd(episodeDir, playlistId, at) {
 const [cmd, ...rest] = process.argv.slice(2);
 const flag = (n, d) => { const i = rest.indexOf(n); return i >= 0 ? rest[i + 1] : d; };
 const opts = { title: +flag('--title', 1), privacy: flag('--privacy', 'private'), yes: rest.includes('--yes'), force: rest.includes('--force') };
+const scopes = authScopes(rest.includes('--analytics')); // opt-in read-only Analytics permissions for tools/seo.js
 const dir = rest.find((a, i) => !a.startsWith('--') && !['--title', '--privacy', '--port', '--finish'].includes(rest[i - 1]));
 try {
-  if (cmd === 'auth' && rest.includes('--manual')) authManual(+flag('--port', 8765));
+  if (cmd === 'auth' && rest.includes('--manual')) authManual(+flag('--port', 8765), scopes);
   else if (cmd === 'auth' && rest.includes('--finish')) await authFinish(flag('--finish', ''));
-  else if (cmd === 'auth') await auth(+flag('--port', 0));
+  else if (cmd === 'auth') await auth(+flag('--port', 0), scopes);
   else if (cmd === 'check') await check();
   else if (cmd === 'upload' && dir) await upload(dir, opts);
   else if (cmd === 'short' && dir) await short(dir, opts);
   else if (cmd === 'finish' && dir) await finish(dir);
   else if (cmd === 'playlist-add' && dir && rest.filter((x, i) => !x.startsWith('--') && rest[i - 1] !== '--position').length >= 2) await playlistAdd(dir, rest.filter((x, i) => !x.startsWith('--') && rest[i - 1] !== '--position')[1], +flag('--position', 0));
   else if (cmd === 'status' && dir) await status(dir);
-  else console.log('usage:\n  node tools/youtube.js auth [--port N]            (browser on this machine)\n  node tools/youtube.js auth --manual              (remote machine, step 1)\n  node tools/youtube.js auth --finish \'<address>\'  (remote machine, step 2)\n  node tools/youtube.js check\n  node tools/youtube.js upload <episode-dir> [--title N] [--privacy private|unlisted] [--yes] [--force]\n  node tools/youtube.js finish <episode-dir>\n  node tools/youtube.js status <episode-dir>   (read-only: what YouTube shows for the uploaded video)');
+  else console.log('usage:\n  node tools/youtube.js auth [--port N] [--analytics]   (browser on this machine; --analytics adds read-only Analytics)\n  node tools/youtube.js auth --manual              (remote machine, step 1)\n  node tools/youtube.js auth --finish \'<address>\'  (remote machine, step 2)\n  node tools/youtube.js check\n  node tools/youtube.js upload <episode-dir> [--title N] [--privacy private|unlisted] [--yes] [--force]\n  node tools/youtube.js finish <episode-dir>\n  node tools/youtube.js status <episode-dir>   (read-only: what YouTube shows for the uploaded video)');
 } catch (e) { fail(e.message); }

@@ -5,7 +5,7 @@ import { EventEmitter } from 'node:events';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { videoProblems, openBrowser, parseRedirect, parseDraft, findPlaceholders, validateChapters, validateUpload, buildDescription, insertMetadata, toSeconds, disclosureProblems } from './youtube-lib.js';
+import { videoProblems, openBrowser, parseRedirect, parseDraft, findPlaceholders, validateChapters, validateUpload, buildDescription, insertMetadata, toSeconds, disclosureProblems, SCOPES, ANALYTICS_SCOPES, authScopes } from './youtube-lib.js';
 
 const DISCLOSED = 'Fine text.\nThe narration is a cloned copy of my own voice, generated with Chatterbox.\nVoice model: Chatterbox by Resemble AI, MIT licence (read 2026-10-29): https://github.com/resemble-ai/chatterbox';
 
@@ -118,4 +118,10 @@ test('the dry run refuses a video file that is too small or not an MP4, and chec
     assert.deepEqual(videoProblems(real, { minBytes: 0 }), []);
   }
   fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('the upload sign-in is unchanged; --analytics only adds the two read-only scopes', () => {
+  assert.deepEqual(authScopes(), ['https://www.googleapis.com/auth/youtube.upload', 'https://www.googleapis.com/auth/youtube.force-ssl']);
+  assert.deepEqual(authScopes(true), [...SCOPES, 'https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube.readonly']);
+  assert.ok(ANALYTICS_SCOPES.every((s) => s.endsWith('.readonly')));
 });

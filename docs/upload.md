@@ -22,6 +22,8 @@ Google changes these pages and its Console menus: if a step does not match, foll
    refuses a file without an `installed` section: that means you made a Web client instead of a Desktop app client.
 
 The tool asks for two permissions only: `youtube.upload` and `youtube.force-ssl` (the second is needed for captions and the playlist).
+`auth --analytics` (any form) also asks for two read-only ones, `yt-analytics.readonly` and `youtube.readonly`, for
+`node tools/seo.js analytics` (`docs/seo.md`); without the flag nothing changes.
 
 ## 2. Where it runs
 - **On the host** (your own machine, from the repository root): `auth` (every form), `check` and the real `upload --yes`, `finish` and

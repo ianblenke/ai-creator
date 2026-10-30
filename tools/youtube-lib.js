@@ -102,6 +102,10 @@ export function buildDescription({ description, chapters }) {
 }
 
 export const SCOPES = ['https://www.googleapis.com/auth/youtube.upload', 'https://www.googleapis.com/auth/youtube.force-ssl'];
+// Read-only, opt-in with `auth --analytics`, for tools/seo.js analytics. reports.query lists yt-analytics.readonly and (read 2026-10-30,
+// https://developers.google.com/youtube/analytics/reference/reports/query) "now require[s] access to the .../auth/youtube.readonly scope".
+export const ANALYTICS_SCOPES = ['https://www.googleapis.com/auth/yt-analytics.readonly', 'https://www.googleapis.com/auth/youtube.readonly'];
+export const authScopes = (analytics = false) => (analytics ? [...SCOPES, ...ANALYTICS_SCOPES] : SCOPES);
 
 /** Files an episode's final folder is expected to hold. */
 export function episodeFiles(episodeDir) {
