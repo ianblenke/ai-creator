@@ -71,7 +71,7 @@ export function quotaGuard({ file, budgets, now = Date.now }) {
 /** GET with a 7-day disk cache, at most one network request per gapMs, and a hard stop on 429/403. Returns parse(body). */
 export function makeClient({ fetch = globalThis.fetch, now = Date.now, sleep = (ms) => new Promise((r) => setTimeout(r, ms)), cacheDir = '.cache/seo', gapMs = 1000 } = {}) {
   let last = -Infinity;
-  return async function get(url, { cacheKey = url, label = 'request', parse = (b) => b, before } = {}) {
+  return async function get(url, { cacheKey = url, label = 'request', parse = (b) => b, before, headers = {} } = {}) {
     const file = path.join(cacheDir, `${crypto.createHash('sha256').update(cacheKey).digest('hex')}.json`);
     try {
       const c = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -81,7 +81,7 @@ export function makeClient({ fetch = globalThis.fetch, now = Date.now, sleep = (
     const wait = last + gapMs - now();
     if (wait > 0) await sleep(wait);
     last = now();
-    const r = await fetch(url, { headers: { 'user-agent': UA } });
+    const r = await fetch(url, { headers: { 'user-agent': UA, ...headers } });
     const body = await r.text();
     let detail = '';
     try { detail = JSON.parse(body).error?.message || ''; } catch { /* not json */ }
@@ -103,14 +103,15 @@ export function isoSeconds(d) {
 }
 
 /** Top 10 videos for one seed: search.list (its own bucket) then one videos.list for the ids (1 unit). */
-export async function topVideos(seed, { get, apiKey, quota }) {
-  const key = `&key=${encodeURIComponent(apiKey)}`; // never in the cache key or an error message
+export async function topVideos(seed, { get, apiKey, token, quota }) {
+  const key = apiKey ? `&key=${encodeURIComponent(apiKey)}` : ''; // never in the cache key or an error message
+  const headers = apiKey ? {} : { authorization: `Bearer ${token}` }; // the saved sign-in stands in for a key
   const s = new URLSearchParams({ part: 'snippet', type: 'video', maxResults: '10', q: seed });
-  const found = await get(`${DATA_API}/search?${s}${key}`, { cacheKey: `search?${s}`, label: 'YouTube Data API search.list', parse: JSON.parse, before: () => quota.charge('search.list') });
+  const found = await get(`${DATA_API}/search?${s}${key}`, { cacheKey: `search?${s}`, label: 'YouTube Data API search.list', headers, parse: JSON.parse, before: () => quota.charge('search.list') });
   const ids = (found.items || []).map((i) => i.id?.videoId).filter(Boolean);
   if (!ids.length) return [];
   const v = new URLSearchParams({ part: 'snippet,statistics,contentDetails', id: ids.join(',') });
-  const list = await get(`${DATA_API}/videos?${v}${key}`, { cacheKey: `videos?${v}`, label: 'YouTube Data API videos.list', parse: JSON.parse, before: () => quota.charge('videos.list') });
+  const list = await get(`${DATA_API}/videos?${v}${key}`, { cacheKey: `videos?${v}`, label: 'YouTube Data API videos.list', headers, parse: JSON.parse, before: () => quota.charge('videos.list') });
   const byId = new Map((list.items || []).map((x) => [x.id, x]));
   return ids.filter((id) => byId.has(id)).map((id) => {
     const x = byId.get(id);
@@ -118,8 +119,8 @@ export async function topVideos(seed, { get, apiKey, quota }) {
   });
 }
 
-/** Suggestion lists for every seed (and seed + a..z), then top videos per seed when there is an API key. */
-export async function research(seeds, { get, alphabet = false, apiKey = '', quota, log = () => {} }) {
+/** Suggestion lists for every seed (and seed + a..z), then top videos per seed when there is an API key or a sign-in token. */
+export async function research(seeds, { get, alphabet = false, apiKey = '', token = '', quota, log = () => {} }) {
   const lists = [];
   for (const seed of seeds) {
     const queries = [seed, ...(alphabet ? [...'abcdefghijklmnopqrstuvwxyz'].map((c) => `${seed} ${c}`) : [])];
@@ -131,9 +132,9 @@ export async function research(seeds, { get, alphabet = false, apiKey = '', quot
     }
     log(`suggestions: ${seed} (${queries.length * 2} lists)`);
   }
-  if (!apiKey) return { lists, videos: null };
+  if (!apiKey && !token) return { lists, videos: null };
   const videos = {};
-  for (const seed of seeds) { videos[seed] = await topVideos(seed, { get, apiKey, quota }); log(`top videos: ${seed}`); }
+  for (const seed of seeds) { videos[seed] = await topVideos(seed, { get, apiKey, token, quota }); log(`top videos: ${seed}`); }
   return { lists, videos };
 }
 
@@ -182,7 +183,7 @@ export function buildReport({ seeds, date, lists, videos, nowMs, maxSuggestions 
   if (ranked.length > maxSuggestions) out.push('', `(${ranked.length - maxSuggestions} more not shown)`);
   out.push('', '## Top videos', '');
   if (!videos) {
-    out.push('Skipped: no YOUTUBE_API_KEY in .env.local, so no videos were looked up (docs/seo.md says how to make a free key).');
+    out.push('Skipped: no YOUTUBE_API_KEY and no usable saved sign-in, so no videos were looked up (docs/seo.md says how).');
   } else {
     for (const seed of seeds) {
       const vs = videos[seed] || [];
@@ -251,12 +252,14 @@ export function analyticsUrl({ days = 28, video, today }) {
 }
 
 /** Same files and refresh as tools/youtube.js (docs/upload.md); checks the saved scopes before any request. */
-async function accessToken(fetchFn) {
+async function accessToken(fetchFn, { analytics = true } = {}) {
   const read = (f) => { try { return JSON.parse(fs.readFileSync(path.join('.secrets', f), 'utf8')); } catch { return null; } };
   const c = read('client_secret.json')?.installed;
   const t = read('token.json');
   if (!c || !t?.refresh_token) throw new StopError(`not signed in (no .secrets/client_secret.json or token.json; setup: docs/upload.md).\n${REAUTH}`);
-  if (t.scope && missingScopes(t.scope).length) throw new StopError(`the saved sign-in lacks ${missingScopes(t.scope).join(' ')}.\n${REAUTH}`);
+  // Data API reads accept force-ssl or readonly; analytics needs both analytics scopes.
+  if (t.scope && analytics && missingScopes(t.scope).length) throw new StopError(`the saved sign-in lacks ${missingScopes(t.scope).join(' ')}.\n${REAUTH}`);
+  if (t.scope && !analytics && !/youtube\.(force-ssl|readonly)/.test(t.scope)) throw new StopError('the saved sign-in has no YouTube read scope');
   const r = await fetchFn(c.token_uri, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ client_id: c.client_id, client_secret: c.client_secret, refresh_token: t.refresh_token, grant_type: 'refresh_token' }) });
   const j = await r.json();
   if (!r.ok) throw new StopError(j.error === 'invalid_grant' ? `the sign-in has expired (Testing-mode sign-ins lapse after 7 days).\n${REAUTH}` : `could not refresh the sign-in: ${j.error_description || j.error}`);
@@ -300,8 +303,14 @@ export async function main(argv, { env = { ...loadEnv(), ...process.env }, log =
     const hits = scanText(seeds.join('\n'), { file: 'seeds', denylist: loadDenylist(path.resolve('safety/denylist.txt')) });
     if (hits.length) throw new StopError(`content-safety: the seeds look private; nothing was sent:\n${formatFindings(hits)}`);
     const apiKey = env.YOUTUBE_API_KEY || '';
-    if (!apiKey) log('No YOUTUBE_API_KEY in .env.local: suggestions only, no top-video lookup (docs/seo.md says how to make a free key).');
-    const res = await research(seeds, { get: makeClient(), alphabet: rest.includes('--alphabet'), apiKey, quota, log });
+    let token = '';
+    if (!apiKey) {
+      try { token = await accessToken(globalThis.fetch, { analytics: false }); log('No YOUTUBE_API_KEY: using the saved YouTube sign-in for the top-video lookup.'); } catch (e) {
+        if (!(e instanceof StopError)) throw e;
+        log(`No YOUTUBE_API_KEY and no usable sign-in (${e.message.split('\n')[0]}): suggestions only (docs/seo.md says how to make a free key).`);
+      }
+    }
+    const res = await research(seeds, { get: makeClient(), alphabet: rest.includes('--alphabet'), apiKey, token, quota, log });
     const date = pacificDate(Date.now());
     const out = path.join(flag('--out', 'seo-reports'), `${date}-${slug(seeds)}.md`);
     fs.mkdirSync(path.dirname(out), { recursive: true });

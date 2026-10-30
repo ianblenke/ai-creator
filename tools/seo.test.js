@@ -124,7 +124,7 @@ test('no API key: suggestions only, no Data API call, the report says it was ski
   assert.ok(net.calls.every((c) => c.url.startsWith('https://suggestqueries.google.com/complete/search?client=firefox')));
   assert.ok(net.calls.some((c) => c.url.includes('q=kettle+z')));
   const md = buildReport({ seeds: ['kettle'], date: '2026-10-30', ...res, nowMs: net.now() });
-  assert.match(md, /Skipped: no YOUTUBE_API_KEY/);
+  assert.match(md, /Skipped: no YOUTUBE_API_KEY and no usable saved sign-in/);
   assert.match(md, /Needs the top videos/);
 });
 
@@ -143,6 +143,19 @@ test('with a key: one search.list and one videos.list per seed, quota charged on
   await research(['kettle'], { get, apiKey: 'SECRETKEY', quota });
   assert.deepEqual(quota.today(), { date: '2026-10-30', search: 1, units: 1 }, 'cached: not charged again');
   for (const f of fs.readdirSync(dir)) assert.ok(!fs.readFileSync(path.join(dir, f), 'utf8').includes('SECRETKEY'));
+});
+
+test('with a sign-in token instead of a key: Bearer header, no key in the url, token kept out of the cache', async () => {
+  const net = fakeNet(answer);
+  const dir = tmp();
+  const quota = quotaGuard({ file: path.join(dir, 'quota.json'), budgets: { search: 50, units: 800 }, now: net.now });
+  const get = makeClient({ fetch: net.fetch, now: net.now, sleep: net.sleep, cacheDir: dir });
+  const res = await research(['kettle'], { get, token: 'SECRETTOKEN', quota });
+  const api = net.calls.filter((c) => c.url.includes('googleapis'));
+  assert.equal(api.length, 2);
+  for (const c of api) { assert.ok(!c.url.includes('key=')); assert.equal(c.init.headers.authorization, 'Bearer SECRETTOKEN'); }
+  assert.deepEqual(res.videos.kettle.map((v) => v.id), ['v1', 'v2']);
+  for (const f of fs.readdirSync(dir)) assert.ok(!fs.readFileSync(path.join(dir, f), 'utf8').includes('SECRETTOKEN'));
 });
 
 test('report for a fixture: header, ranking, videos with views per day, tags, titles, lengths and gaps', async () => {

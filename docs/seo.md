@@ -23,8 +23,9 @@ In a Docker-only setup: `docker compose run --rm --entrypoint node media tools/s
 - **Seeds are sent to Google.** Type public topics only, never private names. The tool prints that warning and runs the
   content-safety scanner (`tools/safety/scan.js`, with your `safety/denylist.txt`) over the seeds; on a hit it refuses and sends
   nothing.
-- **The top-video lookup needs a free API key** (`YOUTUBE_API_KEY` in `.env.local`). Without one, the report has suggestions only
-  and says so.
+- **The top-video lookup needs a free API key** (`YOUTUBE_API_KEY` in `.env.local`) **or** your saved upload sign-in. With no key,
+  the tool uses the sign-in (its `youtube.force-ssl` scope should allow `search.list` and `videos.list`; not yet confirmed live).
+  With neither, the report has suggestions only and says so. A key still works when the sign-in has lapsed.
 - **Not tested live:** the YouTube Data API calls and the Analytics call. No API key or Analytics sign-in was available when the tool
   was written (2026-10-30); both are covered only by offline tests against recorded response shapes from Google's reference pages.
   The first real run is the test: read its output critically.
