@@ -1,7 +1,8 @@
 // Best-of-N narration takes. The voice model hesitates mid-phrase at random, and a blind retake is as likely to add a new hesitation as to
 // remove one. For each named scene this makes up to N takes, scores each take's timing (mid-phrase stalls and choppy runs from
 // tools/audio-check.js), keeps the cleanest, and restores it (raw take AND normalized scene file, so a later `tts` run keeps it).
-// Usage: media besttake <episode-dir> <scene-number...> [--takes 8]   (or node tools/besttake.js with the same arguments)
+// Usage: media besttake <episode-dir> <scene-number...> [--takes 8] [--keep-takes]   (or node tools/besttake.js with the same arguments)
+// --keep-takes makes all N takes (no early stop at a clean one) and keeps every take in <episode>/audio/takes/ (voice audio: never committed).
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -22,13 +23,16 @@ function newestRaw(rawDir) {
 export function main(args = process.argv.slice(2)) {
   const takesIdx = args.indexOf('--takes');
   const takes = takesIdx >= 0 ? +args[takesIdx + 1] : 8;
-  const rest = args.filter((a, i) => i !== takesIdx && i !== takesIdx + 1);
+  const keepTakes = args.includes('--keep-takes');
+  const rest = args.filter((a, i) => i !== takesIdx && i !== takesIdx + 1 && a !== '--keep-takes');
   const [episodeDir, ...scenes] = rest;
-  if (!episodeDir || !scenes.length) throw new Error('usage: media besttake <episode-dir> <scene-number...> [--takes N]');
+  if (!episodeDir || !scenes.length) throw new Error('usage: media besttake <episode-dir> <scene-number...> [--takes N] [--keep-takes]');
   const warn = seedWarning({ ...loadEnv(), ...process.env });
   if (warn) console.error(warn);
   const audioDir = path.join(episodeDir, 'audio');
   const rawDir = path.join(audioDir, 'raw');
+  const keepDir = path.join(audioDir, 'takes');
+  if (keepTakes && fs.existsSync(keepDir)) throw new Error(`${keepDir} already exists: move it away first, --keep-takes will not overwrite takes`);
   const tmp = fs.mkdtempSync(path.join(audioDir, 'besttake-'));
   const cli = (...a) => execFileSync('node', ['tools/cli.js', ...a], { stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 1 << 26 });
   const report = [];
@@ -48,14 +52,15 @@ export function main(args = process.argv.slice(2)) {
       fs.copyFileSync(path.join(rawDir, raw), snap.rawCopy);
       console.log(`scene ${nn} take ${i}: ${gaps.length} flagged gap(s), score ${score.toFixed(2)}`);
       if (!best || score < best.score) best = snap;
-      if (score === 0) break;
+      if (score === 0 && !keepTakes) break;
     }
     fs.copyFileSync(best.finalCopy, path.join(audioDir, best.finalWav));
     fs.copyFileSync(best.rawCopy, path.join(rawDir, best.raw));
     report.push(`scene ${nn}: kept take ${best.i} (${best.gaps} flagged gap(s), score ${best.score.toFixed(2)})`);
   }
   cli('align', episodeDir); // rebuild the timeline, subtitles and narration.wav from the restored takes
-  fs.rmSync(tmp, { recursive: true, force: true });
+  if (keepTakes) fs.renameSync(tmp, keepDir);
+  else fs.rmSync(tmp, { recursive: true, force: true });
   console.log(report.join('\n'));
 }
 

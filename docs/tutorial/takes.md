@@ -53,6 +53,9 @@ choppy run, and keeps the lowest score. `fixaudio` does the same across every ch
 extra syllable, a changed word or a missing word 3; a flagged pause 0.5 plus its length, at most 1.5; anything else 1), over at most
 8 rounds (`tools/stages/fixaudio.js`).
 
+Add `--keep-takes` to `besttake` to make all N takes (no early stop) and keep every one in `episodes/<id>/audio/takes/` as `NN-i.final.wav` and `NN-i.raw.wav`,
+for example to find a real slip to show. These are voice audio: the folder is gitignored and never committed. It refuses to run if `audio/takes/` already exists.
+
 ## When every take fails, reword
 If one phrase is flagged on every take, the voice cannot say it the way it is written. Reword it, respell it with
 `{{spoken: ...|...}}`, or split it with a comma or a `{{pause: 0.8}}` (`docs/script-format.md`), then run `check-anchors` (a reworded
