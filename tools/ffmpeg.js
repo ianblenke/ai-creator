@@ -38,9 +38,10 @@ export async function measureLufs(file) {
   return parseFloat((await loudnormStats(file)).input_i);
 }
 
-/** Two-pass, linear loudness normalization to -16 LUFS; writes mono 48 kHz PCM16 WAV. */
-export async function normalize(input, output, { lufs = TARGET.I } = {}) {
-  const m = await loudnormStats(input, `loudnorm=I=${lufs}:TP=${TARGET.TP}:LRA=${TARGET.LRA}:print_format=json`);
-  const f = `loudnorm=I=${lufs}:TP=${TARGET.TP}:LRA=${TARGET.LRA}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
+/** Two-pass, linear loudness normalization to -16 LUFS (after an optional tempo change); writes mono 48 kHz PCM16 WAV. */
+export async function normalize(input, output, { lufs = TARGET.I, tempo = 1 } = {}) {
+  const pre = tempo === 1 ? '' : `atempo=${tempo},`; // pitch-preserving speed change, measured and normalized after the stretch
+  const m = await loudnormStats(input, `${pre}loudnorm=I=${lufs}:TP=${TARGET.TP}:LRA=${TARGET.LRA}:print_format=json`);
+  const f = `${pre}loudnorm=I=${lufs}:TP=${TARGET.TP}:LRA=${TARGET.LRA}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`;
   await ffmpeg(['-i', input, '-af', f, '-ar', '48000', '-ac', '1', '-c:a', 'pcm_s16le', output]);
 }

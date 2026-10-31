@@ -18,6 +18,9 @@ x-media: &media
     VOICE_CFG_WEIGHT: ${VOICE_CFG_WEIGHT:-0.3}
     VOICE_TEMPERATURE: ${VOICE_TEMPERATURE:-0.9}
     VOICE_SEED: ${VOICE_SEED:-}
+    VOICE_TEMPO: ${VOICE_TEMPO:-1}
+    VOICE_PAUSE_SENTENCE: ${VOICE_PAUSE_SENTENCE:-0.4}
+    VOICE_PAUSE_PARAGRAPH: ${VOICE_PAUSE_PARAGRAPH:-0.8}
   env_file:
     - path: .env.local
       required: false

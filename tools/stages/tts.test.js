@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { runTts, verifyLoudness, checkConfig, checkConsent, serverVoiceNotice, waitForServer, httpTransport, seedWarning } from './tts.js';
+import { runTts, withPunctuationPauses, verifyLoudness, checkConfig, checkConsent, serverVoiceNotice, waitForServer, httpTransport, seedWarning } from './tts.js';
 import align from './align.js';
 import { ffmpeg, probeDuration } from '../ffmpeg.js';
 
@@ -197,4 +197,27 @@ test('fixture lane on a new episode: an estimated timeline from the script, kept
   fs.appendFileSync(path.join(dir, 'script.md'), '\n## Three\n\nA third scene with more words in it.\n');
   await runTts(dir, {}, { cfg: fx });
   assert.equal(JSON.parse(fs.readFileSync(path.join(dir, 'timeline.json'), 'utf8')).scenes.length, 3);
+});
+
+test('punctuation pauses: sentences and paragraphs split, abbreviations and decimals do not, the segment pause is kept, tempo scales the silence', () => {
+  const segs = [{ text: 'Dr. Reed paid 3.5 dollars. Was it enough? Yes!\n\nNext paragraph here.', pauseAfter: 1 }];
+  const out = withPunctuationPauses(segs, { sentence: 0.4, paragraph: 0.8, tempo: 1 });
+  assert.deepEqual(out, [
+    { text: 'Dr. Reed paid 3.5 dollars.', pauseAfter: 0.4 },
+    { text: 'Was it enough?', pauseAfter: 0.4 },
+    { text: 'Yes!', pauseAfter: 0.8 },
+    { text: 'Next paragraph here.', pauseAfter: 1 },
+  ]);
+  assert.equal(withPunctuationPauses([{ text: 'One. Two.', pauseAfter: 0 }], { sentence: 0.5, tempo: 0.9 })[0].pauseAfter, 0.45, 'written ahead of the stretch');
+});
+
+test('VOICE_TEMPO stretches the speech but the pauses come out as asked; bad values are refused', async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'tts-tempo-'));
+  fs.writeFileSync(path.join(dir, 'script.md'), '# T\n\n## One\n\nHello there friend. Second sentence here.\n');
+  const plain = await runTts(dir, {}, { transport: sine, cfg: { ...cfg, VOICE_PAUSE_SENTENCE: '0.5' } });
+  const slow = await runTts(dir, {}, { transport: sine, cfg: { ...cfg, VOICE_PAUSE_SENTENCE: '0.5', VOICE_TEMPO: '0.9' } });
+  assert.ok(Math.abs(plain[0].seconds - (1.5 + 0.5 + 1.5)) < 0.15, `plain ${plain[0].seconds}`);
+  assert.ok(Math.abs(slow[0].seconds - (3.0 / 0.9 + 0.5)) < 0.15, `slow ${slow[0].seconds}`);
+  await assert.rejects(runTts(dir, {}, { transport: sine, cfg: { ...cfg, VOICE_TEMPO: '0.1' } }), /VOICE_TEMPO/);
+  await assert.rejects(runTts(dir, {}, { transport: sine, cfg: { ...cfg, VOICE_PAUSE_SENTENCE: '-1' } }), /VOICE_PAUSE/);
 });

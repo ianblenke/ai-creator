@@ -15,6 +15,9 @@ reference clip. So the clip is where you put the performance.
 - Only clone your own voice, or one you have written permission to clone. Never commit the audio (`voice/` is blocked by the repo check).
 - Chatterbox has delivery settings on the server (`VOICE_EXAGGERATION` 0.6, `VOICE_CFG_WEIGHT` 0.3, `VOICE_TEMPERATURE` 0.9 in `.env`,
   chosen by ear on one voice; see `docs/voice-server-contract.md`); the reference clip still matters most.
+- Pace: the clone copies the pace of your reference clip, and Chatterbox has no speed setting. `VOICE_TEMPO=0.9` (in `.env`) slows the speech by ten percent
+  without changing pitch; chosen by ear on one voice, so try 0.85 to 1.0 on a scene of your own. Pauses at punctuation are real silence between
+  sentences (`VOICE_PAUSE_SENTENCE` 0.4 s, `VOICE_PAUSE_PARAGRAPH` 0.8 s, as heard after the tempo change). Changing any of these re-makes every cached take once.
 
 ## 2. Switch the tts stage to cloning
 

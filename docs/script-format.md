@@ -33,6 +33,10 @@ Narration paragraphs. Spoken-form override: {{spoken: thirty ninety | 3090}}
 the marker is synthesized separately and joined, so the pause does not depend on how the voice model treats a paragraph break. The marker is never
 narrated, shown, subtitled or aligned. Use it for a beat after a punchline (about 0.8 to 1.2 s); do not use it inside a sentence.
 
+You do not need a marker for ordinary punctuation: the tts stage synthesizes each sentence on its own and puts `VOICE_PAUSE_SENTENCE` (default 0.4 s)
+after every `.`, `!` or `?`, and `VOICE_PAUSE_PARAGRAPH` (default 0.8 s) at a blank line. Commas are left to the voice model. A `{{pause}}` marker
+replaces the automatic pause after its sentence. Pace is `VOICE_TEMPO` (see `docs/narration-quality.md`).
+
 ## Words the voice reads wrongly
 The present or infinitive "read" (rhymes with "reed") can come out as "red". Write `{{spoken: reed|read}}` (or `{{spoken: re-reed|re-read}}`). The ASR check
 cannot tell the two apart, so a human has to listen to these spots.

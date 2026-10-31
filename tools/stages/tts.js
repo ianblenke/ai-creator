@@ -175,6 +175,35 @@ async function fixtureAudio(episodeDir, script, audioDir) {
   return manifest;
 }
 
+const ABBREV = /\b(?:mr|mrs|ms|dr|st|vs|etc|e\.g|i\.e|approx|no)\.$/i;
+
+/**
+ * Narration pauses from punctuation. The voice model does not reliably pause at a full stop, so each sentence is synthesized on its own and
+ * joined with real silence: `sentence` seconds after . ! ? and `paragraph` seconds at a blank line. Silence is written ahead of the tempo
+ * stretch (x `tempo`) so that after it the pauses are exactly as long as asked, explicit {{pause}} markers included. 0 for both = off.
+ */
+export function withPunctuationPauses(segments, { sentence = 0.4, paragraph = 0.8, tempo = 1 } = {}) {
+  const out = [];
+  for (const seg of segments) {
+    const paras = seg.text.split(/\n\s*\n/).map((x) => x.trim()).filter(Boolean);
+    paras.forEach((para, pi) => {
+      const parts = [];
+      for (const piece of para.split(/(?<=[.!?]["”')\]]*)\s+(?=["“'(]*[A-Z0-9])/)) {
+        if (parts.length && ABBREV.test(parts[parts.length - 1])) parts[parts.length - 1] += ` ${piece}`;
+        else parts.push(piece);
+      }
+      parts.forEach((text, si) => {
+        const lastOfPara = si === parts.length - 1;
+        const lastOfSeg = lastOfPara && pi === paras.length - 1;
+        const pause = lastOfSeg ? seg.pauseAfter : lastOfPara ? paragraph : sentence;
+        out.push({ text, pauseAfter: Math.round(pause * tempo * 1000) / 1000 });
+      });
+    });
+    if (!paras.length) out.push({ text: seg.text, pauseAfter: seg.pauseAfter * tempo });
+  }
+  return out;
+}
+
 /** Synthesize each segment separately and join them with the requested silence (a pause marker in the script). */
 export async function synthesizeWithPauses(segments, transport, outFile) {
   const dir = fs.mkdtempSync(path.join(path.dirname(outFile), 'seg-'));
@@ -231,23 +260,29 @@ export async function runTts(episodeDir, { retake = [] } = {}, deps = {}) {
   // a final whose last key differs (e.g. fixture silence) is re-made from the cached take
   const lastKey = fs.existsSync(manifestFile) ? Object.fromEntries(JSON.parse(fs.readFileSync(manifestFile, 'utf8')).map((m) => [m.scene, m.key])) : {};
   const knobs = Object.fromEntries(Object.entries(KNOBS).map(([k, v]) => [k, cfg[v] || undefined])); // unset knobs drop out of the key
+  const tempo = Number(cfg.VOICE_TEMPO || 1);
+  if (!(tempo >= 0.5 && tempo <= 2)) throw new Error('VOICE_TEMPO must be a number from 0.5 to 2 (0.9 = ten percent slower)');
+  const secs = (v, d) => (v === undefined || v === '' ? d : Number(v)); // compose passes unset settings as ''
+  const pauses = { sentence: secs(cfg.VOICE_PAUSE_SENTENCE, 0.4), paragraph: secs(cfg.VOICE_PAUSE_PARAGRAPH, 0.8), tempo };
+  if (!(pauses.sentence >= 0 && pauses.paragraph >= 0)) throw new Error('VOICE_PAUSE_SENTENCE and VOICE_PAUSE_PARAGRAPH must be 0 or more seconds');
   const manifest = [];
   for (const scene of script.scenes) {
     const settings = { engine, voice: cfg.VOICE_REF ? `clone:${hash([fs.readFileSync(cfg.VOICE_REF).toString('base64'), cfg.VOICE_REF_TEXT])}` : cfg.VOICE_NAME ?? 'test', num_step: cfg.VOICE_NUM_STEP ?? '24', ...knobs };
-    const paused = scene.segments?.length > 1;
-    const key = hash(paused ? { segments: scene.segments, ...settings } : { text: scene.spokenText, ...settings });
+    const segments = pauses.sentence || pauses.paragraph ? withPunctuationPauses(scene.segments, pauses) : scene.segments;
+    const paused = segments?.length > 1;
+    const key = hash(paused ? { segments, ...settings, tempo } : { text: scene.spokenText, ...settings, tempo });
     const raw = path.join(rawDir, `${key}.wav`); // content-addressed: renumbering scenes must not invalidate audio
     const final = path.join(audioDir, `${scene.id}.wav`);
     const wanted = retake.some((r) => scene.id.startsWith(r.padStart(2, '0')) || scene.id === r);
     if (wanted) fs.rmSync(raw, { force: true });
     let status = 'cached';
     if (!fs.existsSync(raw)) {
-      if (paused) await synthesizeWithPauses(scene.segments, transport, raw);
+      if (paused) await synthesizeWithPauses(segments, transport, raw);
       else fs.writeFileSync(raw, await transport(scene.spokenText));
       fs.rmSync(final, { force: true });
       status = wanted ? 'retaken' : 'synthesized';
     }
-    if (!fs.existsSync(final) || status !== 'cached' || lastKey[scene.id] !== key) await normalize(raw, final, { lufs: TARGET_LUFS });
+    if (!fs.existsSync(final) || status !== 'cached' || lastKey[scene.id] !== key) await normalize(raw, final, { lufs: TARGET_LUFS, tempo });
     manifest.push({ scene: scene.id, file: path.relative(episodeDir, final), key, seconds: await probeDuration(final), status });
     console.log(`${scene.id}: ${status}`);
   }
