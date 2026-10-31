@@ -24,7 +24,7 @@ export function main(args = process.argv.slice(2)) {
   const takesIdx = args.indexOf('--takes');
   const takes = takesIdx >= 0 ? +args[takesIdx + 1] : 8;
   const keepTakes = args.includes('--keep-takes');
-  const rest = args.filter((a, i) => i !== takesIdx && i !== takesIdx + 1 && a !== '--keep-takes');
+  const rest = args.filter((a, i) => (takesIdx < 0 || (i !== takesIdx && i !== takesIdx + 1)) && a !== '--keep-takes');
   const [episodeDir, ...scenes] = rest;
   if (!episodeDir || !scenes.length) throw new Error('usage: media besttake <episode-dir> <scene-number...> [--takes N] [--keep-takes]');
   const warn = seedWarning({ ...loadEnv(), ...process.env });
