@@ -188,7 +188,7 @@ test('durations, file names', () => {
 test('analytics: the documented query, and re-auth steps for a missing scope', () => {
   const u = new URL(analyticsUrl({ days: 28, video: 'abc', today: '2026-10-30' }));
   assert.equal(u.origin + u.pathname, 'https://youtubeanalytics.googleapis.com/v2/reports');
-  assert.deepEqual(Object.fromEntries(u.searchParams), { ids: 'channel==MINE', startDate: '2026-10-02', endDate: '2026-10-30', metrics: 'views,estimatedMinutesWatched', dimensions: 'insightTrafficSourceDetail', filters: 'insightTrafficSourceType==YT_SEARCH;video==abc', sort: '-views', maxResults: '25' });
+  assert.deepEqual(Object.fromEntries(u.searchParams), { ids: 'channel==MINE', startDate: '2026-10-02', endDate: '2026-10-30', metrics: 'views,estimatedMinutesWatched,averageViewDuration', dimensions: 'insightTrafficSourceDetail', filters: 'insightTrafficSourceType==YT_SEARCH;video==abc', sort: '-views', maxResults: '25' });
   const scopeErr = JSON.stringify({ error: { code: 403, message: 'Request had insufficient authentication scopes.', status: 'PERMISSION_DENIED', details: [{ reason: 'ACCESS_TOKEN_SCOPE_INSUFFICIENT' }] } });
   const m = analyticsProblem(403, scopeErr);
   assert.match(m, /insufficient permissions/);

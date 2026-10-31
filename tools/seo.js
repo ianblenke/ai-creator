@@ -247,7 +247,7 @@ export function analyticsProblem(status, body) {
 
 export function analyticsUrl({ days = 28, video, today }) {
   const start = new Date(Date.parse(`${today}T00:00:00Z`) - days * DAY).toISOString().slice(0, 10);
-  const q = new URLSearchParams({ ids: 'channel==MINE', startDate: start, endDate: today, metrics: 'views,estimatedMinutesWatched', dimensions: 'insightTrafficSourceDetail', filters: `insightTrafficSourceType==YT_SEARCH${video ? `;video==${video}` : ''}`, sort: '-views', maxResults: '25' });
+  const q = new URLSearchParams({ ids: 'channel==MINE', startDate: start, endDate: today, metrics: 'views,estimatedMinutesWatched,averageViewDuration', dimensions: 'insightTrafficSourceDetail', filters: `insightTrafficSourceType==YT_SEARCH${video ? `;video==${video}` : ''}`, sort: '-views', maxResults: '25' });
   return `${ANALYTICS}?${q}`;
 }
 
@@ -274,7 +274,7 @@ export async function analytics({ days, video, fetch: fetchFn = globalThis.fetch
   const rows = JSON.parse(body).rows || [];
   log(`YouTube search terms that brought viewers, last ${days} days${video ? ` (video ${video})` : ' (whole channel)'}:`);
   if (!rows.length) log('No rows: YouTube reported no search terms for this period.');
-  else log(['   views  minutes  search term', ...rows.map(([term, views, minutes]) => `${String(views).padStart(8)} ${String(Math.round(minutes)).padStart(8)}  ${term}`)].join('\n'));
+  else log(['   views  minutes  avg view  search term', ...rows.map(([term, views, minutes, avg]) => `${String(views).padStart(8)} ${String(Math.round(minutes)).padStart(8)} ${(avg == null ? '?' : clock(Math.round(avg))).padStart(9)}  ${term}`)].join('\n'));
 }
 
 // ---- command line ----

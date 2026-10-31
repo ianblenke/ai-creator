@@ -133,7 +133,7 @@ These Console steps were not checked against Google's current pages on 2026-10-3
 ## analytics
 `node tools/seo.js analytics --days 28` lists the YouTube search terms that brought viewers to your channel (or one video with
 `--video <id>`): YouTube Analytics API v2 `reports.query` with `dimensions=insightTrafficSourceDetail`,
-`filters=insightTrafficSourceType==YT_SEARCH`, `metrics=views,estimatedMinutesWatched`, `sort=-views`, `maxResults=25`. These are the
+`filters=insightTrafficSourceType==YT_SEARCH`, `metrics=views,estimatedMinutesWatched,averageViewDuration`, `sort=-views`, `maxResults=25`. These are the
 real terms viewers typed, so they are the best check of a title after an episode is out.
 
 Pages read on 2026-10-30 (all last updated 2026-10-15 UTC): https://developers.google.com/youtube/analytics/reference/reports/query
