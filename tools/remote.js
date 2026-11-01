@@ -1,7 +1,7 @@
 // Run heavy stages (keyframes/render/encode) on a separate render machine: push the project, run there, pull results back.
 import { spawn } from 'node:child_process';
 
-export const REMOTE_STAGES = new Set(['keyframes', 'render', 'encode', 'align', 'asr', 'verifyclips', 'voicereview', 'takedefects', 'desniff', 'finalcheck']);
+export const REMOTE_STAGES = new Set(['keyframes', 'render', 'encode', 'align', 'asr', 'verifyclips', 'voicereview', 'takedefects', 'desniff', 'tighten', 'finalcheck']);
 
 /** Single-quote a string for a POSIX shell. */
 export const shq = (s) => `'${String(s).replace(/'/g, `'\\''`)}'`;
@@ -19,7 +19,7 @@ export function buildRemoteCommand(cmd, episode, args, cfg) {
 
 /** What to pull back after a stage, relative to the episode directory. */
 // Pulls never delete local files, except keyframes (a pure mirror of regenerated PNGs). Deleting out/ once removed hand-made files.
-export const pullPaths = (cmd) => (cmd === 'keyframes' ? ['keyframes/'] : cmd === 'align' ? ['timeline.json', 'subs/', 'audio/narration.wav'] : cmd === 'asr' ? ['audio/asr-report.json'] : cmd === 'voicereview' ? ['audio/voice-review.json', 'audio/review/'] : cmd === 'desniff' ? ['audio/'] : cmd === 'verifyclips' || cmd === 'finalcheck' || cmd === 'takedefects' ? [] : ['out/']);
+export const pullPaths = (cmd) => (cmd === 'keyframes' ? ['keyframes/'] : cmd === 'align' ? ['timeline.json', 'subs/', 'audio/narration.wav'] : cmd === 'asr' ? ['audio/asr-report.json'] : cmd === 'voicereview' ? ['audio/voice-review.json', 'audio/review/'] : cmd === 'desniff' || cmd === 'tighten' ? ['audio/'] : cmd === 'verifyclips' || cmd === 'finalcheck' || cmd === 'takedefects' ? [] : ['out/']);
 
 const run = (cmd, args, opts = {}) => new Promise((resolve) => {
   const p = spawn(cmd, args, { stdio: 'inherit', ...opts });

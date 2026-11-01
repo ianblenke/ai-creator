@@ -7,7 +7,9 @@ const CLAUSE_END = /[,;:—-]["')\]]*$/;
 // This voice naturally pauses ~1 s at colons and commas; only a stall INSIDE a phrase (no punctuation) is a real glitch.
 // Unpunctuated gaps are normally 0.02 to 0.15 s; 0.38 s between "model" and "writes" was heard as a comma-length pause,
 // so the limit is 0.35 s. (It was 0.55 s at first, which let those through.)
-export const LIMITS = { midPhrase: 0.35, afterClause: 1.3, afterSentence: 1.8 };
+export const LIMITS = { midPhrase: 0.35, beforeConjunction: 0.5, afterClause: 1.3, afterSentence: 1.8 };
+// a beat before and/but/so is tolerated longer (the author, listening: 0.5 to 0.7 s there sounds like cadence; before "to" or "took" it sounds odd)
+const CONJ = /^(and|but|so|or|once|because|while|when|then|which|that)\W*$/i;
 // Several smaller breaks (each under the midPhrase stall limit) within a few seconds sound like the voice breaking up.
 export const CHOPPY = { gap: 0.25, count: 2, window: 3 };
 
@@ -18,7 +20,7 @@ export function findGaps(timeline, limits = LIMITS) {
     for (let i = 0; i < s.words.length - 1; i++) {
       const [a, b] = [s.words[i], s.words[i + 1]];
       const gap = b.start - a.end;
-      const limit = SENTENCE_END.test(a.text) ? limits.afterSentence : CLAUSE_END.test(a.text) ? limits.afterClause : limits.midPhrase;
+      const limit = SENTENCE_END.test(a.text) ? limits.afterSentence : CLAUSE_END.test(a.text) ? limits.afterClause : CONJ.test(b.text) ? limits.beforeConjunction ?? limits.midPhrase : limits.midPhrase;
       if (gap > limit) {
         out.push({ scene: s.id, time: +a.end.toFixed(2), local: +(a.end - s.start).toFixed(2), gap: +gap.toFixed(2), after: a.text, before: b.text,
           kind: SENTENCE_END.test(a.text) ? 'long pause after sentence' : CLAUSE_END.test(a.text) ? 'long pause after clause' : 'stall inside a phrase' });

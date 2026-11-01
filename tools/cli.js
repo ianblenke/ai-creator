@@ -12,9 +12,9 @@ import { summarize as endingsSummary } from './lint-endings.js';
 
 const GATED = new Set(['tts', 'fixaudio', 'asr', 'verifyclips', 'scenes', 'keyframes', 'render', 'encode']);
 // fixture audio is silence: listening checks and retakes have nothing to work on
-const NEEDS_VOICE = new Set(['besttake', 'desniff', 'asr', 'fixaudio', 'takedefects', 'voicereview', 'finalcheck']);
+const NEEDS_VOICE = new Set(['besttake', 'desniff', 'tighten', 'asr', 'fixaudio', 'takedefects', 'voicereview', 'finalcheck']);
 // one voice-stage order everywhere (docs/tutorial/takes.md, tools/pipeline.sh)
-const ORDER = 'validate, lint-endings, safety, tts, align, besttake (scenes align flagged), desniff, align, asr, takedefects, fixaudio (only if something is flagged), voicereview, scenes (briefs), keyframes, render --check, render, verifyclips, encode, finalcheck';
+const ORDER = 'validate, lint-endings, safety, tts, align, besttake (scenes align flagged), tighten, align, desniff, align, asr, takedefects, fixaudio (only if something is flagged), voicereview, scenes (briefs), keyframes, render --check, render, verifyclips, encode, finalcheck';
 const SCRIPTS = 'node tools/check-anchors.js and tools/layout-check.js (after any script or scene edit; run with --entrypoint node), encode --draft for a quick look';
 
 const commands = {

@@ -62,7 +62,7 @@ after the real `align`. (Covered by a unit test in `tools/stages/tts.test.js`; n
 
 Order matters (the same order in every page; `docs/tutorial/takes.md` explains it):
 
-    tts -> align -> besttake (flagged scenes) -> desniff -> align -> asr -> takedefects -> fixaudio (only if flagged) -> voicereview
+    tts -> align -> besttake (flagged scenes) -> tighten -> align -> desniff -> align -> asr -> takedefects -> fixaudio (only if flagged) -> voicereview
 
 `align` comes first because it is what flags the scenes to retake. Every retake replaces a scene's audio with a fresh take that still
 has its sniffs and breaths, so a retake after `desniff` undoes it for that scene; `fixaudio` runs `desniff`, `align` and `asr` itself

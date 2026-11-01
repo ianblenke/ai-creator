@@ -68,7 +68,10 @@ export default async function fixaudio(episodeDir, args = []) {
       fs.copyFileSync(b.final, path.join(episodeDir, b.file));
     }
   } finally { fs.rmSync(keep, { recursive: true, force: true }); }
+  fs.rmSync(path.join(audio, 'pre-tighten'), { recursive: true, force: true });
   fs.rmSync(path.join(audio, 'pre-desniff'), { recursive: true, force: true }); // the old backups belong to takes that may be gone
+  await runStage('align', episodeDir);
+  await runStage('tighten', episodeDir);
   await runStage('align', episodeDir);
   await runStage('desniff', episodeDir);
   await runStage('align', episodeDir);

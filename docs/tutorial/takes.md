@@ -7,13 +7,14 @@ lively-reference advice and the calibration limits are in `docs/narration-qualit
 
 ## The order, and why
 
-    tts -> align -> besttake (flagged scenes) -> desniff -> align -> asr -> takedefects -> fixaudio (only if something is flagged) -> voicereview
+    tts -> align -> besttake (flagged scenes) -> tighten -> align -> desniff -> align -> asr -> takedefects -> fixaudio (only if something is flagged) -> voicereview
 
 - `align` comes before `besttake` because the stall check runs inside `align`: that is how you know which scenes to retake. `besttake`
   runs `align` itself after every take.
 - `desniff` comes after the last retake. It quiets sniffs and breaths in the gaps between words of the audio that is there now. A retake
   writes a fresh take with its own sniffs, so **retaking a scene after desniff brings its sniffs back**.
 - `align` again after `desniff`: lengths do not change, but `audio/narration.wav` is rebuilt from the scene files.
+- `tighten` shortens pauses that sound odd: 0.25 s cap inside a phrase, 0.4 s before a conjunction, 0.6 s after a comma; sentence pauses are never touched. It changes scene lengths, so `align` runs after it, and it runs BEFORE `desniff` (cutting the middle of a gap leaves the edge stretches that desniff leaves alone, so desniff must see the shortened gaps). Originals: `audio/pre-tighten/`.
 - `fixaudio` keeps the order by itself: it retakes, then runs `desniff`, `align` and `asr` at the end.
 
 ## Retaking one scene after desniff
