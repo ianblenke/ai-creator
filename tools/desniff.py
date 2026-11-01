@@ -62,7 +62,8 @@ def _hot_runs(y16, a, b, floor_db, over=6.0, min_frames=3):
 def plan(y16, words, use_tags, tag_findings=None, tag_stats=None):
     """Regions (seconds) to attenuate, each inside a gap and away from word edges."""
     bursts, _ = gap_noise(y16, words)
-    regions = [{"kind": "sniff-or-breath", "t0": f["t0"] - 0.02, "t1": f["t1"] + 0.02} for f in bursts if f["kind"] == "sniff-or-breath"]
+    # gap-sound (a tonal blip or click, not noisy) is removed too: the sentence joins and gaps are meant to be silent
+    regions = [{"kind": f["kind"], "t0": f["t0"] - 0.02, "t1": f["t1"] + 0.02} for f in bursts]
     db, _, _ = frame_features(y16)
     inside = np.zeros(len(db), bool)
     for w in words:
@@ -115,7 +116,7 @@ def process(item, options):
         ok &= bool(np.array_equal(out[a:b], y0[a:b]))
     ok &= len(out) == len(y0)
     out16 = resample_poly(out if out.ndim == 1 else out.mean(axis=1), SR // g, int(sr0) // g).astype(np.float32) if sr0 != SR else (out if out.ndim == 1 else out.mean(axis=1))
-    left = [f for f in gap_noise(out16, words)[0] if f["kind"] == "sniff-or-breath"]
+    left = gap_noise(out16, words)[0]
     if regions and ok:
         bdir = options.get("backup_dir")
         if bdir:

@@ -31,6 +31,18 @@ class DesniffTest(unittest.TestCase):
             a, b = int((x["start"] + 0.01) * SR), int((x["end"] - 0.01) * SR)
             self.assertTrue(np.array_equal(out[a:b], y[a:b]))
 
+    def test_a_tonal_blip_in_a_gap_is_planned_and_removed(self):
+        y, w = speech(WORDS, gap=0.5)
+        a = int((w[3]["end"] + 0.18) * SR)
+        n = int(0.15 * SR)
+        y = y.copy()
+        y[a:a + n] += (0.008 * np.sin(2 * np.pi * 300 * np.arange(n) / SR)).astype(np.float32)
+        self.assertEqual([f["kind"] for f in gap_noise(y, w)[0]], ["gap-sound"])
+        regions = plan(y, w, use_tags=False)
+        self.assertEqual([r["kind"] for r in regions], ["gap-sound"])
+        out = y * _gain(len(y), SR, [(r["t0"], r["t1"]) for r in regions])
+        self.assertEqual(gap_noise(out, w)[0], [])
+
     def test_clean_audio_plans_nothing(self):
         y, w = speech(WORDS, gap=0.4)
         self.assertEqual(plan(y, w, use_tags=False), [])
