@@ -16,7 +16,7 @@ jobs:
           python -m unittest discover docker/chatterbox
       - name: audio8 server tests (stub model)
         run: |
-          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
           python -m unittest discover docker/audio8
       - name: no private names (the DENYLIST secret, one name per line; without it only the example list is checked)
         env: { DENYLIST: "${{ secrets.DENYLIST }}" }
