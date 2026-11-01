@@ -1,0 +1,11 @@
+# Versions measured working together on 2026-11-01 (torch/torchaudio are installed separately in the Dockerfile).
+# The model card needs transformers>=4.57,<5.
+transformers==4.57.3
+tokenizers==0.22.2
+huggingface_hub==0.36.2
+safetensors
+soundfile
+numpy==1.26.4
+fastapi==0.162.0
+uvicorn==0.54.0
+python-multipart==0.0.32

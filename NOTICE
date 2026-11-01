@@ -14,6 +14,13 @@ Sources, revisions and the reader of each row: docs/licences.md.
   detection run on this project's output exists). This project keeps it on and never patches it out. The vendor describes it as
   imperceptible and says it survives MP3 compression (not tested here); you cannot set its payload. Do not describe such audio as
   watermark-free.
+- Audio8-TTS-Realistic-0.6B (optional clone lane; compose profile `audio8`, docker/audio8): the model card says "The code and weights are
+  released under the Apache License 2.0" and the repo has a LICENSE file and a NOTICE file (read 2026-11-01 by the AI agent that added the
+  lane; the full LICENSE text was not read). Its NOTICE says only that the architecture is "inspired by the DualAR design used in Fish
+  Audio S2 Pro"; the card does not describe the training data, so its provenance is unknown. NO WATERMARK: the card does not mention one and
+  none is applied here, so disclose synthetic narration yourself (the card asks you to obtain permission to clone a voice and to disclose
+  synthetic audio where appropriate). The model runs its own Python through `trust_remote_code`; the lane pins the commit whose files were
+  read (no network or subprocess calls found, the codec loads with weights_only=True).
 - OmniVoice (optional; compose profiles `gpu` and `cpu-clone`): the code page says Apache-2.0; the model card says the WEIGHTS are
   CC-BY-NC (non-commercial), read 2026-10-28. If your channel is or becomes monetized, or a sponsor or client is involved, that licence
   may not allow it. The page is silent on whether the licence covers generated audio.
