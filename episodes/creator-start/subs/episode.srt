@@ -1,0 +1,239 @@
+1
+00:00:00,020 --> 00:00:01,982
+This is my voice, cloned.
+
+2
+00:00:02,703 --> 00:00:04,645
+I never read this script aloud.
+
+3
+00:00:05,346 --> 00:00:08,810
+A model did, and almost
+everything it said was fine.
+
+4
+00:00:09,450 --> 00:00:13,675
+But one spot was not, and a check
+found it before my ears did.
+
+5
+00:00:14,555 --> 00:00:15,956
+Hi, I'm Ian.
+
+6
+00:00:16,676 --> 00:00:18,997
+That check is one piece of a pipeline,
+
+7
+00:00:19,598 --> 00:00:21,699
+and this series takes the pipeline apart:
+
+8
+00:00:22,279 --> 00:00:24,120
+how one person makes a finished,
+
+9
+00:00:24,721 --> 00:00:28,102
+narrated explainer series,
+one problem at a time.
+
+10
+00:00:28,743 --> 00:00:30,504
+This first video is the map.
+
+11
+00:00:31,244 --> 00:00:32,585
+It shows where you could end up,
+
+12
+00:00:33,165 --> 00:00:34,666
+how the pipeline gets you there,
+
+13
+00:00:35,266 --> 00:00:36,347
+and whether it is for you.
+
+14
+00:00:37,247 --> 00:00:40,789
+The test is simple: what you
+bring, and what you get.
+
+15
+00:00:41,410 --> 00:00:46,212
+You bring a computer with a decent graphics
+card, and something you want to explain.
+
+16
+00:00:46,933 --> 00:00:50,115
+I name the smallest card I have
+tested in the description.
+
+17
+00:00:50,795 --> 00:00:53,377
+You get a real episode, made yourself,
+
+18
+00:00:53,957 --> 00:00:56,218
+in your own voice and only yours,
+
+19
+00:00:56,799 --> 00:01:00,261
+with a few cloud models doing
+the parts a home card cannot.
+
+20
+00:01:01,001 --> 00:01:04,364
+Turning that idea into an
+episode is a chain of steps,
+
+21
+00:01:04,964 --> 00:01:08,067
+and the first one happens
+before any audio exists.
+
+22
+00:01:08,807 --> 00:01:10,709
+You decide what the episode says:
+
+23
+00:01:11,309 --> 00:01:15,993
+one problem per episode, with every
+fact written down and sourced.
+
+24
+00:01:16,694 --> 00:01:20,757
+That sounds slow, but it is the
+cheapest place to find a mistake.
+
+25
+00:01:21,457 --> 00:01:24,060
+A wrong sentence costs nothing on paper.
+
+26
+00:01:24,820 --> 00:01:29,204
+Once it is narrated and
+animated, fixing it costs a lot.
+
+27
+00:01:30,204 --> 00:01:33,226
+Once the script is solid,
+the voice comes next,
+
+28
+00:01:33,847 --> 00:01:36,909
+because the narration sets the
+timing for everything else.
+
+29
+00:01:37,750 --> 00:01:42,194
+Every picture is built to fit the
+audio, never the other way around.
+
+30
+00:01:42,834 --> 00:01:46,297
+And because a voice model can
+slip in ways your ears miss,
+
+31
+00:01:46,877 --> 00:01:49,820
+the pipeline checks the audio
+instead of trusting it.
+
+32
+00:01:50,580 --> 00:01:54,322
+With the narration fixed, the
+pictures can be built to fit it.
+
+33
+00:01:55,042 --> 00:01:59,145
+A cloud model writes each animation
+as a small piece of code,
+
+34
+00:01:59,745 --> 00:02:02,326
+and each frame is drawn
+from the time alone.
+
+35
+00:02:03,007 --> 00:02:05,848
+So the same moment always
+draws the same frame,
+
+36
+00:02:06,448 --> 00:02:09,270
+and you can render a
+frame twice and compare.
+
+37
+00:02:09,970 --> 00:02:13,952
+That is how I caught a ghost: a
+leftover copy of a moving shape,
+
+38
+00:02:14,533 --> 00:02:17,654
+one frame wide, that I never
+would have seen by eye.
+
+39
+00:02:18,514 --> 00:02:22,938
+Catching it took a machine, and
+that is how this whole setup works.
+
+40
+00:02:23,719 --> 00:02:26,961
+Three different jobs, each
+done by a different model.
+
+41
+00:02:27,702 --> 00:02:31,566
+One speaks, in my voice,
+on my own graphics card.
+
+42
+00:02:32,466 --> 00:02:35,809
+One listens, and compares
+what it hears to the script.
+
+43
+00:02:36,550 --> 00:02:38,492
+A cloud model writes the pictures,
+
+44
+00:02:39,072 --> 00:02:42,455
+and a cloud agent runs the
+pipeline and checks the work,
+
+45
+00:02:43,036 --> 00:02:44,817
+so that someone checks the checkers.
+
+46
+00:02:45,778 --> 00:02:47,221
+If you want to make something real,
+
+47
+00:02:47,822 --> 00:02:51,208
+alone, and you don't mind a
+machine that argues with you,
+
+48
+00:02:51,789 --> 00:02:53,232
+this series is for you.
+
+49
+00:02:53,933 --> 00:02:57,801
+Each part takes one problem, so
+start with the one you have.
+
+50
+00:02:58,701 --> 00:02:59,863
+So the idea is simple.
+
+51
+00:03:00,484 --> 00:03:05,494
+Plan before you record, let the voice
+lead, and check what your ears miss.
+
+52
+00:03:06,295 --> 00:03:08,720
+Next, I'll show you how that check works.

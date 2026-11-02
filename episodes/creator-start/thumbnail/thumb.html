@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Episode thumbnail</title>
+<!-- Thumbnail template: tools/thumbnail.js renders it at 1280x720, one PNG per variant (?v=a, ?v=b ...). Put your art next to this file
+     and add an <img>; keep the words to three or four, large. The fonts are the repo's vendored ones, so renders match everywhere. -->
+<style>
+@font-face { font-family: 'Noto Sans'; font-weight: 700; src: url('../../../vendor/fonts/NotoSans-Bold.ttf'); }
+@font-face { font-family: 'Noto Sans Mono'; font-weight: 700; src: url('../../../vendor/fonts/NotoSansMono-Bold.ttf'); }
+html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #0b0d10; }
+.text { position: absolute; left: 80px; right: 80px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+.tag { font: 700 30px 'Noto Sans Mono'; color: #ff2e9a; letter-spacing: 2px; margin-bottom: 18px; }
+h1 { margin: 0; font: 700 112px/1.0 'Noto Sans'; color: #eef2f4; letter-spacing: -2px; text-transform: uppercase; }
+h1 em { font-style: normal; color: #b6ff3c; }
+.bar { width: 120px; height: 12px; background: #b6ff3c; margin-top: 26px; }
+</style></head>
+<body>
+<svg style="position:absolute;left:0;top:0" width="1280" height="720"><polyline points="700,360 708,354 716,342 724,337 732,348 740,375 748,403 756,414 764,398 772,359 780,316 788,292 796,300 804,338 812,385 820,417 828,420 836,395 844,358 852,331 860,324 868,336 876,354 884,364 892,361 900,353 908,350 916,361 924,383 932,401 940,400 948,376 956,336 964,303 972,295 980,319 988,510 996,408 1004,428 1012,414 1020,377 1028,336 1036,314 1044,317 1052,338 1060,362 1068,375 1076,372 1084,362 1092,358 1100,366 1108,382 1116,391 1124,383 1132,355 1140,322 1148,301 1156,309 1164,344 1172,391 1180,424 1188,427 1196,398 1204,352 1212,314 1220,302 1228,318 1236,350 1244,378 1252,388" fill="none" stroke="#b6ff3c" stroke-width="6"/><circle cx="988" cy="500" r="30" fill="none" stroke="#ff2e9a" stroke-width="7"/></svg>
+<div class="text">
+  <div class="tag">AI CREATOR · START HERE</div>
+  <h1 id="h">MY VOICE,<br><em>CLONED</em></h1>
+  <div class="bar"></div>
+</div>
+<script>
+const v = new URLSearchParams(location.search).get('v') || 'a';
+document.body.className = v;
+if (v === 'b') document.getElementById('h').innerHTML = 'A CHECK<br><em>HEARD IT</em><br>FIRST';
+</script>
+</body></html>

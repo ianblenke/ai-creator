@@ -1,0 +1,19 @@
+{
+  "provided": [
+    "script.md",
+    "timeline.json",
+    "docs/scene-contract.md",
+    "tools/stage/style.js"
+  ],
+  "briefs": [
+    "scenes/_brief/01-cold-open.md",
+    "scenes/_brief/02-intro.md",
+    "scenes/_brief/03-the-promise.md",
+    "scenes/_brief/04-plan-first.md",
+    "scenes/_brief/05-the-voice-goes-first.md",
+    "scenes/_brief/06-pictures-as-functions-of-time.md",
+    "scenes/_brief/07-the-cast.md",
+    "scenes/_brief/08-who-it-is-for.md",
+    "scenes/_brief/09-close.md"
+  ]
+}
