@@ -1,0 +1,619 @@
+1
+00:00:00,761 --> 00:00:03,423
+The example in this part
+needs no graphics card,
+
+2
+00:00:03,903 --> 00:00:07,046
+no voice server and, once
+the tools are built,
+
+3
+00:00:07,626 --> 00:00:08,867
+no internet connection.
+
+4
+00:00:09,848 --> 00:00:12,390
+Its narration is silent, on purpose:
+
+5
+00:00:12,971 --> 00:00:14,572
+a placeholder with the right length,
+
+6
+00:00:15,153 --> 00:00:19,416
+so the pictures and the video come out
+exactly as they will with a real voice.
+
+7
+00:00:20,797 --> 00:00:24,320
+You can see that work before you
+record or clone your own voice.
+
+8
+00:00:25,700 --> 00:00:27,881
+This part of the series
+answers two questions:
+
+9
+00:00:28,481 --> 00:00:31,202
+what do you need, and can
+you see it work first?
+
+10
+00:00:32,122 --> 00:00:33,562
+I will go through the short list,
+
+11
+00:00:34,082 --> 00:00:35,943
+get the project and a coding agent,
+
+12
+00:00:36,543 --> 00:00:38,383
+set up your list of names to block,
+
+13
+00:00:38,984 --> 00:00:41,144
+build the tools, run the tests,
+
+14
+00:00:41,464 --> 00:00:42,564
+and render the example.
+
+15
+00:00:43,825 --> 00:00:49,346
+The voice, the slowest step and the one a
+graphics card speeds up most, comes later.
+
+16
+00:00:50,967 --> 00:00:53,708
+The short list starts
+with the machine itself,
+
+17
+00:00:54,309 --> 00:00:56,609
+because everything else runs on top of it.
+
+18
+00:00:57,810 --> 00:01:02,692
+The only system I tested is Linux on
+an ordinary Intel or AMD processor.
+
+19
+00:01:04,052 --> 00:01:09,454
+Apple machines, Windows machines and machines
+with other kinds of chip are untested,
+
+20
+00:01:10,035 --> 00:01:11,255
+so I will not promise them.
+
+21
+00:01:12,776 --> 00:01:16,537
+You need Docker with Compose version
+two point two four or newer,
+
+22
+00:01:17,117 --> 00:01:20,298
+because every pipeline stage
+runs inside a container,
+
+23
+00:01:20,879 --> 00:01:24,780
+and you do not install Python
+or the audio tools yourself.
+
+24
+00:01:26,301 --> 00:01:29,822
+A graphics card is optional,
+and it has to be an NVIDIA one:
+
+25
+00:01:30,442 --> 00:01:35,304
+the voice is faster on it, but every
+stage also has a processor-only version.
+
+26
+00:01:36,824 --> 00:01:39,206
+With the machine ready, get the project.
+
+27
+00:01:40,347 --> 00:01:44,049
+Clone the repository with git,
+and step into its folder.
+
+28
+00:01:45,530 --> 00:01:49,212
+Next, install Claude Code, the
+coding agent this series uses.
+
+29
+00:01:50,913 --> 00:01:54,756
+On Linux the installer is a single
+line that you paste into a terminal,
+
+30
+00:01:55,356 --> 00:01:58,118
+and asking for its version
+tells you it worked.
+
+31
+00:01:59,158 --> 00:02:01,560
+Then start it from inside
+the project folder,
+
+32
+00:02:02,140 --> 00:02:04,322
+and it asks you to sign in the first time.
+
+33
+00:02:05,622 --> 00:02:11,286
+It needs a paid Claude plan, a Console
+account, or access through a cloud provider.
+
+34
+00:02:13,146 --> 00:02:15,687
+Now you can ask the agent
+to do the setup for you.
+
+35
+00:02:17,468 --> 00:02:19,168
+This is the prompt I would start with:
+
+36
+00:02:19,748 --> 00:02:21,789
+read the readme and the full-run page,
+
+37
+00:02:22,269 --> 00:02:24,290
+check my machine against the requirements,
+
+38
+00:02:24,870 --> 00:02:26,130
+and tell me what is missing.
+
+39
+00:02:27,451 --> 00:02:29,571
+Do not install anything without asking.
+
+40
+00:02:31,352 --> 00:02:35,013
+Then copy the settings files,
+ask me for the names to block,
+
+41
+00:02:35,593 --> 00:02:37,794
+build the image, run the tests,
+
+42
+00:02:38,234 --> 00:02:39,895
+and render the offline example,
+
+43
+00:02:40,455 --> 00:02:42,816
+and at any failure stop
+and show me the error.
+
+44
+00:02:44,316 --> 00:02:46,277
+I ran that prompt in a fresh copy,
+
+45
+00:02:46,817 --> 00:02:51,178
+in a read-only mode where the agent
+may read files but not run commands.
+
+46
+00:02:52,659 --> 00:02:55,079
+It gave the same steps I ran by hand,
+
+47
+00:02:55,660 --> 00:02:57,920
+and it came back with the
+right questions first:
+
+48
+00:02:58,520 --> 00:03:01,381
+is Docker installed, which names to block,
+
+49
+00:03:01,981 --> 00:03:04,162
+and do I want the draft
+or the final render.
+
+50
+00:03:05,563 --> 00:03:06,883
+I did not let it run them.
+
+51
+00:03:08,243 --> 00:03:11,604
+The next scenes are what it
+does, so you can check its work.
+
+52
+00:03:13,664 --> 00:03:17,766
+The first thing the agent will ask you
+for is the one thing that protects you.
+
+53
+00:03:19,406 --> 00:03:23,147
+This pipeline reads your scripts
+and puts words on screen,
+
+54
+00:03:23,747 --> 00:03:26,548
+so it needs to know which
+names must never appear.
+
+55
+00:03:27,949 --> 00:03:30,229
+Copy the example list of names to block,
+
+56
+00:03:30,730 --> 00:03:32,910
+and put your own in it: machine names,
+
+57
+00:03:33,350 --> 00:03:35,071
+your user name, family names.
+
+58
+00:03:36,791 --> 00:03:41,693
+The safety gate is a check that runs before
+the main stages and stops them if one of
+
+59
+00:03:41,733 --> 00:03:43,754
+those names shows up in a script,
+
+60
+00:03:44,274 --> 00:03:45,754
+a scene or a subtitle.
+
+61
+00:03:46,875 --> 00:03:51,596
+Until you fill the list in, every step
+that checks prints a loud warning:
+
+62
+00:03:52,216 --> 00:03:55,597
+the gate still runs, but it
+does not know your names.
+
+63
+00:03:57,038 --> 00:04:01,659
+Then switch on the git hooks, small
+checks that git runs before every commit.
+
+64
+00:04:03,260 --> 00:04:07,381
+They refuse a commit that includes
+your private files or any audio,
+
+65
+00:04:08,001 --> 00:04:10,382
+but they do not read the
+text of your scripts.
+
+66
+00:04:11,722 --> 00:04:13,643
+The gate does that when you run a stage.
+
+67
+00:04:14,983 --> 00:04:19,305
+With the names protected, you can build
+the container that holds every tool.
+
+68
+00:04:20,365 --> 00:04:22,726
+Before the build, write two small files:
+
+69
+00:04:23,306 --> 00:04:24,926
+a settings file for the tools,
+
+70
+00:04:25,507 --> 00:04:30,048
+which you copy from the example and which
+keeps the voice in its silent test mode,
+
+71
+00:04:30,628 --> 00:04:33,949
+and your user id, so the
+container runs as you.
+
+72
+00:04:35,210 --> 00:04:37,130
+Then start the build
+and do something else.
+
+73
+00:04:38,171 --> 00:04:41,972
+From a clean copy it took about three
+and a half minutes on my connection,
+
+74
+00:04:42,552 --> 00:04:44,733
+and the image is about eight gigabytes.
+
+75
+00:04:46,314 --> 00:04:52,240
+When the build finishes, run the test suite inside
+the container before you trust anything else.
+
+76
+00:04:53,921 --> 00:04:54,821
+It takes seconds.
+
+77
+00:04:56,043 --> 00:04:59,607
+Look for zero failures, and
+then the word OK near the end.
+
+78
+00:05:00,808 --> 00:05:03,210
+If it does not pass, fix that first:
+
+79
+00:05:03,791 --> 00:05:06,314
+nothing after it is worth
+debugging on a broken base.
+
+80
+00:05:07,814 --> 00:05:10,295
+Now the offline run, one stage at a time.
+
+81
+00:05:11,556 --> 00:05:13,097
+First the silent narration.
+
+82
+00:05:14,037 --> 00:05:16,678
+Then alignment, which finds
+when each word is said.
+
+83
+00:05:18,219 --> 00:05:21,920
+Then the scene briefs, a short
+description of each picture,
+
+84
+00:05:22,401 --> 00:05:25,382
+and keyframes, still frames
+to check the layout.
+
+85
+00:05:26,843 --> 00:05:29,944
+Last, a draft render of
+the moving pictures,
+
+86
+00:05:30,544 --> 00:05:32,865
+and a draft video that
+joins them with the sound.
+
+87
+00:05:34,586 --> 00:05:37,967
+Each stage prints a last line
+you can compare with the docs.
+
+88
+00:05:39,108 --> 00:05:41,109
+The draft render took about a minute once,
+
+89
+00:05:41,689 --> 00:05:45,111
+on a machine with twenty-four
+cores and no graphics card,
+
+90
+00:05:45,691 --> 00:05:47,151
+and about two on a copy.
+
+91
+00:05:48,472 --> 00:05:50,453
+This runs on the example where it ships.
+
+92
+00:05:51,914 --> 00:05:54,535
+Your own episodes go
+in an episodes folder,
+
+93
+00:05:54,995 --> 00:05:57,256
+which a fresh copy does not have yet,
+
+94
+00:05:57,836 --> 00:05:59,977
+and the docs show the one
+command that makes it.
+
+95
+00:06:01,758 --> 00:06:03,639
+Three things are missing from this render,
+
+96
+00:06:04,239 --> 00:06:07,280
+and each one costs you something
+the offline run did not:
+
+97
+00:06:07,881 --> 00:06:10,082
+a network, disk space, or money.
+
+98
+00:06:10,982 --> 00:06:14,504
+First, the network:
+alignment with a real voice,
+
+99
+00:06:15,085 --> 00:06:16,525
+and the checks that listen to it,
+
+100
+00:06:17,126 --> 00:06:19,467
+download their models the
+first time you use them.
+
+101
+00:06:20,487 --> 00:06:25,330
+Second, disk space: the voice server
+downloads its own weights on first start,
+
+102
+00:06:25,910 --> 00:06:28,412
+about three gigabytes
+for one voice option,
+
+103
+00:06:28,992 --> 00:06:30,193
+on top of its own image.
+
+104
+00:06:31,113 --> 00:06:36,036
+Third, money: the scenes, the script critique
+and the reviews are written by a model
+
+105
+00:06:36,076 --> 00:06:38,277
+in the cloud, through the coding agent,
+
+106
+00:06:38,857 --> 00:06:41,519
+and I have not worked out
+what an episode costs,
+
+107
+00:06:42,079 --> 00:06:43,039
+so I will not guess.
+
+108
+00:06:45,040 --> 00:06:47,561
+If a model in the cloud
+already writes the scenes,
+
+109
+00:06:48,141 --> 00:06:52,183
+it is fair to ask why the rest
+does not run in the cloud as well.
+
+110
+00:06:53,523 --> 00:06:55,044
+The voice I use is the reason:
+
+111
+00:06:55,644 --> 00:07:00,485
+it needs a graphics card, and a proper
+graphics card in the cloud for the coding
+
+112
+00:07:00,565 --> 00:07:03,867
+agent to use is far more
+involved than you would think.
+
+113
+00:07:04,747 --> 00:07:06,447
+Your recording of your own voice,
+
+114
+00:07:07,068 --> 00:07:11,549
+your list of names to block and your
+sign-in for uploading to YouTube are yours,
+
+115
+00:07:12,109 --> 00:07:14,150
+and I did not want them in more places.
+
+116
+00:07:15,330 --> 00:07:20,212
+That is my judgement, not a test: I
+have not tried a sandbox in the cloud.
+
+117
+00:07:21,572 --> 00:07:23,053
+I will say when the cloud comes in.
+
+118
+00:07:24,573 --> 00:07:28,915
+When you are ready for your own series,
+give the agent a second prompt.
+
+119
+00:07:30,276 --> 00:07:34,637
+Copy the template rules file into the
+project as the agent's own rules,
+
+120
+00:07:35,218 --> 00:07:36,178
+with your series name.
+
+121
+00:07:37,478 --> 00:07:41,080
+Create the first episode folder
+with the project's new command,
+
+122
+00:07:41,660 --> 00:07:45,902
+and ask me what problem the episode
+solves before writing anything.
+
+123
+00:07:47,342 --> 00:07:49,103
+I ran that one read-only as well.
+
+124
+00:07:49,904 --> 00:07:51,584
+The agent gave me the right order:
+
+125
+00:07:52,104 --> 00:07:54,225
+the rules file, your list of names,
+
+126
+00:07:54,285 --> 00:07:57,787
+the new episode folder, then
+a plan, then the facts.
+
+127
+00:07:59,207 --> 00:08:02,749
+It held until I approved,
+before any script was written,
+
+128
+00:08:03,329 --> 00:08:04,970
+and that is the habit to keep,
+
+129
+00:08:05,570 --> 00:08:08,611
+because you approve the script
+before any voice is recorded.
+
+130
+00:08:10,152 --> 00:08:13,034
+A silent render proves the
+pictures and the video.
+
+131
+00:08:14,395 --> 00:08:18,137
+It does not prove the voice,
+because there is no voice to check,
+
+132
+00:08:18,718 --> 00:08:20,959
+so the checks that listen refuse to run.
+
+133
+00:08:22,380 --> 00:08:24,101
+Next is the plan for an episode,
+
+134
+00:08:24,502 --> 00:08:26,203
+which the project calls the spec:
+
+135
+00:08:26,783 --> 00:08:29,045
+how one problem becomes one episode,
+
+136
+00:08:29,625 --> 00:08:31,086
+and what never goes on screen.
