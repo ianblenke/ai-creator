@@ -249,6 +249,13 @@ async function playlistAdd(episodeDir, playlistId, at) {
   console.log(`added ${videoId} to the playlist at position ${at || n + 1}`);
 }
 
+/** Create an empty playlist (private by default). Usage: playlist-create '<title>' [--privacy private|unlisted|public] */
+async function playlistCreate(title, privacy) {
+  const token = await accessToken();
+  const j = await call(token, `${API}/playlists?part=snippet,status`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ snippet: { title }, status: { privacyStatus: privacy } }) });
+  console.log(`created playlist ${j.id} (${privacy}): https://www.youtube.com/playlist?list=${j.id}`);
+}
+
 const [cmd, ...rest] = process.argv.slice(2);
 const flag = (n, d) => { const i = rest.indexOf(n); return i >= 0 ? rest[i + 1] : d; };
 const opts = { title: +flag('--title', 1), privacy: flag('--privacy', 'private'), yes: rest.includes('--yes'), force: rest.includes('--force') };
@@ -263,6 +270,7 @@ try {
   else if (cmd === 'short' && dir) await short(dir, opts);
   else if (cmd === 'finish' && dir) await finish(dir);
   else if (cmd === 'playlist-add' && dir && rest.filter((x, i) => !x.startsWith('--') && rest[i - 1] !== '--position').length >= 2) await playlistAdd(dir, rest.filter((x, i) => !x.startsWith('--') && rest[i - 1] !== '--position')[1], +flag('--position', 0));
+  else if (cmd === 'playlist-create' && dir) await playlistCreate(dir, opts.privacy);
   else if (cmd === 'status' && dir) await status(dir);
   else console.log('usage:\n  node tools/youtube.js auth [--port N] [--analytics]   (browser on this machine; --analytics adds read-only Analytics)\n  node tools/youtube.js auth --manual              (remote machine, step 1)\n  node tools/youtube.js auth --finish \'<address>\'  (remote machine, step 2)\n  node tools/youtube.js check\n  node tools/youtube.js upload <episode-dir> [--title N] [--privacy private|unlisted] [--yes] [--force]\n  node tools/youtube.js finish <episode-dir>\n  node tools/youtube.js status <episode-dir>   (read-only: what YouTube shows for the uploaded video)');
 } catch (e) { fail(e.message); }

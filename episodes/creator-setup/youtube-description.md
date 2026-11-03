@@ -12,6 +12,8 @@ What the video covers: what you need, getting the project and the Claude Code co
 
 Only Linux on an Intel or AMD processor was tested here. Build and render times are from my own runs in early November of 2026 and will differ on your machine.
 
+Earlier parts: Start Here, https://youtu.be/LKWKICgpyCU, and The Cast, https://youtu.be/BTvqb1PacCM
+
 Code, docs and the example: https://github.com/ianblenke/ai-creator (this video matches the tag part-02)
 
 How this was made

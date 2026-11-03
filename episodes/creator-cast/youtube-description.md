@@ -10,6 +10,8 @@ Every stage of making a narrated video hands one job to one model. This part nam
 
 What the video covers: the voice, the two checkers that listen to it, the models that did not work as listeners, the cloud model that writes the pictures, and the program that runs the rest. These are the models in early November of 2026, and they will change.
 
+Previous part: Start Here, the map of the series: https://youtu.be/LKWKICgpyCU
+
 Code, docs and the example: https://github.com/ianblenke/ai-creator (this video matches the tag part-01)
 
 How this was made
