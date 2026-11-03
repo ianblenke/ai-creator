@@ -62,7 +62,7 @@ function main() {
   const cues = parseSrt(fs.readFileSync(path.join(dir, 'subs', 'episode.srt'), 'utf8'));
   const ass = `${out}.ass`;
   fs.writeFileSync(ass, sliceAss(cues, from, to, title, cuts));
-  const fonts = fs.mkdtempSync(path.join(path.dirname(out), 'fonts-')); // only .ttf files: libass fails on the README and licence text in vendor/fonts
+  const fonts = fs.mkdtempSync(path.join(path.dirname(out), 'fonts-')); // only .ttf files: libass fails on the README and license text in vendor/fonts
   for (const f of fs.readdirSync('vendor/fonts').filter((n) => n.endsWith('.ttf'))) fs.copyFileSync(path.join('vendor/fonts', f), path.join(fonts, f));
   const esc = (p) => p.replace(/\\/g, '\\\\').replace(/:/g, '\\:').replace(/'/g, "\\'");
   const len = to - from;

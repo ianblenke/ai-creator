@@ -23,6 +23,6 @@ Flow review (2 HIGH, 4 MEDIUM) and adversarial critique (3 HIGH, 3 MEDIUM) both 
 OPEN: the cold open says 'one word in it is wrong'; it is true only if a real slip is chosen. If the sniff fallback is used, change to 'one sound in it is wrong'. The clip itself is stage material, not narration.
 
 ## Narrator engine (2026-11-01)
-- Narration engine: Audio8-TTS-Realistic 0.6B (Edge0), licence Apache-2.0 as stated by its model card (read 2026-11-01); training-data provenance is not stated; the model adds NO watermark, so the description carries the "synthetic version of my own voice" disclosure.
+- Narration engine: Audio8-TTS-Realistic 0.6B (Edge0), license Apache-2.0 as stated by its model card (read 2026-11-01); training-data provenance is not stated; the model adds NO watermark, so the description carries the "synthetic version of my own voice" disclosure.
 - Cloned only from the author's own reference clip (kept outside the repo).
 - Narration length 189 s; checks: stall check clean, transcript matches all 9 scenes, the author listened and approved (2026-11-01).

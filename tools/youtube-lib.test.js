@@ -7,7 +7,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { videoProblems, openBrowser, parseRedirect, parseDraft, findPlaceholders, validateChapters, validateUpload, buildDescription, insertMetadata, toSeconds, disclosureProblems, SCOPES, ANALYTICS_SCOPES, authScopes } from './youtube-lib.js';
 
-const DISCLOSED = 'Fine text.\nThe narration is a cloned copy of my own voice, generated with Chatterbox.\nVoice model: Chatterbox by Resemble AI, MIT licence (read 2026-10-29): https://github.com/resemble-ai/chatterbox';
+const DISCLOSED = 'Fine text.\nThe narration is a cloned copy of my own voice, generated with Chatterbox.\nVoice model: Chatterbox by Resemble AI, MIT license (read 2026-10-29): https://github.com/resemble-ai/chatterbox';
 
 const draft = `# Episode X: draft\n\n## Title options\n1. First title\n2. Second title\n\n## Description\n\nHello world.\n\nLinks:\n- [add your channel links here]\n\n## Chapters (paste)\n\n0:00 Hook\n0:30 Intro\n1:05 Middle\n\n## Tag ideas\na, b\n`;
 
@@ -65,11 +65,11 @@ test('the dry run refuses a description without the synthetic-voice line or the 
   const noCredit = disclosureProblems('The narration is a cloned copy of my own voice, generated with Chatterbox.');
   assert.deepEqual(noCredit.length, 1);
   assert.match(noCredit[0], /model credit/);
-  assert.ok(disclosureProblems('The narration is a cloned copy of my own voice, generated with Chatterbox.\nVoice model: Chatterbox, MIT licence').some((p) => /model credit/.test(p)), 'credit needs a link');
+  assert.ok(disclosureProblems('The narration is a cloned copy of my own voice, generated with Chatterbox.\nVoice model: Chatterbox, MIT license').some((p) => /model credit/.test(p)), 'credit needs a link');
 });
 
 test('the synthetic-voice line accepts each honest variant and refuses a line that does not say synthetic', () => {
-  const credit = '\nVoice model: Kokoro-82M by hexgrad, Apache-2.0 licence (read 2026-10-29): https://huggingface.co/hexgrad/Kokoro-82M';
+  const credit = '\nVoice model: Kokoro-82M by hexgrad, Apache-2.0 license (read 2026-10-29): https://huggingface.co/hexgrad/Kokoro-82M';
   for (const line of [
     'The narration is a cloned copy of my own voice, generated with Chatterbox.',
     "The narration is a cloned copy of my colleague's voice, used with written permission, generated with Chatterbox.",

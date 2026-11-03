@@ -17,7 +17,7 @@ Everything runs in the tools container: `docker compose run --rm media <cmd> epi
   description, thumbnail or commit message. Write generically ("the GPU box"). Add every private name to `safety/denylist.txt`.
 - Facts come only from `episodes/<id>/facts.md` plus the public sources it cites. Never invent a number for a script or a visual.
 - The voice is my own cloned voice only, with my consent note in `voice/`. Never clone anyone else's voice.
-- Every video description says the narration is a synthetic (cloned) copy of my voice and names the voice model with its licence and link.
+- Every video description says the narration is a synthetic (cloned) copy of my voice and names the voice model with its license and link.
 - Never commit audio of any voice, reference clips or their transcripts.
 
 ## How the agent works here

@@ -71,7 +71,7 @@ The dry run refuses to continue when:
 - either of the **two disclosure lines** is missing. Keep them in your own words only where the pattern still matches:
 
       The narration is a cloned copy of my own voice, generated with Chatterbox.
-      Voice model: Chatterbox by Resemble AI; code MIT licence, weights tagged MIT on the model page (licence read 2026-10-29): https://huggingface.co/ResembleAI/chatterbox
+      Voice model: Chatterbox by Resemble AI; code MIT license, weights tagged MIT on the model page (license read 2026-10-29): https://huggingface.co/ResembleAI/chatterbox
 
   The first line must, on one line, call the narration (or narrator, or voice) cloned, a clone, synthetic or AI-generated, and then say
   what made it: "generated", "made" or "synthesized" followed by "with" or "by" and a name. Write the one that is true:
@@ -83,10 +83,10 @@ The dry run refuses to continue when:
   The check only matches words; it cannot tell whether the line is true. Do not call a preset voice your own clone, or a clone of
   someone else your own voice.
 
-  The second line must start with `Voice model:` and contain the word licence (or license) and a link. Link the page that states the
-  licence of what you used: for Chatterbox the weights' licence tag is on the Hugging Face model page (above; the code's MIT LICENSE is
+  The second line must start with `Voice model:` and contain the word license (or license) and a link. Link the page that states the
+  license of what you used: for Chatterbox the weights' license tag is on the Hugging Face model page (above; the code's MIT LICENSE is
   in https://github.com/resemble-ai/chatterbox), which is why the docs and `templates/youtube-description.md` both link the weights page. Using another voice lane, name
-  that model, its licence and the date you read it (for OmniVoice the weights are CC-BY-NC: see `docs/licences.md`). Why the project
+  that model, its license and the date you read it (for OmniVoice the weights are CC-BY-NC: see `docs/licenses.md`). Why the project
   discloses even where YouTube does not require it: `docs/voice-cloning-law.md`;
 - the content-safety scan of the episode fails (`docs/safety.md`);
 - a file is missing from `out/final/`, or the thumbnail is over 2 MB;
@@ -128,8 +128,8 @@ That run had the credit line filled in. On the kettle as shipped (2026-10-29), t
 the unfilled credit line twice, then each missing `out/final/` file:
 
     Not ready to upload:
-      - placeholder still present: [fill in: the voice model you used, its maker, licence, the date you read the licence and a link, as in templates/youtube-description.md]
-      - missing the model credit line: "Voice model: <model> by <maker>, <licence> licence (read <date>): <link>"
+      - placeholder still present: [fill in: the voice model you used, its maker, license, the date you read the license and a link, as in templates/youtube-description.md]
+      - missing the model credit line: "Voice model: <model> by <maker>, <license> license (read <date>): <link>"
       - missing video: examples/ep01-kettle/out/final/ep01-kettle-final.mp4
       ...
 

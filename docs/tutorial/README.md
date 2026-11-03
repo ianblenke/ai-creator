@@ -9,11 +9,11 @@ the part's own page does not exist yet; the related reference pages already do.
 | Start here | what the pipeline is and why | the README |
 | It said "red" | what a speech checker cannot hear | `docs/narration-quality.md`, `docs/script-format.md` (words the voice reads wrongly, word-ending slips) |
 | Sniffs and breaths | cleaning the gaps between words | `docs/narration-quality.md`; its own page: not written yet |
-| The cast | which model does which job | `docs/hardware-and-models.md`, `docs/licences.md`, `docs/voice-engine-bakeoff.md` |
+| The cast | which model does which job | `docs/hardware-and-models.md`, `docs/licenses.md`, `docs/voice-engine-bakeoff.md` |
 | Setup and the first render | what you need, the offline run, the full run | `docs/hardware-and-models.md`, `examples/ep01-kettle/README.md`, `docs/tutorial/full-run.md` |
 | Specs and facts | one problem per episode, facts, what never goes on screen | `docs/fact-sheets.md`, `docs/safety.md` |
 | Writing for the ear | the script, the flow review and the critic | `docs/script-format.md`, `prompts/flow-review.md`, `prompts/script-critic.md` |
-| The law and the licence | cloning a voice, licences, disclosure (not legal advice) | `docs/voice-cloning-law.md`, `docs/licences.md`, `NOTICE` |
+| The law and the license | cloning a voice, licenses, disclosure (not legal advice) | `docs/voice-cloning-law.md`, `docs/licenses.md`, `NOTICE` |
 | Cloning your own voice | the reference clip, synthesis, alignment, subtitles | `docs/voice-reference.md`, `docs/voice-server-contract.md` |
 | When a take sounds wrong | stalls, best of N, retakes, the voice-stage order | `docs/tutorial/takes.md` |
 | Scenes as functions of time | the scene contract and the visual kit | `docs/scene-contract.md`, `docs/visual-kit.md` |

@@ -34,4 +34,4 @@ machine. Nothing in this series requires it.
 A Claude Project (chat with files from a repository) can hold the plan and docs for planning conversations, but it cannot run
 commands, so it cannot run this pipeline. A cloud coding session can run commands but has no GPU. Neither replaces the local machine.
 
-Not legal advice; the voice and licence questions are in `docs/voice-cloning-law.md`.
+Not legal advice; the voice and license questions are in `docs/voice-cloning-law.md`.

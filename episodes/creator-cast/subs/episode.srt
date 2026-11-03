@@ -1,0 +1,384 @@
+1
+00:00:00,380 --> 00:00:02,402
+I ran two AI models as listeners.
+
+2
+00:00:03,463 --> 00:00:06,306
+I gave them clean clips and
+clips with a sniff added,
+
+3
+00:00:06,886 --> 00:00:09,589
+and both said yes, there
+is an unnatural pause,
+
+4
+00:00:10,169 --> 00:00:11,110
+every single time.
+
+5
+00:00:12,591 --> 00:00:15,354
+A listener that always says
+yes tells you nothing.
+
+6
+00:00:16,695 --> 00:00:19,117
+This video is about the
+models I use instead.
+
+7
+00:00:20,618 --> 00:00:23,620
+To see why that matters, here
+is what this series builds:
+
+8
+00:00:24,201 --> 00:00:29,084
+a video with narration, where every
+stage hands one job to one model.
+
+9
+00:00:30,324 --> 00:00:32,446
+A few of them run on a
+graphics card at home,
+
+10
+00:00:33,026 --> 00:00:34,767
+a few on an ordinary processor,
+
+11
+00:00:35,348 --> 00:00:37,889
+and the rest are Claude
+models in the cloud.
+
+12
+00:00:39,190 --> 00:00:43,293
+I name each one, say what it is
+good at, and say what it cannot do.
+
+13
+00:00:44,573 --> 00:00:48,516
+For the main ones I also say what
+the license page said, and when.
+
+14
+00:00:49,877 --> 00:00:54,560
+These are the models in early November
+of 2026, and they will change.
+
+15
+00:00:56,099 --> 00:01:00,000
+Start with the voice, because
+everything else follows its timing.
+
+16
+00:01:01,200 --> 00:01:07,482
+Audio8, a small open model, runs on my own
+graphics card and clones my voice from
+
+17
+00:01:07,642 --> 00:01:08,602
+one recording of me.
+
+18
+00:01:09,362 --> 00:01:13,103
+Because it handles one request
+at a time, one card is enough.
+
+19
+00:01:14,624 --> 00:01:18,585
+Its model card says Apache
+2.0 for the code and weights,
+
+20
+00:01:19,185 --> 00:01:21,885
+as an AI agent read it on
+the first of November,
+
+21
+00:01:22,465 --> 00:01:23,726
+so check the page yourself.
+
+22
+00:01:24,766 --> 00:01:27,507
+The card does not describe
+the training data,
+
+23
+00:01:28,087 --> 00:01:31,028
+and the license does not say
+whose voice you may clone,
+
+24
+00:01:31,548 --> 00:01:32,928
+so clone only your own.
+
+25
+00:01:34,468 --> 00:01:40,630
+The model adds no watermark, so I put a line in
+each description saying the voice is synthetic.
+
+26
+00:01:42,190 --> 00:01:46,492
+A synthetic voice can slip, by
+dropping a word or adding a sound,
+
+27
+00:01:47,072 --> 00:01:49,473
+so two more models check every recording.
+
+28
+00:01:50,554 --> 00:01:54,275
+An aligner finds exactly when
+each word starts and ends,
+
+29
+00:01:54,856 --> 00:01:57,797
+and that is what lets every
+picture line up with the audio.
+
+30
+00:01:58,997 --> 00:02:03,779
+A speech recognizer writes down what it
+hears, and I compare that with the script.
+
+31
+00:02:05,340 --> 00:02:07,041
+Both run on a regular processor,
+
+32
+00:02:07,621 --> 00:02:11,442
+and an AI agent read their license
+pages on October twenty-eighth:
+
+33
+00:02:12,043 --> 00:02:14,944
+BSD for the aligner,
+MIT for the recognizer.
+
+34
+00:02:16,224 --> 00:02:18,305
+The recognizer has one blind spot:
+
+35
+00:02:18,886 --> 00:02:21,267
+if the voice adds an
+extra sound to a word,
+
+36
+00:02:21,867 --> 00:02:23,407
+it still writes the right word,
+
+37
+00:02:23,888 --> 00:02:25,148
+and it never hears a sniff.
+
+38
+00:02:26,568 --> 00:02:29,129
+That blind spot made me
+want a third listener,
+
+39
+00:02:29,710 --> 00:02:31,430
+one that can tell how the voice sounds,
+
+40
+00:02:31,789 --> 00:02:32,729
+not only what it says.
+
+41
+00:02:34,251 --> 00:02:37,371
+So I ran two AI models
+that take audio as input,
+
+42
+00:02:37,950 --> 00:02:40,951
+and a naturalness score,
+on eighteen short clips,
+
+43
+00:02:41,451 --> 00:02:45,073
+some clean and some with a sniff
+or a loud word that I added.
+
+44
+00:02:46,693 --> 00:02:51,753
+In my test, with my prompt, both models
+said yes, unnatural pause, to every clip.
+
+45
+00:02:53,354 --> 00:02:57,735
+The score gave the same number to the
+clean clips and to every broken one.
+
+46
+00:02:59,015 --> 00:03:05,197
+What is promising is plainer: flag a sound only when
+it stands out from the rest of the same episode.
+
+47
+00:03:06,576 --> 00:03:09,176
+That method found all
+four sniffs I had added,
+
+48
+00:03:09,757 --> 00:03:11,897
+with two false alarms on the other clips.
+
+49
+00:03:12,957 --> 00:03:14,777
+That was one test on one voice,
+
+50
+00:03:15,338 --> 00:03:17,498
+and I have not checked it against my ears,
+
+51
+00:03:18,118 --> 00:03:21,099
+so everything it flags is only
+a candidate that I listen to.
+
+52
+00:03:22,439 --> 00:03:26,481
+With the sound covered, the other
+half of the video is what you see,
+
+53
+00:03:27,061 --> 00:03:31,523
+and that is the one job where I pay
+for the strongest model I can get.
+
+54
+00:03:33,204 --> 00:03:35,845
+Claude Opus, one of Anthropic's models,
+
+55
+00:03:36,426 --> 00:03:39,107
+writes each animation as
+a small piece of code,
+
+56
+00:03:39,687 --> 00:03:43,389
+and a second Opus session reviews
+the frames and looks for faults.
+
+57
+00:03:44,849 --> 00:03:49,512
+I compared it with the smaller Sonnet
+model on two scenes with the same brief.
+
+58
+00:03:50,492 --> 00:03:53,213
+On the denser scene Opus
+took about ten times longer,
+
+59
+00:03:53,793 --> 00:03:55,814
+but I judged its animations much better,
+
+60
+00:03:56,395 --> 00:03:58,055
+so the shorter time was not worth it.
+
+61
+00:03:59,196 --> 00:04:03,898
+Two scenes is a small sample, so that
+is my judgement, not a benchmark.
+
+62
+00:04:05,438 --> 00:04:07,479
+Those models do not coordinate themselves,
+
+63
+00:04:08,079 --> 00:04:10,200
+so one more program sits above them:
+
+64
+00:04:10,800 --> 00:04:15,943
+Claude Code, which runs on my machine
+and calls Claude models in the cloud.
+
+65
+00:04:16,703 --> 00:04:20,925
+It runs the stages in order and starts
+the picture authors and the reviewers.
+
+66
+00:04:22,445 --> 00:04:24,746
+Then it runs every layout
+check itself again,
+
+67
+00:04:25,347 --> 00:04:31,289
+to confirm each result, instead of trusting an
+author who reports that its own work is clean.
+
+68
+00:04:32,730 --> 00:04:36,651
+Each author sees only its own
+brief and a few reference files,
+
+69
+00:04:37,251 --> 00:04:38,812
+and each reviewer can only read,
+
+70
+00:04:39,412 --> 00:04:41,793
+so an author does not
+review its own scenes.
+
+71
+00:04:43,374 --> 00:04:48,757
+That is the whole cast, and the question
+for you is which parts run on your machine
+
+72
+00:04:49,157 --> 00:04:50,138
+and which you pay for.
+
+73
+00:04:51,419 --> 00:04:53,140
+Three models run on your machine:
+
+74
+00:04:53,720 --> 00:04:58,843
+the voice on a graphics card, and the
+aligner and the recognizer on a processor.
+
+75
+00:05:00,103 --> 00:05:03,185
+The writing and the pictures
+need a paid Claude plan.
+
+76
+00:05:04,105 --> 00:05:07,807
+When an AI agent read the pricing
+page on the second of November,
+
+77
+00:05:08,388 --> 00:05:14,631
+Claude Code and Opus 5.5 were listed as included
+on the paid plans and not on the free one.
+
+78
+00:05:15,872 --> 00:05:20,774
+I did not check the usage limits, and
+plans change, so check the page yourself.
+
+79
+00:05:22,135 --> 00:05:27,098
+I did not try other chat models, and I
+have not yet timed or priced an episode.
+
+80
+00:05:28,579 --> 00:05:31,301
+That is the cast: one voice, two ears,
+
+81
+00:05:31,622 --> 00:05:35,205
+a writer and a producer, and a set
+of listeners that did not make it.
+
+82
+00:05:36,467 --> 00:05:40,130
+Next, I'll set up your machine
+and make your first render.

@@ -67,14 +67,14 @@ no numpy. All the Python tests, including the ones that need numpy (they run in 
 
 ## Voice lanes
 Every lane answers on the compose network as `voice`, so `VOICE_URL` stays `http://voice:8080`. Run one voice profile at a time.
-Licence lines below say what each page said when read; they are not legal advice (`NOTICE`, `docs/licences.md`).
+License lines below say what each page said when read; they are not legal advice (`NOTICE`, `docs/licenses.md`).
 
 1. **Chatterbox original, your own voice (recommended).** Profiles `chatterbox` (NVIDIA GPU) and `chatterbox-cpu` (docker/chatterbox).
    Code MIT, weights tagged MIT; training data not disclosed. Not tested end to end: no full `tts` run through these compose services
    is recorded (one clone request through `chatterbox-cpu` was, 2026-10-29). Every output carries Resemble's Perth watermark, which stays on and is
    never patched. Settings "F": exaggeration 0.6, cfg_weight 0.3, temperature 0.9, chosen by the author's ear in `docs/voice-engine-bakeoff.md`.
 2. **OmniVoice, your own voice (optional, non-commercial).** Profiles `gpu` (NVIDIA GPU, third-party image) and `cpu-clone` (docker/cpu-clone).
-   The weights are CC-BY-NC: if your channel is or becomes monetized, or a sponsor or client is involved, that licence may not allow it.
+   The weights are CC-BY-NC: if your channel is or becomes monetized, or a sponsor or client is involved, that license may not allow it.
    Cloning on the `gpu` image is NOT tested.
 3. **Kokoro presets, no cloning.** Profile `cpu` (docker/kokoro), `VOICE_NAME=af_heart`. Apache-2.0 code and weights per the model page;
    its training data includes CC BY sources that ask for credit, and the image installs espeak-ng (GPL-3.0-or-later). Clear but flat:
@@ -128,7 +128,7 @@ voice used with their written permission ("a cloned copy of <name>'s voice, used
 with no cloning ("a synthetic preset voice (<voice id>)"), each followed by "generated with <model>". For example:
 
     The narration is a cloned copy of my own voice, generated with Chatterbox.
-    Voice model: Chatterbox by Resemble AI; code MIT licence, weights tagged MIT on the model page (licence read 2026-10-29): https://huggingface.co/ResembleAI/chatterbox
+    Voice model: Chatterbox by Resemble AI; code MIT license, weights tagged MIT on the model page (license read 2026-10-29): https://huggingface.co/ResembleAI/chatterbox
 
 Every upload sets YouTube's altered-or-synthetic content flag (`docs/upload.md`). Unresolved, not legal advice: whether the EU AI
 Act's Article 50(4) disclosure duty (applying from 2 August 2026, per the pages read) covers narration cloned from your own voice,
@@ -142,6 +142,6 @@ and in what form; a spoken or on-screen line saying the voice is a clone is the 
 - `docs/hardware-and-models.md`: sizes, the models downloaded at first use, and the machines behind every number.
 - `docs/voice-cloning-law.md`: cloning a voice for content, with its sources and who read them; not legal advice.
 - `docs/safety.md`: what the content-safety gate catches and what it misses.
-- `NOTICE` and `docs/licences.md`: model licences, what each page said, the read date and who read it.
+- `NOTICE` and `docs/licenses.md`: model licenses, what each page said, the read date and who read it.
 - `docs/narration-quality.md`: a lively cloned voice, the defects the transcript check misses, and how `fixaudio` retakes them.
 - Only ever clone your own voice, or one you have written permission to clone. Never commit voice audio (`voice/` is blocked by the repo check).

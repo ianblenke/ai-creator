@@ -14,7 +14,7 @@ Code, docs and the example: https://github.com/ianblenke/ai-creator (this video 
 
 How this was made
 The narration is a synthetic version of my own voice, generated from my own reference clip. It is not a recording of me reading; the model adds no watermark, so I am saying so here.
-Voice model: Audio8-TTS-Realistic 0.6B by Edge0; Apache-2.0 licence (read 2026-11-01), the model card does not describe its training data: https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b
+Voice model: Audio8-TTS-Realistic 0.6B by Edge0; Apache-2.0 license (read 2026-11-01), the model card does not describe its training data: https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b
 Pictures were written by a cloud model and checked by me; I decide what each episode says. Posted as made; ask for a part in the comments.
 
 ## Chapters

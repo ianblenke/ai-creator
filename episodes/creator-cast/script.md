@@ -1,6 +1,6 @@
 # The Cast: Which AI Model Does Which Job
 Duration: 5 min
-Voice: ian. Names and licences are dated in facts.md; at most three numbers per scene.
+Voice: ian. Names and licenses are dated in facts.md; at most three numbers per scene.
 
 ## Cold open
 I ran two AI models as listeners. I gave them clean clips and clips with a sniff added, and both said yes, there is an unnatural pause, every single time. A listener that always says yes tells you nothing. This video is about the models I use instead.
@@ -8,17 +8,17 @@ I ran two AI models as listeners. I gave them clean clips and clips with a sniff
 > VISUAL: One flat judge figure with a magenta speech mark that says 'yes' appears over clip after clip, a row of small waveforms. The 'yes' repeats on every one, clean or not, then the judge dims out. Black background, calm.
 
 ## Intro
-To see why that matters, here is what this series builds: a video with narration, where every stage hands one job to one model. Some of them run on a graphics card at home, some on an ordinary processor, and the rest are Claude models in the cloud. I name each one, say what it is good at, and say what it cannot do. For the main ones I also say what the licence page said, and when. These are the models as of early November 2026.
+To see why that matters, here is what this series builds: a video with narration, where every stage hands one job to one model. A few of them run on a graphics card at home, a few on an ordinary processor, and the rest are Claude models in the cloud. I name each one, say what it is good at, and say what it cannot do. For the main ones I also say what the license page said, and when. These are the models in early November of 2026, and they will change.
 
 > VISUAL: Four colour-coded stage chips in a row, one job each. A graphics-card slab, a processor chip and a cloud sit beneath as three homes; chips drop into their homes as the narration lists them.
 
 ## The voice
-Start with the voice, because everything else follows its timing. {{spoken: Audio Eight|Audio8}}, a small open model, runs on my own graphics card and clones my voice from one recording of me. Because it handles one request at a time, one card is enough. Its model card says Apache 2.0 for the code and weights, as an AI agent read it on the first of November, so check the page yourself. The card does not describe the training data, and the licence does not say whose voice you may clone, so clone only your own. The model adds no watermark, so I put a line in each description saying the voice is synthetic.
+Start with the voice, because everything else follows its timing. {{spoken: Audio Eight|Audio8}}, a small open model, runs on my own graphics card and clones my voice from one recording of me. Because it handles one request at a time, one card is enough. Its model card says Apache 2.0 for the code and weights, as an AI agent read it on the first of November, so check the page yourself. The card does not describe the training data, and the license does not say whose voice you may clone, so clone only your own. The model adds no watermark, so I put a line in each description saying the voice is synthetic.
 
-> VISUAL: A graphics card slab on the left with one waveform coming out of it, one request at a time, a single lane. A small licence tag and a date stamp attach to it, then a magenta 'no watermark' note and a 'synthetic' label.
+> VISUAL: A graphics card slab on the left with one waveform coming out of it, one request at a time, a single lane. A small license tag and a date stamp attach to it, then a magenta 'no watermark' note and a 'synthetic' label.
 
 ## The ears
-A synthetic voice can slip, by dropping a word or adding a sound, so two more models check every recording. An aligner finds exactly when each word starts and ends, and that is what lets every picture line up with the audio. A speech recognizer writes down what it hears, and I compare that with the script. Both run on an ordinary processor, and an AI agent read their licence pages on the twenty-eighth of October: BSD for the aligner, MIT for the recognizer. The recognizer has one blind spot: if the voice adds an extra sound to a word, it still writes the right word, and it never hears a sniff.
+A synthetic voice can slip, by dropping a word or adding a sound, so two more models check every recording. An aligner finds exactly when each word starts and ends, and that is what lets every picture line up with the audio. A speech recognizer writes down what it hears, and I compare that with the script. Both run on a regular processor, and an AI agent read their license pages on October twenty-eighth: BSD for the aligner, MIT for the recognizer. The recognizer has one blind spot: if the voice adds an extra sound to a word, it still writes the right word, and it never hears a sniff.
 
 > VISUAL: A waveform ruler with word blocks snapped to it (the aligner), and below it a script page and a heard-text strip compared by a small compare mark (the recognizer). A magenta extra syllable slips in and the strip still shows the right word.
 

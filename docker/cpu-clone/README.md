@@ -27,7 +27,7 @@ Measured 2026-10-27, 16-core x86_64, 92 GB RAM, no GPU, one 4.7 s sentence, one 
 So the example (182.8 s of narration) would take roughly 26 minutes to clone at 24 steps, more with retakes (an estimate, not a timed run). Image 2.5 GB, build about 2 minutes,
 model cache 3.1 GB more, 1.3 GB RAM while idle. Raw output is quiet (about -25 LUFS); the tts stage normalizes it.
 
-**Licence (not legal advice):** the OmniVoice code page says Apache-2.0, but the model card says the WEIGHTS are CC-BY-NC
-(non-commercial), read 2026-10-28 by an AI agent (`docs/licences.md`). If your channel is or becomes monetized, or a sponsor or
-client is involved, that licence may not allow it. Read the model card yourself before any such use. For a cloned voice without
+**License (not legal advice):** the OmniVoice code page says Apache-2.0, but the model card says the WEIGHTS are CC-BY-NC
+(non-commercial), read 2026-10-28 by an AI agent (`docs/licenses.md`). If your channel is or becomes monetized, or a sponsor or
+client is involved, that license may not allow it. Read the model card yourself before any such use. For a cloned voice without
 that term, use the Chatterbox lane (`docker/chatterbox/README.md`).

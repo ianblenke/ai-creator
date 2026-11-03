@@ -39,7 +39,7 @@ export function validateChapters(lines) {
   return errors;
 }
 
-// Required in every description (docs/upload.md): say the voice is synthetic, and credit the voice model with its licence and a link.
+// Required in every description (docs/upload.md): say the voice is synthetic, and credit the voice model with its license and a link.
 // Any honest wording passes: one line naming the narration (or voice) as cloned or synthetic, then what made it ("generated with X").
 export const DISCLOSURE = /\b(?:narration|narrator|voice)\b[^\n]*\b(?:cloned|clone|synthetic|AI[- ]generated)\b[^\n]*\b(?:generated|made|synthesi[sz]ed) (?:with|by) \S/i;
 export const DISCLOSURE_EXAMPLES = [
@@ -52,7 +52,7 @@ export const ATTRIBUTION = /^Voice model: .*\blicen[cs]e\b.*https?:\/\/\S+/im;
 export function disclosureProblems(text) {
   const problems = [];
   if (!DISCLOSURE.test(text || '')) problems.push(`missing the synthetic-voice line, one of:\n${DISCLOSURE_EXAMPLES.map((e) => `    ${e}`).join('\n')}`);
-  if (!ATTRIBUTION.test(text || '')) problems.push('missing the model credit line: "Voice model: <model> by <maker>, <licence> licence (read <date>): <link>"');
+  if (!ATTRIBUTION.test(text || '')) problems.push('missing the model credit line: "Voice model: <model> by <maker>, <license> license (read <date>): <link>"');
   return problems;
 }
 

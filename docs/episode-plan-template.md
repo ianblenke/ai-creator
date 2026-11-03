@@ -29,7 +29,7 @@ see `docs/fact-sheets.md`. A claim you cannot source does not go in the script.]
 - Accuracy: [claims that vary between cases ("many", "one design"), numbers that may change; how the video stays true, for example a
   spoken and on-screen "measured on <date>"].
 - Disclosure: [anything private near this topic: machines, places, people. Add each name to `safety/denylist.txt`.]
-- Rights: [images, music, logos or trademarks you plan to show, and their licences].
+- Rights: [images, music, logos or trademarks you plan to show, and their licenses].
 
 ## Done when
 - `validate`, `safety`, the critic and the flow review pass (no open HIGH or MEDIUM).

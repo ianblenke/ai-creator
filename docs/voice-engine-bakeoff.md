@@ -13,7 +13,7 @@ throughout; the same kettle-episode hook paragraph was the test text. Speeds are
 | Chatterbox original (500M), exaggeration 0.7, cfg 0.3 | tried | CPU about 3.5 | transcript and silence checks | better than the above at pacing, pitch and expression |
 | **Chatterbox original, settings "F"** (exaggeration 0.6, cfg 0.3, temperature 0.9) | **chosen** | NVIDIA GPU, card model not recorded ("4 GB VRAM" as written down; whether that is the card's size or the memory used was not recorded) about 0.43; CPU 8 threads about 3.5, 7.3 GB RAM peak, 18 s load | transcript and silence checks | the one the author liked best by ear, judged better than Qwen3-TTS and Nano/Turbo on pacing, pitch and expression, and better than the 0.7 run on pitch and speed. Measured on its output: 129 Hz and 3.4 words/s, against the author's own recording at 125 Hz and 2.64 words/s, so F speaks about 29 % faster than the author. No other engine's pitch or rate was recorded, so these numbers do not show that F is the closest. |
 | Pocket TTS | blocked | n/a | n/a | not heard: weights are behind gated access |
-| TADA 1B | not tested | n/a | n/a | not heard: weights are under the Llama 3.2 licence with gated access |
+| TADA 1B | not tested | n/a | n/a | not heard: weights are under the Llama 3.2 license with gated access |
 | OpenVoice, Dia, Zonos, MOSS, dots.tts | rejected before testing | n/a | n/a | not heard; the reasons for each rejection are not recorded in this file |
 
 **OmniVoice**, the engine used before this bake-off, has no row: it was not run on the same paragraph, so how Chatterbox compares
@@ -27,7 +27,7 @@ on one machine each, not averages.
 
 ## Why Chatterbox original
 Code MIT, weights tagged MIT, anonymous download, no reference transcript needed, and the listening verdict above. The catches: a fixed
-Perth watermark on every output (kept; see NOTICE) and an undisclosed training set (see docs/licences.md).
+Perth watermark on every output (kept; see NOTICE) and an undisclosed training set (see docs/licenses.md).
 
 ## Watermark and disclosure (unresolved, not legal advice)
 - **Watermark:** every Chatterbox output carries Resemble's Perth implicit watermark, applied inside the library's `generate()` (read

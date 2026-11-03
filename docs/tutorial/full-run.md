@@ -135,7 +135,7 @@ kettle. The tool never publishes and never deletes: you switch the video to Publ
 - `docker compose run --rm media subs <ep>`: rewrites `subs/episode.vtt` and `.srt` from `timeline.json` (`align` already does this).
 - `docker compose run --rm media check-audio <ep>`: the stall and pause check of `align`, on the current `timeline.json`, without aligning again.
 - `docker compose run --rm media music <ep> <track> [--lufs -28]`: a music bed looped to the narration length, in `audio/` (any music
-  needs its own licence).
+  needs its own license).
 - `docker compose run --rm --entrypoint node media tools/make-short.js <ep> <start-s> <end-s> <out.mp4>`: a vertical Short cut
   from the final video.
 - `docker compose run --rm --entrypoint node media tools/debug-determinism.js <ep> <scene-id> <t>`: prints every SVG attribute that

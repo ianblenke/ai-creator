@@ -50,14 +50,14 @@ reused by later runs. The first `align`, `asr`, `desniff` and `voicereview` ther
 
 | model | used by | from | revision recorded on 2026-10-28 | size |
 |---|---|---|---|---|
-| wav2vec2 base 960h (English alignment) | `align` (WhisperX loads it through torchaudio) | download.pytorch.org (file `wav2vec2_fairseq_base_ls960_asr_ls960.pth`); licence row from huggingface.co/facebook/wav2vec2-base-960h | `22aad52d` (the Hugging Face page) | 361 MB (2026-10-26) |
+| wav2vec2 base 960h (English alignment) | `align` (WhisperX loads it through torchaudio) | download.pytorch.org (file `wav2vec2_fairseq_base_ls960_asr_ls960.pth`); license row from huggingface.co/facebook/wav2vec2-base-960h | `22aad52d` (the Hugging Face page) | 361 MB (2026-10-26) |
 | Whisper `small.en`, faster-whisper conversion | `asr`, `finalcheck`, `voicereview` | huggingface.co/Systran/faster-whisper-small.en | `d1d751a5` | not measured |
 | AST AudioSet tagger | `desniff`, `voicereview` | huggingface.co/MIT/ast-finetuned-audioset-10-10-0.4593 | `f826b80d` | not measured |
 | Chatterbox original (500M) | the voice server (`chatterbox` profiles) | huggingface.co/ResembleAI/chatterbox | `5bb1f6ee` (pinned in `docker/chatterbox/Dockerfile`) | 3.19 GB |
 | OmniVoice | the voice server (`gpu`, `cpu-clone`) | huggingface.co/k2-fsa/OmniVoice | code `08be0b4c` | 3.1 GB (`cpu-clone`) |
 | Kokoro-82M v1.0 | the voice server (`cpu`) | huggingface.co/hexgrad/Kokoro-82M | weights SHA-256 `496dba11…ad1e4` | about 330 MB |
 
-The revisions are what each page showed when its licence was read (`docs/licences.md`). Except for Chatterbox, the code does NOT pin them yet: each tool
+The revisions are what each page showed when its license was read (`docs/licenses.md`). Except for Chatterbox, the code does NOT pin them yet: each tool
 downloads the current revision, so a later download can differ from the one recorded here.
 
 ## Accounts

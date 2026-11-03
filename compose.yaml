@@ -90,7 +90,7 @@ services:
     profiles: [chatterbox]
     # Chatterbox (original) on an NVIDIA GPU (docker/chatterbox): your own voice. Real-time factor about 0.43,
     # measured once on a card whose model was not recorded; which cards work is untested. Code MIT, weights tagged MIT; every output
-    # carries Resemble's Perth watermark (kept on purpose). See NOTICE and docs/licences.md.
+    # carries Resemble's Perth watermark (kept on purpose). See NOTICE and docs/licenses.md.
     build: { context: docker/chatterbox, args: { TORCH_INDEX: "${CHATTERBOX_TORCH_INDEX:-https://download.pytorch.org/whl/cu124}" } }
     environment: &chatterbox-env
       # settings "F"; set the VOICE_* names in .env (the media service passes the same values to tts for its cache key)
@@ -120,7 +120,7 @@ services:
   voice-audio8:
     profiles: [audio8]
     # Audio8-TTS-Realistic-0.6B on an NVIDIA GPU (docker/audio8): your own voice, needs the reference clip's exact transcript
-    # (VOICE_REF_TEXT). Apache-2.0 per its model card; NO watermark. Measured once on an RTX 3090: peak 2.7 GB VRAM. See NOTICE and docs/licences.md.
+    # (VOICE_REF_TEXT). Apache-2.0 per its model card; NO watermark. Measured once on an RTX 3090: peak 2.7 GB VRAM. See NOTICE and docs/licenses.md.
     build: { context: docker/audio8, args: { TORCH_INDEX: "${CHATTERBOX_TORCH_INDEX:-https://download.pytorch.org/whl/cu124}" } }
     environment:
       AUDIO8_TEMPERATURE: ${AUDIO8_TEMPERATURE:-0.8}

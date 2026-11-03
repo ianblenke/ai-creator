@@ -2,7 +2,7 @@
 
 `node tools/youtube.js upload <episode-dir>` reads the sections below: a numbered title list (`--title N` picks one), the description, and the
 chapter lines (appended to the description). The dry run fails unless the description keeps BOTH voice lines in "How this was made": the
-synthetic-voice line and the "Voice model:" credit with its licence and link. Which engine narrated this example is not recorded (it ships
+synthetic-voice line and the "Voice model:" credit with its license and link. Which engine narrated this example is not recorded (it ships
 no audio), so the credit is left for you to fill in with the lane you render it with.
 
 ## Title options
@@ -21,7 +21,7 @@ Every claim in this video comes from the episode's fact sheet (facts.md, next to
 How this was made
 This is the worked example of an open, spec-first pipeline for narrated 2D explainers: a written script, a sourced fact sheet, scenes drawn as code and timed to the narration.
 The narration is a synthetic voice, generated with the text-to-speech model credited on the next line; it is not a recording of anyone reading.
-Voice model: [fill in: the voice model you used, its maker, licence, the date you read the licence and a link, as in templates/youtube-description.md]
+Voice model: [fill in: the voice model you used, its maker, license, the date you read the license and a link, as in templates/youtube-description.md]
 
 #kettle #howthingswork #engineering #explainer
 
