@@ -1,7 +1,7 @@
 # AI Creator
 
 Make your own AI-narrated 2D YouTube series: you write a spec and facts, an AI voice in YOUR cloned voice narrates, AI models author the
-animations, and a deterministic pipeline renders, checks and packages the video. Companion to the YouTube series "AI Creator".
+animations, and a deterministic pipeline renders, checks and packages the video. Companion to the YouTube series "AI Creator": watch the playlist at https://www.youtube.com/playlist?list=PLYFT58crhWso (start with "Start Here").
 
 STATUS: under construction. Nothing here is a finished tutorial yet.
 
