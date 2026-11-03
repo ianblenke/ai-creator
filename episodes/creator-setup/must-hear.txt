@@ -1,0 +1,6 @@
+x86 processor
+Docker
+Compose
+Intel or AMD
+graphics card
+a sandbox in the cloud
