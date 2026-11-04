@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Episode thumbnail</title>
+<!-- Thumbnail template: tools/thumbnail.js renders it at 1280x720, one PNG per variant (?v=a, ?v=b ...). Put your art next to this file
+     and add an <img>; keep the words to three or four, large. The fonts are the repo's vendored ones, so renders match everywhere. -->
+<style>
+@font-face { font-family: 'Noto Sans'; font-weight: 700; src: url('../../../vendor/fonts/NotoSans-Bold.ttf'); }
+@font-face { font-family: 'Noto Sans Mono'; font-weight: 700; src: url('../../../vendor/fonts/NotoSansMono-Bold.ttf'); }
+html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #0b0d10; }
+.text { position: absolute; left: 80px; right: 80px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+.tag { font: 700 30px 'Noto Sans Mono'; color: #ff2e9a; letter-spacing: 2px; margin-bottom: 18px; }
+h1 { margin: 0; font: 700 88px/1.0 'Noto Sans'; color: #eef2f4; letter-spacing: -2px; text-transform: uppercase; }
+h1 em { font-style: normal; color: #b6ff3c; }
+.bar { width: 120px; height: 12px; background: #b6ff3c; margin-top: 26px; }
+</style></head>
+<body>
+<svg style="position:absolute;left:0;top:0" width="1280" height="720">
+<rect x="760" y="150" width="380" height="420" rx="28" fill="#12161b" stroke="#eef2f4" stroke-width="6"/>
+<rect x="800" y="200" width="300" height="20" rx="10" fill="#8a929a"/>
+<rect x="800" y="250" width="240" height="20" rx="10" fill="#8a929a"/>
+<rect x="800" y="300" width="290" height="20" rx="10" fill="#ff2e9a"/>
+<ellipse cx="945" cy="310" rx="165" ry="28" fill="none" stroke="#ff2e9a" stroke-width="5"/>
+<rect x="800" y="350" width="260" height="20" rx="10" fill="#8a929a"/>
+<rect x="800" y="400" width="200" height="20" rx="10" fill="#8a929a"/>
+<path d="M1040 440 L1120 465 L1120 530 Q1120 585 1040 615 Q960 585 960 530 L960 465 Z" fill="#12161b" stroke="#b6ff3c" stroke-width="8" transform="translate(0,-30)"/>
+</svg>
+<div class="text">
+  <div class="tag">AI CREATOR · THE PLAN</div>
+  <h1 id="h">ONE PROBLEM<br><em>PER EPISODE</em></h1>
+  <div class="bar"></div>
+</div>
+<script>
+const v = new URLSearchParams(location.search).get('v') || 'a';
+document.body.className = v;
+if (v === 'b') document.getElementById('h').style.fontSize = '70px';
+if (v === 'b') document.getElementById('h').innerHTML = 'CATCH THE LEAK<br><em>BEFORE IT TALKS</em>';
+</script>
+</body></html>

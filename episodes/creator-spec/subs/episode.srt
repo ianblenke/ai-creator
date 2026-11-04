@@ -1,0 +1,535 @@
+1
+00:00:00,820 --> 00:00:03,102
+I added one line to a script on purpose:
+
+2
+00:00:03,682 --> 00:00:07,484
+a made-up machine name, a made-up
+address and a made-up port.
+
+3
+00:00:08,425 --> 00:00:13,027
+If that line had reached the voice, my
+voice clone would have read it out loud.
+
+4
+00:00:13,928 --> 00:00:16,569
+Instead, the safety check
+caught it before any recording,
+
+5
+00:00:17,129 --> 00:00:20,771
+and it told me which line and
+what kind of thing it had found.
+
+6
+00:00:21,672 --> 00:00:24,573
+A word you do not notice is
+the one that ends up public,
+
+7
+00:00:25,174 --> 00:00:27,455
+and that check only knows
+what it has been taught.
+
+8
+00:00:28,536 --> 00:00:31,037
+So most of this part is
+about what comes before it:
+
+9
+00:00:31,637 --> 00:00:34,819
+what a video says, where
+each fact comes from,
+
+10
+00:00:35,259 --> 00:00:36,340
+and what must never appear.
+
+11
+00:00:38,601 --> 00:00:41,282
+This part of the series takes
+those choices in order:
+
+12
+00:00:41,862 --> 00:00:44,223
+the one-page plan, the fact sheet,
+
+13
+00:00:44,763 --> 00:00:47,585
+the script, and then the
+checks that read all of it.
+
+14
+00:00:48,905 --> 00:00:52,947
+Each one is small, and each gives
+the next something to rely on.
+
+15
+00:00:54,107 --> 00:00:59,510
+Before any script exists, you decide what
+one video says, and I will start there.
+
+16
+00:01:01,130 --> 00:01:07,371
+Start with the plan, because a video that tries to
+answer three questions answers none of them well.
+
+17
+00:01:08,871 --> 00:01:11,652
+The plan is one page,
+written before the script.
+
+18
+00:01:12,872 --> 00:01:17,152
+It holds a thesis, one sentence a
+viewer could repeat afterwards;
+
+19
+00:01:17,733 --> 00:01:20,333
+the audience, with the
+question they come in with;
+
+20
+00:01:20,893 --> 00:01:23,753
+and a short list of the
+facts the thesis depends on.
+
+21
+00:01:25,354 --> 00:01:26,834
+Then comes the part people skip:
+
+22
+00:01:27,454 --> 00:01:29,134
+what this episode will not cover,
+
+23
+00:01:29,714 --> 00:01:32,395
+so each of those items can
+become a later episode.
+
+24
+00:01:33,815 --> 00:01:38,195
+Last, it sketches the scenes, each
+with its one point and a bridge,
+
+25
+00:01:38,776 --> 00:01:41,516
+a sentence that says why
+it follows the one before.
+
+26
+00:01:42,976 --> 00:01:44,776
+You do not start from a blank page:
+
+27
+00:01:45,376 --> 00:01:51,217
+one command, new, sets up an episode folder with
+this page and empty versions of the other files.
+
+28
+00:01:52,877 --> 00:01:55,278
+The plan names the facts
+your thesis depends on,
+
+29
+00:01:55,858 --> 00:01:58,559
+and the fact sheet is where
+each one earns its place.
+
+30
+00:02:00,040 --> 00:02:05,082
+The rule is simple: the script and the
+scenes may take a fact only from this one
+
+31
+00:02:05,182 --> 00:02:07,763
+file, and every fact carries a marker.
+
+32
+00:02:09,283 --> 00:02:13,885
+A cited fact has a public source, and you
+note the link and the day you read it.
+
+33
+00:02:15,266 --> 00:02:20,447
+A measured fact comes from your own test,
+so you note how, when, and how many runs.
+
+34
+00:02:21,888 --> 00:02:24,429
+An estimated fact is your own best guess:
+
+35
+00:02:24,989 --> 00:02:28,050
+you note what it rests on,
+and the script says about.
+
+36
+00:02:29,051 --> 00:02:31,752
+A marker is only as good
+as the reading behind it,
+
+37
+00:02:32,352 --> 00:02:37,054
+so read the source itself, and write the
+claim no stronger than the source is.
+
+38
+00:02:38,434 --> 00:02:43,016
+A search snippet, a forum post or a
+model's answer is a lead, not a source.
+
+39
+00:02:44,596 --> 00:02:46,938
+Even a well-sourced fact can go stale,
+
+40
+00:02:47,538 --> 00:02:50,480
+because a video stays up
+long after a number moves.
+
+41
+00:02:51,921 --> 00:02:54,923
+So for anything you measured,
+say the date in the video,
+
+42
+00:02:55,423 --> 00:02:58,625
+out loud and on screen:
+measured on this date.
+
+43
+00:03:00,346 --> 00:03:02,908
+Then a later change does
+not make the video false;
+
+44
+00:03:03,488 --> 00:03:06,811
+it makes it dated, and you
+can see which part to redo.
+
+45
+00:03:08,131 --> 00:03:10,793
+In the same spirit, an
+estimate always says about,
+
+46
+00:03:11,373 --> 00:03:14,495
+and anything you could not
+verify goes under a heading,
+
+47
+00:03:15,096 --> 00:03:17,898
+not claimed, so nobody
+adds it back by accident.
+
+48
+00:03:19,338 --> 00:03:21,978
+Some facts are true and
+still must not be said,
+
+49
+00:03:22,578 --> 00:03:26,179
+which is why the next step is to
+sort the facts into two piles.
+
+50
+00:03:27,659 --> 00:03:31,180
+Everything the video may use
+is rewritten in generic words:
+
+51
+00:03:31,740 --> 00:03:34,160
+every machine name, address, port,
+
+52
+00:03:34,580 --> 00:03:37,900
+room, place and person
+becomes what it does,
+
+53
+00:03:38,480 --> 00:03:40,481
+such as the machine
+with the graphics card.
+
+54
+00:03:42,261 --> 00:03:46,661
+What you will never publish goes in a
+separate file outside the episode folder,
+
+55
+00:03:47,262 --> 00:03:50,222
+and you add its name to your
+git ignore file yourself,
+
+56
+00:03:50,802 --> 00:03:53,122
+because nothing here does that for you.
+
+57
+00:03:54,862 --> 00:03:58,163
+Then every private name goes on
+your list of names to block,
+
+58
+00:03:58,743 --> 00:04:01,543
+the denylist, which the
+safety check will use.
+
+59
+00:04:02,983 --> 00:04:05,844
+One trap: do not list a
+name you show on purpose,
+
+60
+00:04:06,244 --> 00:04:10,064
+such as your channel name, or
+every episode fails its own check.
+
+61
+00:04:11,504 --> 00:04:15,086
+With the facts sorted, the script
+can use only the public pile,
+
+62
+00:04:15,666 --> 00:04:17,427
+and its format is a few rules.
+
+63
+00:04:18,867 --> 00:04:21,628
+Each heading with two hash
+marks starts a scene.
+
+64
+00:04:22,949 --> 00:04:26,290
+The paragraphs under it are
+exactly what the voice will say.
+
+65
+00:04:27,270 --> 00:04:31,632
+A line that starts with the visual marker
+is a note for whoever draws that scene;
+
+66
+00:04:32,212 --> 00:04:34,953
+it is never spoken and
+never becomes a subtitle.
+
+67
+00:04:36,074 --> 00:04:41,516
+A spoken-form tag fixes a misread word,
+and a pause marker gives exact silence.
+
+68
+00:04:43,137 --> 00:04:48,339
+The validate command only checks that every
+scene has narration and a title of its
+
+69
+00:04:48,459 --> 00:04:51,460
+own, and warns when the
+length is off your target.
+
+70
+00:04:53,221 --> 00:04:56,262
+It cannot tell whether a scene
+connects to the one before.
+
+71
+00:04:57,582 --> 00:05:01,244
+That is a reviewer's job, and it
+is the rule that matters most:
+
+72
+00:05:01,824 --> 00:05:05,145
+every scene starts by tying
+itself to the previous one.
+
+73
+00:05:06,726 --> 00:05:11,407
+Everything so far is text, and text is
+exactly what the safety check reads,
+
+74
+00:05:11,887 --> 00:05:13,547
+so now it can do its work.
+
+75
+00:05:14,787 --> 00:05:18,008
+It runs before the voice,
+the pictures and the render,
+
+76
+00:05:18,608 --> 00:05:20,528
+and again before every upload.
+
+77
+00:05:21,928 --> 00:05:24,668
+It reads every text file
+in the episode folder,
+
+78
+00:05:25,249 --> 00:05:29,009
+and when the frames are made, the
+words the scenes actually draw.
+
+79
+00:05:30,549 --> 00:05:33,410
+When it finds something, it
+prints the file and line,
+
+80
+00:05:33,890 --> 00:05:36,730
+a hint, and a sample
+with most of it hidden,
+
+81
+00:05:37,330 --> 00:05:39,850
+so the report never
+repeats the whole secret.
+
+82
+00:05:40,711 --> 00:05:43,191
+Until your denylist has
+your own names in it,
+
+83
+00:05:43,791 --> 00:05:48,252
+every command that runs the check prints
+a loud banner of exclamation marks.
+
+84
+00:05:49,592 --> 00:05:53,232
+And once the banner is gone,
+that only means the list exists,
+
+85
+00:05:53,792 --> 00:05:55,213
+not that it is complete.
+
+86
+00:05:56,952 --> 00:05:58,373
+The check guards what you make,
+
+87
+00:05:58,993 --> 00:06:01,395
+but not what you save into
+your project's history,
+
+88
+00:06:01,975 --> 00:06:04,736
+so two small git hooks guard that step.
+
+89
+00:06:05,837 --> 00:06:08,278
+You turn them on once, with one command.
+
+90
+00:06:09,519 --> 00:06:12,340
+The first refuses a short
+list of files by name:
+
+91
+00:06:12,941 --> 00:06:15,162
+your settings, your
+list of names to block,
+
+92
+00:06:15,682 --> 00:06:20,004
+your voice files, and anything
+with an audio or video extension.
+
+93
+00:06:21,325 --> 00:06:26,747
+It never reads what is inside a file, so
+the check above is still your text check.
+
+94
+00:06:28,288 --> 00:06:31,630
+The second deletes one kind of
+line from a commit message,
+
+95
+00:06:32,210 --> 00:06:36,032
+the one an AI coding assistant
+adds to link back to its chat.
+
+96
+00:06:37,693 --> 00:06:40,674
+Every other line stays, so
+read the message yourself,
+
+97
+00:06:41,255 --> 00:06:43,256
+and know that skipping
+the hooks skips both.
+
+98
+00:06:44,776 --> 00:06:49,318
+None of this is complete, because the
+check only knows what you have taught it,
+
+99
+00:06:49,918 --> 00:06:51,398
+and it only matches patterns.
+
+100
+00:06:52,899 --> 00:06:57,220
+It does not know your street or your
+employer unless they are on the list.
+
+101
+00:06:58,721 --> 00:07:01,222
+It cannot catch a place
+described in words,
+
+102
+00:07:01,802 --> 00:07:04,263
+a face, a reflection in a window,
+
+103
+00:07:04,843 --> 00:07:07,564
+or the terminal line that shows
+your user and machine name.
+
+104
+00:07:08,844 --> 00:07:10,765
+So you look at every frame yourself,
+
+105
+00:07:11,345 --> 00:07:14,746
+and you run the picture text
+scan by hand on every recording;
+
+106
+00:07:15,346 --> 00:07:19,128
+it needs an extra tool, and
+without it, it checks nothing.
+
+107
+00:07:20,708 --> 00:07:22,669
+That is the whole plan for an episode:
+
+108
+00:07:23,249 --> 00:07:25,369
+a one-page plan, a fact sheet,
+
+109
+00:07:25,449 --> 00:07:29,530
+a script, and a check that reads all
+of it before anything is recorded.
+
+110
+00:07:30,811 --> 00:07:32,091
+That is the end of this part.
+
+111
+00:07:33,071 --> 00:07:35,572
+In the next part, we start
+on the script itself:
+
+112
+00:07:36,152 --> 00:07:41,313
+writing for the ear, with a reviewer who reads
+it as a listener who cannot see the headings.
