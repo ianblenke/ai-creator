@@ -8,19 +8,29 @@
 html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #0b0d10; }
 .text { position: absolute; left: 80px; right: 80px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
 .tag { font: 700 30px 'Noto Sans Mono'; color: #ff2e9a; letter-spacing: 2px; margin-bottom: 18px; }
-h1 { margin: 0; font: 700 112px/1.0 'Noto Sans'; color: #eef2f4; letter-spacing: -2px; text-transform: uppercase; }
+h1 { margin: 0; font: 700 88px/1.0 'Noto Sans'; color: #eef2f4; letter-spacing: -2px; text-transform: uppercase; }
 h1 em { font-style: normal; color: #b6ff3c; }
 .bar { width: 120px; height: 12px; background: #b6ff3c; margin-top: 26px; }
 </style></head>
 <body>
+<svg style="position:absolute;left:0;top:0" width="1280" height="720">
+<rect x="700" y="400" width="130" height="190" rx="18" fill="#12161b" stroke="#eef2f4" stroke-width="6"/>
+<rect x="1010" y="400" width="130" height="190" rx="18" fill="#12161b" stroke="#eef2f4" stroke-width="6"/>
+<rect x="830" y="415" width="180" height="24" rx="12" fill="#b6ff3c"/>
+<circle cx="765" cy="330" r="34" fill="#8a929a"/><rect x="738" y="368" width="54" height="30" rx="14" fill="#8a929a"/>
+<circle cx="1075" cy="330" r="34" fill="#8a929a"/><rect x="1048" y="368" width="54" height="30" rx="14" fill="#8a929a"/>
+<path d="M920 250 q0 -60 -35 -75 M920 250 q0 -60 35 -75" fill="none" stroke="#b6ff3c" stroke-width="8" stroke-linecap="round"/>
+<circle cx="920" cy="250" r="12" fill="#ff2e9a"/>
+</svg>
 <div class="text">
-  <div class="tag">SERIES TAG</div>
-  <h1 id="h">THE <em>ONE</em><br>IDEA</h1>
+  <div class="tag">AI CREATOR · THE SCRIPT</div>
+  <h1 id="h">WRITE FOR<br><em>THE EAR</em></h1>
   <div class="bar"></div>
 </div>
 <script>
 const v = new URLSearchParams(location.search).get('v') || 'a';
 document.body.className = v;
-if (v === 'b') document.getElementById('h').innerHTML = 'ANOTHER<br><em>WORDING</em>';
+if (v === 'b') document.getElementById('h').style.fontSize = '70px';
+if (v === 'b') document.getElementById('h').innerHTML = 'TWO REVIEWERS<br><em>BEFORE YOU RECORD</em>';
 </script>
 </body></html>

@@ -1,0 +1,21 @@
+{
+  "provided": [
+    "script.md",
+    "timeline.json",
+    "docs/scene-contract.md",
+    "tools/stage/style.js",
+    "scenes/_brief/_bible.md"
+  ],
+  "briefs": [
+    "scenes/_brief/01-cold-open.md",
+    "scenes/_brief/02-intro.md",
+    "scenes/_brief/03-a-listener-cannot-see-headings.md",
+    "scenes/_brief/04-what-a-bridge-is.md",
+    "scenes/_brief/05-one-story-and-a-reason.md",
+    "scenes/_brief/06-the-critic.md",
+    "scenes/_brief/07-the-flow-review.md",
+    "scenes/_brief/08-running-them.md",
+    "scenes/_brief/09-what-they-cannot-catch.md",
+    "scenes/_brief/10-close.md"
+  ]
+}
